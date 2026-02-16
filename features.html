@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機能紹介 | Breeder Flow</title>
+    <meta name="description" content="LINE完結の更新、3つのプロテーマ、13ページ以上の自動生成、SEO標準装備、セキュリティ万全。Breeder Flowの全機能をご紹介。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] } } } }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; color: #1E293B; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: none; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="navbar" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa-solid fa-paw text-blue-600"></i>
+                    <span class="text-xl font-bold text-blue-600 tracking-wide">Breeder Flow</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="features.html" class="text-sm text-blue-600 font-medium">機能紹介</a>
+                    <a href="pricing.html" class="text-sm text-gray-600 hover:text-blue-600 transition">料金</a>
+                    <a href="demo.html" class="text-sm text-gray-600 hover:text-blue-600 transition">制作実績</a>
+                    <a href="migration.html" class="text-sm text-gray-600 hover:text-blue-600 transition">HP乗り換え</a>
+                    <a href="faq.html" class="text-sm text-gray-600 hover:text-blue-600 transition">よくある質問</a>
+                    <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg px-5 py-2.5 text-sm font-medium transition">無料相談する</a>
+                </nav>
+                <button class="md:hidden p-2 text-gray-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div class="hidden md:hidden border-t border-gray-100 bg-white" id="mobile-menu">
+            <div class="px-4 py-3 space-y-2">
+                <a href="features.html" class="block py-2 text-sm text-blue-600 font-medium">機能紹介</a>
+                <a href="pricing.html" class="block py-2 text-sm text-gray-600">料金</a>
+                <a href="demo.html" class="block py-2 text-sm text-gray-600">制作実績</a>
+                <a href="migration.html" class="block py-2 text-sm text-gray-600">HP乗り換え</a>
+                <a href="faq.html" class="block py-2 text-sm text-gray-600">よくある質問</a>
+                <a href="contact.html" class="block py-2 text-sm text-orange-500 font-medium">無料相談する</a>
+            </div>
+        </div>
+    </header>
+    <div class="h-16"></div>
+
+    <!-- 1. Hero -->
+    <section class="bg-gradient-to-b from-blue-50 to-white py-20 md:py-24">
+        <div class="max-w-5xl mx-auto px-4 text-center fade-in">
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">ブリーダーに必要な機能、<br>すべて揃っています</h1>
+            <p class="text-lg text-gray-600">LINE完結の操作性、プロ品質のデザイン、万全のSEO・セキュリティ。</p>
+        </div>
+    </section>
+
+    <!-- 2. LINE Operation -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block bg-green-100 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">Feature 01</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">LINE完結の操作性</h2>
+                <p class="text-gray-600">パソコン不要。LINEで写真と情報を送るだけで、すべてが完了します。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-dog text-green-600"></i></div>
+                            <div><h3 class="font-bold mb-1">子犬・子猫の新規登録</h3><p class="text-sm text-gray-600">写真と基本情報をLINEで送信するだけ。数秒でHPに自動掲載されます。</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-pen text-green-600"></i></div>
+                            <div><h3 class="font-bold mb-1">情報の更新・修正</h3><p class="text-sm text-gray-600">体重変更、ステータス変更もLINEからワンタップ。最新情報を即座に反映。</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-bullhorn text-green-600"></i></div>
+                            <div><h3 class="font-bold mb-1">お知らせ投稿</h3><p class="text-sm text-gray-600">イベント告知やニュースもLINEから簡単投稿。画像付きの告知も対応。</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-eye-slash text-green-600"></i></div>
+                            <div><h3 class="font-bold mb-1">掲載取り下げ</h3><p class="text-sm text-gray-600">成約済みの子犬は、LINEからワンタップでサイトから非表示にできます。</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-2xl h-80 flex items-center justify-center text-gray-400">
+                    <div class="text-center"><i class="fa-brands fa-line text-6xl mb-4 text-gray-300"></i><p>LIFF操作画面のスクリーンショット</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Three Themes -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">Feature 02</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">3つのプロフェッショナルテーマ</h2>
+                <p class="text-gray-600">ブリーダー様のブランドに合わせたデザインをお選びいただけます。</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 fade-in">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                    <div class="bg-gray-800 h-56 flex items-center justify-center text-gray-400"><p>プレミアムテーマ<br>スクリーンショット</p></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">プレミアム</h3>
+                        <p class="text-sm text-gray-600 mb-3">黒×ゴールドの高級感あるデザイン。上質さを演出したいブリーダー様に最適。</p>
+                        <ul class="text-xs text-gray-500 space-y-1">
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>ダークテーマ対応</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>ゴールドアクセント</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>重厚感のあるレイアウト</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                    <div class="bg-gray-100 h-56 flex items-center justify-center text-gray-400"><p>モダンテーマ<br>スクリーンショット</p></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">モダン</h3>
+                        <p class="text-sm text-gray-600 mb-3">白×インディゴのシンプルで洗練されたデザイン。清潔感と信頼感を重視。</p>
+                        <ul class="text-xs text-gray-500 space-y-1">
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>ミニマルデザイン</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>インディゴアクセント</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>すっきりとしたレイアウト</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                    <div class="bg-green-50 h-56 flex items-center justify-center text-gray-400"><p>ナチュラルテーマ<br>スクリーンショット</p></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">ナチュラル</h3>
+                        <p class="text-sm text-gray-600 mb-3">クリーム×グリーンの優しいデザイン。親しみやすく、あたたかみのある雰囲気。</p>
+                        <ul class="text-xs text-gray-500 space-y-1">
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>温かみのあるカラー</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>グリーンアクセント</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-1"></i>家庭的で安心感のあるレイアウト</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-8">すべてのテーマでカラー変更、ロゴ設置、ヒーロー画像のカスタマイズが可能です。</p>
+        </div>
+    </section>
+
+    <!-- 4. Auto-generated Pages -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block bg-purple-100 text-purple-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">Feature 03</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">自動生成される<span class="text-blue-600">13ページ以上</span></h2>
+                <p class="text-gray-600">ブリーダー事業に必要な全ページを自動で生成。面倒な制作作業は一切不要です。</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-in">
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-home text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">トップページ</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-building text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">犬舎紹介</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-paw text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">子犬一覧</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-magnifying-glass text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">子犬詳細</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-heart text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">親犬紹介</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-newspaper text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">お知らせ</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-route text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">お迎えの流れ</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-envelope text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">お問い合わせ</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-star text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">お客様の声</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-circle-question text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">よくある質問</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-id-card text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">動物取扱業表記</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition">
+                    <i class="fa-solid fa-sitemap text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">サイトマップ</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center hover:bg-blue-50 transition md:col-span-2">
+                    <i class="fa-solid fa-ellipsis text-blue-600 text-xl mb-2"></i>
+                    <p class="text-sm font-medium">その他ページ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SEO -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block bg-orange-100 text-orange-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">Feature 04</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">SEO対策を標準装備</h2>
+                <p class="text-gray-600">Google検索で見つけてもらうための技術対策を、すべて標準で搭載しています。</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-code text-orange-600"></i></div><h3 class="font-bold">構造化データ（JSON-LD）</h3></div>
+                    <p class="text-sm text-gray-600">Googleが内容を正確に理解できる構造化データを各ページに自動挿入。リッチリザルト表示に対応。</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-map text-orange-600"></i></div><h3 class="font-bold">XMLサイトマップ</h3></div>
+                    <p class="text-sm text-gray-600">sitemap.xml と robots.txt を自動生成。Google に全ページを漏れなくインデックスさせます。</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-share-nodes text-orange-600"></i></div><h3 class="font-bold">OGP / Twitter Card</h3></div>
+                    <p class="text-sm text-gray-600">SNSでシェアされた際に画像・タイトル・説明文が美しく表示されるメタタグを自動設定。</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-tag text-orange-600"></i></div><h3 class="font-bold">メタタグ自動最適化</h3></div>
+                    <p class="text-sm text-gray-600">title・description・canonical タグを各ページの内容に応じて自動生成。</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-mobile-screen text-orange-600"></i></div><h3 class="font-bold">モバイルフレンドリー</h3></div>
+                    <p class="text-sm text-gray-600">全ページ完全レスポンシブ対応。Googleのモバイルファースト指標にも最適化。</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-gauge-high text-orange-600"></i></div><h3 class="font-bold">Core Web Vitals対応</h3></div>
+                    <p class="text-sm text-gray-600">Googleのページ体験指標（LCP・FID・CLS）を高水準でクリア。PageSpeed 95+を目指します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Security -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block bg-red-100 text-red-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">Feature 05</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">万全のセキュリティ</h2>
+                <p class="text-gray-600">大切なお客様の情報と、ブリーダー様の個人情報を守ります。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 fade-in">
+                <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-lock text-red-600 text-xl"></i></div>
+                    <div><h3 class="font-bold mb-1">AES-256-GCM 暗号化</h3><p class="text-sm text-gray-600">個人情報（氏名・メール・電話番号・住所・登録番号）を軍事レベルの暗号化で保護。</p></div>
+                </div>
+                <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-image text-red-600 text-xl"></i></div>
+                    <div><h3 class="font-bold mb-1">EXIF情報自動除去</h3><p class="text-sm text-gray-600">アップロード画像からGPS位置情報を自動削除。撮影場所がサイト上で公開されるのを防止。</p></div>
+                </div>
+                <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-shield-halved text-red-600 text-xl"></i></div>
+                    <div><h3 class="font-bold mb-1">SSL/HTTPS 標準対応</h3><p class="text-sm text-gray-600">全ページSSL対応。通信を暗号化し、訪問者のブラウザに「安全」と表示されます。</p></div>
+                </div>
+                <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-cloud text-red-600 text-xl"></i></div>
+                    <div><h3 class="font-bold mb-1">Cloudflare DDoS保護</h3><p class="text-sm text-gray-600">世界最大級のCDNネットワークが不正アクセスからサイトを保護。安定した稼働を実現。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Speed -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block bg-cyan-100 text-cyan-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">Feature 06</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">圧倒的な高速表示</h2>
+                <p class="text-gray-600">表示速度はSEOにも直結。Breeder Flowなら最速レベルのサイトを実現。</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 fade-in">
+                <div class="bg-white rounded-xl p-8 text-center shadow-sm">
+                    <div class="w-20 h-20 bg-cyan-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl font-bold text-cyan-600">95+</span>
+                    </div>
+                    <h3 class="font-bold mb-2">PageSpeed Score</h3>
+                    <p class="text-sm text-gray-600">Google PageSpeed Insightsで95点以上を目指す設計。</p>
+                </div>
+                <div class="bg-white rounded-xl p-8 text-center shadow-sm">
+                    <div class="w-20 h-20 bg-cyan-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-bolt text-3xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">静的HTML生成</h3>
+                    <p class="text-sm text-gray-600">データベースへのアクセス不要。事前ビルドされたHTMLで最速表示。</p>
+                </div>
+                <div class="bg-white rounded-xl p-8 text-center shadow-sm">
+                    <div class="w-20 h-20 bg-cyan-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-earth-americas text-3xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">グローバルCDN配信</h3>
+                    <p class="text-sm text-gray-600">Cloudflareの世界330+拠点から最寄りのサーバーで配信。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CTA -->
+    <section class="py-20 bg-blue-600">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">すべての機能が月額19,800円に含まれています</h2>
+            <p class="text-blue-200 mb-8">追加費用なし。今すぐお気軽にご相談ください。</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">無料で相談する</a>
+                <a href="pricing.html" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold rounded-lg px-10 py-4 text-lg transition">料金を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div><a href="index.html" class="text-white font-bold text-lg">Breeder Flow</a><p class="text-sm text-gray-400 mt-3">ブリーダー専用HP制作サービス</p></div>
+                <div><h4 class="text-white font-bold text-sm mb-3">サービス</h4><ul class="space-y-2 text-sm"><li><a href="features.html" class="hover:text-white transition">機能紹介</a></li><li><a href="pricing.html" class="hover:text-white transition">料金</a></li><li><a href="demo.html" class="hover:text-white transition">制作実績</a></li><li><a href="migration.html" class="hover:text-white transition">HP乗り換え</a></li></ul></div>
+                <div><h4 class="text-white font-bold text-sm mb-3">サポート</h4><ul class="space-y-2 text-sm"><li><a href="faq.html" class="hover:text-white transition">よくある質問</a></li><li><a href="contact.html" class="hover:text-white transition">お問い合わせ</a></li></ul></div>
+                <div><h4 class="text-white font-bold text-sm mb-3">法的情報</h4><ul class="space-y-2 text-sm"><li><a href="terms.html" class="hover:text-white transition">利用規約</a></li><li><a href="privacy.html" class="hover:text-white transition">プライバシーポリシー</a></li><li><a href="tokushoho.html" class="hover:text-white transition">特定商取引法に基づく表記</a></li></ul></div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-sm text-gray-500">&copy; 2026 Breeder Flow. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('shadow-md', window.scrollY > 10);
+        });
+    </script>
+</body>
+</html>

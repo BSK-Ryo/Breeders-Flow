@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP乗り換え | Breeder Flow</title>
+    <meta name="description" content="制作会社のHPから乗り換えで年間24万円以上のコスト削減。ドメイン移管・SEO引き継ぎも安心サポート。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] } } } }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; color: #1E293B; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: none; }
+        details[open] summary ~ * { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        details summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="navbar" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa-solid fa-paw text-blue-600"></i>
+                    <span class="text-xl font-bold text-blue-600 tracking-wide">Breeder Flow</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="features.html" class="text-sm text-gray-600 hover:text-blue-600 transition">機能紹介</a>
+                    <a href="pricing.html" class="text-sm text-gray-600 hover:text-blue-600 transition">料金</a>
+                    <a href="demo.html" class="text-sm text-gray-600 hover:text-blue-600 transition">制作実績</a>
+                    <a href="migration.html" class="text-sm text-blue-600 font-medium">HP乗り換え</a>
+                    <a href="faq.html" class="text-sm text-gray-600 hover:text-blue-600 transition">よくある質問</a>
+                    <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg px-5 py-2.5 text-sm font-medium transition">無料相談する</a>
+                </nav>
+                <button class="md:hidden p-2 text-gray-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div class="hidden md:hidden border-t border-gray-100 bg-white" id="mobile-menu">
+            <div class="px-4 py-3 space-y-2">
+                <a href="features.html" class="block py-2 text-sm text-gray-600">機能紹介</a>
+                <a href="pricing.html" class="block py-2 text-sm text-gray-600">料金</a>
+                <a href="demo.html" class="block py-2 text-sm text-gray-600">制作実績</a>
+                <a href="migration.html" class="block py-2 text-sm text-blue-600 font-medium">HP乗り換え</a>
+                <a href="faq.html" class="block py-2 text-sm text-gray-600">よくある質問</a>
+                <a href="contact.html" class="block py-2 text-sm text-orange-500 font-medium">無料相談する</a>
+            </div>
+        </div>
+    </header>
+    <div class="h-16"></div>
+
+    <!-- 1. Hero -->
+    <section class="bg-gradient-to-b from-blue-50 to-white py-20 md:py-28">
+        <div class="max-w-5xl mx-auto px-4 text-center fade-in">
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">今のホームページ、<br>月いくら払っていますか？</h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8">制作会社に月5万円以上。更新は電話で依頼して数日待ち。<br class="hidden md:block">そんな「当たり前」を変える時が来ました。</p>
+            <a href="contact.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">無料で移行相談する</a>
+        </div>
+    </section>
+
+    <!-- 2. Pain Points -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">こんなことに困っていませんか？</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 fade-in">
+                <div class="border border-red-200 rounded-xl p-8 text-center bg-red-50">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-yen-sign text-red-500 text-xl"></i></div>
+                    <h3 class="font-bold mb-3 text-red-700">高すぎる維持費</h3>
+                    <p class="text-sm text-gray-600">初期費用30万〜100万円、月額3万〜10万円。年間数十万円がHPだけに消えていきます。</p>
+                </div>
+                <div class="border border-red-200 rounded-xl p-8 text-center bg-red-50">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-clock text-red-500 text-xl"></i></div>
+                    <h3 class="font-bold mb-3 text-red-700">更新が遅い</h3>
+                    <p class="text-sm text-gray-600">子犬が生まれても掲載まで数日。メールで依頼して待つだけの日々。機会損失が膨らみます。</p>
+                </div>
+                <div class="border border-red-200 rounded-xl p-8 text-center bg-red-50">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-chart-line text-red-500 text-xl"></i></div>
+                    <h3 class="font-bold mb-3 text-red-700">SEOが弱い</h3>
+                    <p class="text-sm text-gray-600">検索しても出てこない。SEO対策は「別料金」と言われ、追加コストが発生します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Comparison Table -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">制作会社との徹底比較</h2>
+                <p class="text-gray-600">同じ品質のHPを、圧倒的なコストパフォーマンスで提供します。</p>
+            </div>
+            <div class="overflow-x-auto fade-in">
+                <table class="w-full min-w-[500px] text-sm border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="p-4 text-left border-b-2 border-gray-200 w-1/3"></th>
+                            <th class="p-4 text-center border-b-2 border-gray-200 text-gray-500">一般的な制作会社</th>
+                            <th class="p-4 text-center border-b-2 bg-blue-600 text-white rounded-t-lg font-bold">Breeder Flow</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">初期費用</td><td class="p-4 text-center text-gray-500">30万〜100万円</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">0円</td></tr>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">月額費用</td><td class="p-4 text-center text-gray-500">3万〜10万円</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">19,800円（税込）</td></tr>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">年間コスト（月5万の場合）</td><td class="p-4 text-center text-gray-500">約60万円</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">約23.8万円</td></tr>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">更新方法</td><td class="p-4 text-center text-gray-500">メール・電話で依頼</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">LINEで即時</td></tr>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">更新反映時間</td><td class="p-4 text-center text-gray-500">数日〜1週間</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">数秒</td></tr>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">自分で更新</td><td class="p-4 text-center text-gray-500">PC操作必要/不可</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">スマホLINEのみ</td></tr>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">SEO対策</td><td class="p-4 text-center text-gray-500">追加費用（月1〜5万円）</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">標準搭載（追加費用なし）</td></tr>
+                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">SSL証明書</td><td class="p-4 text-center text-gray-500">追加費用の場合あり</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">標準搭載</td></tr>
+                        <tr><td class="p-4 font-medium">セキュリティ</td><td class="p-4 text-center text-gray-500">業者による</td><td class="p-4 text-center font-bold text-blue-600 bg-blue-50">AES-256暗号化・EXIF除去</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Cost Savings -->
+    <section class="py-16 bg-blue-600">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+            <p class="text-blue-200 text-lg mb-2">制作会社から乗り換えた場合</p>
+            <p class="text-5xl md:text-6xl font-bold text-white mb-2">年間<span class="text-yellow-300">¥360,000</span>以上</p>
+            <p class="text-xl text-blue-200">のコスト削減</p>
+            <p class="text-sm text-blue-300 mt-4">※月額5万円の制作会社からの乗り換えの場合の概算</p>
+        </div>
+    </section>
+
+    <!-- 5. Migration Flow -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">乗り換えの流れ</h2>
+                <p class="text-gray-600">5つのステップで、スムーズに移行いたします。</p>
+            </div>
+            <div class="space-y-6 fade-in">
+                <div class="flex items-start gap-6 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                    <div><h3 class="font-bold mb-1">お問い合わせ・現状ヒアリング</h3><p class="text-sm text-gray-600">現在のHP状況（URL・契約内容・ドメイン）をお伺いします。最適な移行プランをご提案。</p></div>
+                </div>
+                <div class="flex items-start gap-6 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                    <div><h3 class="font-bold mb-1">デモサイト作成（1〜2日）</h3><p class="text-sm text-gray-600">お好みのテーマで実際のデモサイトを無料で作成。納得いただいてから正式にお申し込み。</p></div>
+                </div>
+                <div class="flex items-start gap-6 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                    <div><h3 class="font-bold mb-1">コンテンツ移行</h3><p class="text-sm text-gray-600">既存サイトのテキスト・画像を新サイトに移行。データの入れ替え作業もサポートします。</p></div>
+                </div>
+                <div class="flex items-start gap-6 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+                    <div><h3 class="font-bold mb-1">ドメイン移管・SEO引き継ぎ</h3><p class="text-sm text-gray-600">既存ドメインをそのまま引き継ぎ。301リダイレクト設定で検索順位を維持します。</p></div>
+                </div>
+                <div class="flex items-start gap-6 bg-gray-50 rounded-xl p-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">5</div>
+                    <div><h3 class="font-bold mb-1">運用開始・サポート</h3><p class="text-sm text-gray-600">LINEでの更新方法をレクチャー。運用開始後もメール・LINEでサポートいたします。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SEO Safety -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">SEO引き継ぎも安心</h2>
+                <p class="text-gray-600">検索順位を落とさない、丁寧な移行を行います。</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 fade-in">
+                <div class="bg-white rounded-xl p-8 shadow-sm text-center">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-arrow-right-arrow-left text-blue-600 text-xl"></i></div>
+                    <h3 class="font-bold mb-2">301リダイレクト設定</h3>
+                    <p class="text-sm text-gray-600">旧URLから新URLへの適切なリダイレクト設定で、Googleの評価を引き継ぎます。</p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-sm text-center">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-globe text-blue-600 text-xl"></i></div>
+                    <h3 class="font-bold mb-2">既存ドメイン引き継ぎ</h3>
+                    <p class="text-sm text-gray-600">今使っている独自ドメインをそのまま継続利用。URLが変わらないので安心です。</p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-sm text-center">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-magnifying-glass-chart text-blue-600 text-xl"></i></div>
+                    <h3 class="font-bold mb-2">Search Console移行</h3>
+                    <p class="text-sm text-gray-600">Google Search Consoleの移行手続きもサポート。検索パフォーマンスの継続監視が可能。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Case Study Placeholder -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">移行事例</h2>
+                <p class="text-gray-600">実際に乗り換えたブリーダー様の事例をご紹介します。</p>
+            </div>
+            <div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-2xl p-12 text-center fade-in">
+                <i class="fa-solid fa-clock text-4xl text-gray-300 mb-4"></i>
+                <p class="text-gray-400 text-lg font-medium">移行事例は準備中です</p>
+                <p class="text-sm text-gray-400 mt-2">サービス開始後、実際の移行事例を掲載予定です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in"><h2 class="text-2xl md:text-3xl font-bold">乗り換えに関するよくある質問</h2></div>
+            <div class="space-y-4 fade-in">
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>今のドメインをそのまま使えますか？</span><i class="fa-solid fa-chevron-down text-blue-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、可能です。独自ドメインの移管手続きをサポートいたします。ドメインの維持費（年間約1,500円〜）はお客様負担となりますが、今お使いのドメインをそのまま使えます。</div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>検索順位は下がりませんか？</span><i class="fa-solid fa-chevron-down text-blue-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">301リダイレクト設定により、Googleの評価を新サイトに引き継ぎます。さらに、構造化データやサイトマップなどSEO対策が標準搭載されているため、むしろ検索順位が向上するケースも多いです。</div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>移行にどのくらいの期間がかかりますか？</span><i class="fa-solid fa-chevron-down text-blue-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">通常、お問い合わせから公開まで1〜2週間程度です。デモサイト作成は1〜2日、コンテンツ移行とドメイン設定に数日かかります。</div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>今の制作会社との解約手続きは？</span><i class="fa-solid fa-chevron-down text-blue-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">解約手続き自体はお客様で行っていただく必要がありますが、移行のタイミングや注意点についてアドバイスいたします。新サイトの準備が整ってから解約されることをお勧めします。</div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>今のサイトのコンテンツ（写真・テキスト）は引き継げますか？</span><i class="fa-solid fa-chevron-down text-blue-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、テキスト・画像とも移行可能です。既存サイトからコンテンツを取得し、新しいテーマのデザインに合わせて配置します。</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA -->
+    <section class="py-20 bg-blue-600">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">制作会社に払い続けるのは、<br>もうやめませんか？</h2>
+            <p class="text-blue-200 mb-8">まずは無料でご相談ください。しつこい営業は一切いたしません。</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">無料で移行相談する</a>
+                <a href="#" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold rounded-lg px-10 py-4 text-lg transition"><i class="fa-brands fa-line mr-2"></i>LINEで相談</a>
+            </div>
+            <p class="text-white mt-6 text-lg font-bold"><i class="fa-solid fa-phone mr-2"></i>03-0000-0000 <span class="text-sm text-blue-200 font-normal ml-2">受付 10:00 - 19:00</span></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div><a href="index.html" class="text-white font-bold text-lg">Breeder Flow</a><p class="text-sm text-gray-400 mt-3">ブリーダー専用HP制作サービス</p></div>
+                <div><h4 class="text-white font-bold text-sm mb-3">サービス</h4><ul class="space-y-2 text-sm"><li><a href="features.html" class="hover:text-white transition">機能紹介</a></li><li><a href="pricing.html" class="hover:text-white transition">料金</a></li><li><a href="demo.html" class="hover:text-white transition">制作実績</a></li><li><a href="migration.html" class="hover:text-white transition">HP乗り換え</a></li></ul></div>
+                <div><h4 class="text-white font-bold text-sm mb-3">サポート</h4><ul class="space-y-2 text-sm"><li><a href="faq.html" class="hover:text-white transition">よくある質問</a></li><li><a href="contact.html" class="hover:text-white transition">お問い合わせ</a></li></ul></div>
+                <div><h4 class="text-white font-bold text-sm mb-3">法的情報</h4><ul class="space-y-2 text-sm"><li><a href="terms.html" class="hover:text-white transition">利用規約</a></li><li><a href="privacy.html" class="hover:text-white transition">プライバシーポリシー</a></li><li><a href="tokushoho.html" class="hover:text-white transition">特定商取引法に基づく表記</a></li></ul></div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-sm text-gray-500">&copy; 2026 Breeder Flow. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('shadow-md', window.scrollY > 10);
+        });
+    </script>
+</body>
+</html>
