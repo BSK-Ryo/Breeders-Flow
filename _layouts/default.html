@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] } } } }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        html { scroll-behavior: smooth; }
+        {% if page.fade_in %}
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: none; }
+        {% endif %}
+        {% if page.details_animation %}
+        details[open] summary ~ * { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        details summary::-webkit-details-marker { display: none; }
+        {% endif %}
+        {% if page.legal_styles %}
+        .legal-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #E5E7EB; }
+        .legal-content h3 { font-size: 1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .legal-content p { margin-bottom: 0.75rem; line-height: 1.8; }
+        .legal-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-content ol li { margin-bottom: 0.5rem; line-height: 1.8; }
+        .legal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-content ul li { margin-bottom: 0.25rem; line-height: 1.8; }
+        {% endif %}
+        {% if page.legal_table_styles %}
+        .legal-content table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.875rem; }
+        .legal-content th, .legal-content td { border: 1px solid #E5E7EB; padding: 0.75rem; text-align: left; }
+        .legal-content th { background-color: #F9FAFB; font-weight: 600; }
+        {% endif %}
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    {% include header.html %}
+    <div class="h-20"></div>
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

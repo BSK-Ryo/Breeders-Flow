@@ -1,76 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breeders-Flow - ブリーダー専用HP制作サービス</title>
-    <meta name="description" content="LINEでかんたん更新。ポータルサイトに頼らない、ブリーダーのための直販HP制作サービス。">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-        }
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Custom Scrollbar for the phone screen */
-        .phone-scroll::-webkit-scrollbar {
-            width: 4px;
-        }
-        .phone-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .phone-scroll::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 20px;
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800">
-
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm z-50">
-        <div class="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <img src="image/Breeders_Flow_logo-removebg-preview.png" alt="Breeders Flow" class="h-20 w-auto" />
-                <span class="text-lg font-bold text-slate-800">Breeders Flow</span>
-            </div>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="#concept" class="text-sm font-medium text-slate-600 hover:text-teal-500 transition-colors">Breeders-Flowとは</a>
-                <a href="#features" class="text-sm font-medium text-slate-600 hover:text-teal-500 transition-colors">特徴・機能</a>
-                <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-teal-500 transition-colors">料金プラン</a>
-                <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-teal-500 transition-colors">よくある質問</a>
-                <a href="#contact" class="px-6 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    お問い合わせ
-                </a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600">
-                <!-- Menu Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block" id="icon-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                <!-- X Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="icon-close"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-        </div>
-
-        <!-- Mobile Nav -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white border-b border-slate-100 p-4 flex flex-col gap-4 shadow-lg">
-            <a href="#concept" class="mobile-link text-base font-medium text-slate-700 py-2 border-b border-slate-50">Breeders-Flowとは</a>
-            <a href="#features" class="mobile-link text-base font-medium text-slate-700 py-2 border-b border-slate-50">特徴・機能</a>
-            <a href="#pricing" class="mobile-link text-base font-medium text-slate-700 py-2 border-b border-slate-50">料金プラン</a>
-            <a href="#faq" class="mobile-link text-base font-medium text-slate-700 py-2 border-b border-slate-50">よくある質問</a>
-            <a href="#contact" class="mobile-link w-full text-center px-6 py-3 bg-teal-500 text-white font-bold rounded-lg">
-                お問い合わせ
-            </a>
-        </div>
-    </header>
+---
+layout: home
+title: "Breeders-Flow - ブリーダー専用HP制作サービス"
+description: "LINEでかんたん更新。ポータルサイトに頼らない、ブリーダーのための直販HP制作サービス。"
+---
 
     <!-- Hero Section -->
     <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-b from-teal-50 to-white overflow-hidden relative">
@@ -109,7 +41,7 @@
                         <div class="bg-slate-800 w-full h-8 absolute top-0 left-0 z-20 flex justify-center">
                             <div class="w-24 h-5 bg-black rounded-b-xl"></div>
                         </div>
-                        
+
                         <!-- Simulated Phone Screen -->
                         <!-- Header Bar -->
                         <div class="bg-slate-800 text-white pt-10 pb-2 px-4 flex items-center justify-between text-sm font-bold shadow-md z-10 relative">
@@ -144,7 +76,7 @@
                                     POODLE-2026-002 の登録が完了しました！<br><br>
                                     ホームページに掲載されました:<br>
                                     <span class="text-blue-600 underline cursor-pointer">https://breeder-flow.example.com</span>
-                                    
+
                                     <!-- Link Card Preview -->
                                     <div class="mt-2 bg-slate-100 border-l-4 border-slate-400 p-2 flex gap-2 rounded-sm">
                                         <div class="flex-1 overflow-hidden">
@@ -165,17 +97,13 @@
                             <div class="grid grid-cols-3 h-36 border-t border-slate-600">
                                 <!-- Big Button Left -->
                                 <div class="col-span-2 bg-gradient-to-br from-teal-50 via-amber-50 to-yellow-50 relative p-2 flex flex-col items-center justify-center text-center border-r border-slate-400 cursor-pointer hover:opacity-90 transition-opacity">
-                                    <!-- Decorative illustrations top -->
                                     <div class="flex gap-1 absolute top-1 w-full justify-center opacity-60">
                                          <span class="text-xl">🐱</span><span class="text-xl">🐶</span><span class="text-xl">🐱</span>
                                     </div>
-                                    
                                     <div class="z-10 mt-2">
                                         <p class="font-bold text-slate-800 text-sm mb-1">動物を登録・管理</p>
                                         <p class="text-[9px] text-slate-600 font-medium">親・子ども達の登録はこちらから！</p>
                                     </div>
-
-                                    <!-- Decorative illustrations bottom -->
                                     <div class="flex gap-1 absolute bottom-1 w-full justify-center opacity-60">
                                         <span class="text-xl">🐶</span><span class="text-xl">🐱</span><span class="text-xl">🐶</span>
                                     </div>
@@ -183,19 +111,16 @@
 
                                 <!-- Right Column Buttons -->
                                 <div class="col-span-1 flex flex-col">
-                                    <!-- Top Right -->
                                     <div class="h-1/2 bg-slate-600 border-b border-slate-500 flex flex-col items-center justify-center text-white cursor-pointer hover:bg-slate-500 transition-colors p-1">
                                         <p class="text-[9px] mb-1">アカウント連携</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                                     </div>
-                                    <!-- Bottom Right -->
                                     <div class="h-1/2 bg-slate-600 flex flex-col items-center justify-center text-white cursor-pointer hover:bg-slate-500 transition-colors p-1">
                                         <p class="text-[9px] mb-1">ヘルプ/使い方</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Bottom Bar -->
                             <div class="h-10 bg-slate-800 flex items-center justify-between px-4 text-slate-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="6" rx="2" ry="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
                                 <span class="text-xs font-bold">メニュー ▼</span>
@@ -203,7 +128,7 @@
                         </div>
 
                     </div>
-                    
+
                     <!-- Decorative Elements -->
                     <div class="absolute top-20 -right-10 md:-right-20 bg-white p-4 rounded-xl shadow-lg animate-bounce duration-3000" style="animation-duration: 3s;">
                         <div class="flex items-center gap-3">
@@ -232,7 +157,7 @@
         </div>
     </section>
 
-    <!-- Problems / Pain Points Section (NEW) -->
+    <!-- Problems / Pain Points Section -->
     <section class="py-20 bg-slate-50 relative overflow-hidden">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-16">
@@ -246,52 +171,28 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <!-- Problem 1 -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative">
-                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">
-                        📉
-                    </div>
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">📉</div>
                     <h3 class="mt-6 text-lg font-bold text-center mb-3 text-slate-800">頭数が減った分、<br>1頭の重みが増した</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed text-center">
-                        飼養できる頭数に限りがある今、1頭あたりの成約がこれまで以上に大切。なのにポータルサイトの手数料で利益が削られていませんか？
-                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed text-center">飼養できる頭数に限りがある今、1頭あたりの成約がこれまで以上に大切。なのにポータルサイトの手数料で利益が削られていませんか？</p>
                 </div>
-
-                <!-- Problem 2 -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative mt-8 md:mt-0">
-                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">
-                        📋
-                    </div>
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">📋</div>
                     <h3 class="mt-6 text-lg font-bold text-center mb-3 text-slate-800">書類・届出に追われて<br>発信どころじゃない</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed text-center">
-                        帳簿管理、マイクロチップ登録、行政への届出…。事務量は年々増える一方で、HPの更新まで手が回らない。
-                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed text-center">帳簿管理、マイクロチップ登録、行政への届出…。事務量は年々増える一方で、HPの更新まで手が回らない。</p>
                 </div>
-
-                <!-- Problem 3 -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative mt-8 lg:mt-0">
-                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">
-                        🤝
-                    </div>
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">🤝</div>
                     <h3 class="mt-6 text-lg font-bold text-center mb-3 text-slate-800">「ちゃんとした犬舎」が<br>伝わらない</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed text-center">
-                        飼育環境にも健康管理にもこだわっている。でもポータルサイトでは他と横並びで、あなたの想いが埋もれてしまう。
-                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed text-center">飼育環境にも健康管理にもこだわっている。でもポータルサイトでは他と横並びで、あなたの想いが埋もれてしまう。</p>
                 </div>
-
-                <!-- Problem 4 -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative mt-8 lg:mt-0">
-                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">
-                        🔍
-                    </div>
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center border-4 border-slate-50 text-2xl">🔍</div>
                     <h3 class="mt-6 text-lg font-bold text-center mb-3 text-slate-800">犬舎名で検索しても<br>何も出てこない</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed text-center">
-                        SNSやポータルで気になったお客様が犬舎名をGoogle検索。でも公式HPがなく、また比較サイトに戻られてしまう。
-                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed text-center">SNSやポータルで気になったお客様が犬舎名をGoogle検索。でも公式HPがなく、また比較サイトに戻られてしまう。</p>
                 </div>
             </div>
-            
-            <!-- Bridge to Solution -->
+
             <div class="mt-16 text-center">
                 <div class="inline-block p-4 bg-teal-100 rounded-full animate-bounce">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-600"><path d="M7 11 12 6 17 11"/><path d="M7 17 12 12 17 17"/></svg>
@@ -344,9 +245,7 @@
                     </ul>
                 </div>
                 <div class="bg-teal-50 p-8 rounded-2xl border border-teal-100 shadow-sm relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-                        Breeders-Flow導入後
-                    </div>
+                    <div class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Breeders-Flow導入後</div>
                     <h3 class="text-xl font-bold mb-4 flex items-center text-teal-700">
                         <span class="w-8 h-8 rounded-full bg-teal-200 flex items-center justify-center mr-3 text-sm">💡</span>
                         自社HPを持つと…
@@ -379,37 +278,26 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
                 <div class="bg-slate-800 p-8 rounded-2xl hover:bg-slate-750 transition-colors">
                     <div class="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-green-500/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4">LINEで完結する<br/>かんたん更新システム</h3>
-                    <p class="text-slate-300 leading-relaxed">
-                        LINE（連携アプリ）で更新・管理できるシステムを開発。フォームに沿って情報を入力するだけで、24時間いつでも更新できます。お散歩の合間でも更新可能です。
-                    </p>
+                    <p class="text-slate-300 leading-relaxed">LINE（連携アプリ）で更新・管理できるシステムを開発。フォームに沿って情報を入力するだけで、24時間いつでも更新できます。お散歩の合間でも更新可能です。</p>
                 </div>
-
-                <!-- Feature 2 -->
                 <div class="bg-slate-800 p-8 rounded-2xl hover:bg-slate-750 transition-colors">
                     <div class="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4">ブリーダー特化の<br/>SEO対策設計</h3>
-                    <p class="text-slate-300 leading-relaxed">
-                        「犬種 + 地域」などのキーワードで検索されやすい構造を標準装備。未来の飼い主様があなたのサイトを見つけやすくなります。
-                    </p>
+                    <p class="text-slate-300 leading-relaxed">「犬種 + 地域」などのキーワードで検索されやすい構造を標準装備。未来の飼い主様があなたのサイトを見つけやすくなります。</p>
                 </div>
-
-                <!-- Feature 3 -->
                 <div class="bg-slate-800 p-8 rounded-2xl hover:bg-slate-750 transition-colors">
                     <div class="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4">独自ドメイン取得・<br/>サーバー管理もお任せ</h3>
-                    <p class="text-slate-300 leading-relaxed">
-                        面倒なドメイン取得やサーバー契約はすべて弊社が代行。ワンちゃん・ネコちゃんのお世話に集中できます。
-                    </p>
+                    <p class="text-slate-300 leading-relaxed">面倒なドメイン取得やサーバー契約はすべて弊社が代行。ワンちゃん・ネコちゃんのお世話に集中できます。</p>
                 </div>
             </div>
         </div>
@@ -418,7 +306,6 @@
     <!-- Target User / Migration -->
     <section class="py-20 bg-teal-50">
         <div class="container mx-auto px-4 md:px-6">
-            <!-- Main Card -->
             <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
                     <img src="image/breeder-busy.png" alt="パソコン作業に悩むブリーダー" class="rounded-2xl shadow-lg w-full h-auto object-cover" />
@@ -428,44 +315,20 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         すでにHPを運用している方へ
                     </div>
-                    <h2 class="text-3xl font-bold mb-6 text-slate-900">
-                        今のHP、ちゃんと<br />
-                        「働いて」いますか？
-                    </h2>
+                    <h2 class="text-3xl font-bold mb-6 text-slate-900">今のHP、ちゃんと<br />「働いて」いますか？</h2>
                     <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-                            <span class="text-slate-600 text-sm">子犬・子猫の掲載情報が<strong>1ヶ月以上前のまま</strong></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-                            <span class="text-slate-600 text-sm">スマホで自分のHPを<strong>開いたことがない</strong></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-                            <span class="text-slate-600 text-sm">更新のたびに制作会社に連絡＆<strong>追加費用が発生</strong></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-                            <span class="text-slate-600 text-sm">維持費を払い続けているのに<strong>問い合わせがほぼゼロ</strong></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-                            <span class="text-slate-600 text-sm">忙しすぎてHP更新は<strong>「後回し」が常態化</strong></span>
-                        </li>
+                        <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg><span class="text-slate-600 text-sm">子犬・子猫の掲載情報が<strong>1ヶ月以上前のまま</strong></span></li>
+                        <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg><span class="text-slate-600 text-sm">スマホで自分のHPを<strong>開いたことがない</strong></span></li>
+                        <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg><span class="text-slate-600 text-sm">更新のたびに制作会社に連絡＆<strong>追加費用が発生</strong></span></li>
+                        <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg><span class="text-slate-600 text-sm">維持費を払い続けているのに<strong>問い合わせがほぼゼロ</strong></span></li>
+                        <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-400 shrink-0 mt-0.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg><span class="text-slate-600 text-sm">忙しすぎてHP更新は<strong>「後回し」が常態化</strong></span></li>
                     </ul>
-                    <p class="text-lg font-bold text-slate-800 mb-6">
-                        1つでも当てはまるなら、<br />
-                        <span class="text-teal-500">今がHP見直しのタイミングです。</span>
-                    </p>
-                    <a href="#contact" class="inline-block px-8 py-4 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center">
-                        まずは無料で相談する
-                    </a>
+                    <p class="text-lg font-bold text-slate-800 mb-6">1つでも当てはまるなら、<br /><span class="text-teal-500">今がHP見直しのタイミングです。</span></p>
+                    <a href="#contact" class="inline-block px-8 py-4 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center">まずは無料で相談する</a>
                     <p class="mt-3 text-xs text-slate-500">※ドメイン移管・データ移行もサポートします</p>
                 </div>
             </div>
 
-            <!-- 乗り換え3ステップ -->
             <div class="mt-12 max-w-4xl mx-auto">
                 <h3 class="text-center text-lg font-bold text-slate-700 mb-8">乗り換えは<span class="text-teal-500">3ステップ</span>で完了</h3>
                 <div class="grid md:grid-cols-3 gap-6">
@@ -498,86 +361,52 @@
             </div>
 
             <div class="max-w-4xl mx-auto">
-                <!-- Main Plan -->
                 <div class="bg-white border-2 border-teal-100 rounded-3xl shadow-xl overflow-hidden mb-12 relative">
-                    <div class="absolute top-0 right-0 bg-red-500 text-white font-bold px-6 py-2 rounded-bl-xl z-10">
-                        初期費用無料キャンペーン中！
-                    </div>
+                    <div class="absolute top-0 right-0 bg-red-500 text-white font-bold px-6 py-2 rounded-bl-xl z-10">初期費用無料キャンペーン中！</div>
                     <div class="p-8 md:p-12 text-center border-b border-slate-100">
                         <h3 class="text-2xl font-bold text-slate-800 mb-2">スタンダードプラン</h3>
-                        <p class="text-slate-600 font-bold mb-4 bg-teal-50 inline-block px-4 py-1 rounded-full text-sm">
-                            厳選された3つのテンプレートからデザインを選択
-                        </p>
+                        <p class="text-slate-600 font-bold mb-4 bg-teal-50 inline-block px-4 py-1 rounded-full text-sm">厳選された3つのテンプレートからデザインを選択</p>
                         <div class="flex justify-center items-end gap-2 mb-4">
                             <span class="text-slate-400 font-bold text-lg relative top-[-8px]">月額</span>
                             <span class="text-5xl md:text-6xl font-extrabold text-slate-900">19,800</span>
                             <span class="text-slate-600 font-medium pb-2">円 (税込)</span>
                         </div>
-                        <p class="text-slate-500 text-sm">
-                            ※最低契約期間6ヶ月 / 初期費用 <span class="line-through">50,000円</span> → <span class="text-red-500 font-bold">0円</span>
-                        </p>
+                        <p class="text-slate-500 text-sm">※最低契約期間6ヶ月 / 初期費用 <span class="line-through">50,000円</span> → <span class="text-red-500 font-bold">0円</span></p>
                     </div>
                     <div class="p-8 bg-slate-50">
                         <ul class="grid md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                                <span>独自ドメイン取得・更新費込み</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                                <span>サーバー維持管理費込み</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                                <span>LINE更新システム利用料</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                                <span>お問い合わせフォーム設置</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                                <span>スマホ・タブレット対応</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                                <span>基本的なSEO対策</span>
-                            </li>
+                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>独自ドメイン取得・更新費込み</span></li>
+                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>サーバー維持管理費込み</span></li>
+                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>LINE更新システム利用料</span></li>
+                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>お問い合わせフォーム設置</span></li>
+                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>スマホ・タブレット対応</span></li>
+                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>基本的なSEO対策</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Options -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="bg-white p-6 rounded-xl border border-slate-200 text-center relative overflow-hidden">
                         <div class="absolute top-0 right-0 bg-slate-100 text-[10px] text-slate-500 px-2 py-1 rounded-bl-lg">Recommend</div>
-                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                        </div>
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                         <h4 class="font-bold mb-2 text-sm md:text-base">オリジナルデザイン</h4>
                         <p class="text-xs text-slate-500 mb-2">テンプレート以外の<br>完全オーダーメイド制作</p>
                         <p class="font-bold text-teal-600 text-sm">別途お見積もり</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-                        </div>
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
                         <h4 class="font-bold mb-2 text-sm md:text-base">出張写真撮影</h4>
                         <p class="text-xs text-slate-500 mb-2">プロカメラマンによる<br>親犬・犬舎の撮影</p>
                         <p class="font-bold text-teal-600 text-sm">33,000円〜</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-                        </div>
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
                         <h4 class="font-bold mb-2 text-sm md:text-base">ロゴ制作</h4>
                         <p class="text-xs text-slate-500 mb-2">オリジナルの<br>犬舎ロゴデザイン</p>
                         <p class="font-bold text-teal-600 text-sm">22,000円〜</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                        </div>
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
                         <h4 class="font-bold mb-2 text-sm md:text-base">記事作成代行</h4>
                         <p class="text-xs text-slate-500 mb-2">コラムやブログの<br>執筆代行</p>
                         <p class="font-bold text-teal-600 text-sm">5,500円/本</p>
@@ -587,7 +416,7 @@
         </div>
     </section>
 
-    <!-- Demo / Portfolio Section Placeholder -->
+    <!-- Demo / Portfolio Section -->
     <section class="py-20 bg-slate-50">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-12">
@@ -595,55 +424,31 @@
                 <p class="text-slate-600">実際のサイトデザインをご覧ください。</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="group cursor-pointer">
                     <div class="bg-white rounded-xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1">
                         <div class="h-48 bg-slate-200 relative">
-                             <div class="absolute inset-0 flex items-center justify-center text-slate-400">
-                                <img src="https://placehold.co/400x300?text=Demo+1" alt="Demo Site" class="w-full h-full object-cover" />
-                             </div>
-                             <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="text-white font-bold border-2 border-white px-4 py-2 rounded-full">デモを見る</span>
-                             </div>
+                             <div class="absolute inset-0 flex items-center justify-center text-slate-400"><img src="https://placehold.co/400x300?text=Demo+1" alt="Demo Site" class="w-full h-full object-cover" /></div>
+                             <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-white font-bold border-2 border-white px-4 py-2 rounded-full">デモを見る</span></div>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-bold text-slate-800">Demo Style 1</h3>
-                            <p class="text-sm text-slate-500">トイプードル専門ブリーダー様向け</p>
-                        </div>
+                        <div class="p-4"><h3 class="font-bold text-slate-800">Demo Style 1</h3><p class="text-sm text-slate-500">トイプードル専門ブリーダー様向け</p></div>
                     </div>
                 </div>
-                <!-- Card 2 -->
                 <div class="group cursor-pointer">
                     <div class="bg-white rounded-xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1">
                         <div class="h-48 bg-slate-200 relative">
-                             <div class="absolute inset-0 flex items-center justify-center text-slate-400">
-                                <img src="https://placehold.co/400x300?text=Demo+2" alt="Demo Site" class="w-full h-full object-cover" />
-                             </div>
-                             <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="text-white font-bold border-2 border-white px-4 py-2 rounded-full">デモを見る</span>
-                             </div>
+                             <div class="absolute inset-0 flex items-center justify-center text-slate-400"><img src="https://placehold.co/400x300?text=Demo+2" alt="Demo Site" class="w-full h-full object-cover" /></div>
+                             <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-white font-bold border-2 border-white px-4 py-2 rounded-full">デモを見る</span></div>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-bold text-slate-800">Demo Style 2</h3>
-                            <p class="text-sm text-slate-500">チワワ専門ブリーダー様向け</p>
-                        </div>
+                        <div class="p-4"><h3 class="font-bold text-slate-800">Demo Style 2</h3><p class="text-sm text-slate-500">チワワ専門ブリーダー様向け</p></div>
                     </div>
                 </div>
-                <!-- Card 3 -->
                 <div class="group cursor-pointer">
                     <div class="bg-white rounded-xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1">
                         <div class="h-48 bg-slate-200 relative">
-                             <div class="absolute inset-0 flex items-center justify-center text-slate-400">
-                                <img src="https://placehold.co/400x300?text=Demo+3" alt="Demo Site" class="w-full h-full object-cover" />
-                             </div>
-                             <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="text-white font-bold border-2 border-white px-4 py-2 rounded-full">デモを見る</span>
-                             </div>
+                             <div class="absolute inset-0 flex items-center justify-center text-slate-400"><img src="https://placehold.co/400x300?text=Demo+3" alt="Demo Site" class="w-full h-full object-cover" /></div>
+                             <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-white font-bold border-2 border-white px-4 py-2 rounded-full">デモを見る</span></div>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-bold text-slate-800">Demo Style 3</h3>
-                            <p class="text-sm text-slate-500">猫専門ブリーダー様向け</p>
-                        </div>
+                        <div class="p-4"><h3 class="font-bold text-slate-800">Demo Style 3</h3><p class="text-sm text-slate-500">猫専門ブリーダー様向け</p></div>
                     </div>
                 </div>
             </div>
@@ -656,73 +461,42 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4 text-slate-900">よくある質問</h2>
             </div>
-            
+
             <div class="space-y-4">
-                <!-- FAQ Item 1 -->
                 <div class="border border-slate-200 rounded-lg overflow-hidden faq-item">
                     <button class="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 flex items-center justify-between font-bold text-slate-800 transition-colors faq-btn">
-                        <span class="flex items-center gap-3">
-                            <span class="text-teal-500">Q.</span>
-                            パソコンが苦手ですが、本当に更新できますか？
-                        </span>
+                        <span class="flex items-center gap-3"><span class="text-teal-500">Q.</span>パソコンが苦手ですが、本当に更新できますか？</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 chevron"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="px-6 bg-slate-50 text-slate-600 leading-relaxed max-h-0 overflow-hidden transition-all duration-300 faq-answer">
-                        <div class="py-4 border-t border-slate-100">
-                            <span class="font-bold text-teal-500 mr-2">A.</span>
-                            はい、大丈夫です。普段お使いのLINEアプリで、友だちにメッセージを送る感覚で子犬・子猫の情報を入力するだけでホームページが更新されます。複雑な管理画面へのログインは不要です。
-                        </div>
+                        <div class="py-4 border-t border-slate-100"><span class="font-bold text-teal-500 mr-2">A.</span>はい、大丈夫です。普段お使いのLINEアプリで、友だちにメッセージを送る感覚で子犬・子猫の情報を入力するだけでホームページが更新されます。複雑な管理画面へのログインは不要です。</div>
                     </div>
                 </div>
-
-                <!-- FAQ Item 2 -->
                 <div class="border border-slate-200 rounded-lg overflow-hidden faq-item">
                     <button class="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 flex items-center justify-between font-bold text-slate-800 transition-colors faq-btn">
-                        <span class="flex items-center gap-3">
-                            <span class="text-teal-500">Q.</span>
-                            すでに他のホームページを持っていますが、乗り換えは可能ですか？
-                        </span>
+                        <span class="flex items-center gap-3"><span class="text-teal-500">Q.</span>すでに他のホームページを持っていますが、乗り換えは可能ですか？</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 chevron"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="px-6 bg-slate-50 text-slate-600 leading-relaxed max-h-0 overflow-hidden transition-all duration-300 faq-answer">
-                        <div class="py-4 border-t border-slate-100">
-                            <span class="font-bold text-teal-500 mr-2">A.</span>
-                            可能です。ドメイン（.comなどのアドレス）の移管手続きもサポートいたします。現在のホームページの課題を分析し、より集客効果の高いサイトへリニューアルをご提案します。
-                        </div>
+                        <div class="py-4 border-t border-slate-100"><span class="font-bold text-teal-500 mr-2">A.</span>可能です。ドメイン（.comなどのアドレス）の移管手続きもサポートいたします。現在のホームページの課題を分析し、より集客効果の高いサイトへリニューアルをご提案します。</div>
                     </div>
                 </div>
-
-                <!-- FAQ Item 3 -->
                 <div class="border border-slate-200 rounded-lg overflow-hidden faq-item">
                     <button class="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 flex items-center justify-between font-bold text-slate-800 transition-colors faq-btn">
-                        <span class="flex items-center gap-3">
-                            <span class="text-teal-500">Q.</span>
-                            最低契約期間はありますか？
-                        </span>
+                        <span class="flex items-center gap-3"><span class="text-teal-500">Q.</span>最低契約期間はありますか？</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 chevron"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="px-6 bg-slate-50 text-slate-600 leading-relaxed max-h-0 overflow-hidden transition-all duration-300 faq-answer">
-                        <div class="py-4 border-t border-slate-100">
-                            <span class="font-bold text-teal-500 mr-2">A.</span>
-                            はい、最低契約期間は6ヶ月とさせていただいております。SEO（検索エンジン対策）の効果が出るまで一定期間が必要なためです。7ヶ月目以降は1ヶ月ごとの自動更新となり、解約金は発生しません。
-                        </div>
+                        <div class="py-4 border-t border-slate-100"><span class="font-bold text-teal-500 mr-2">A.</span>はい、最低契約期間は6ヶ月とさせていただいております。SEO（検索エンジン対策）の効果が出るまで一定期間が必要なためです。7ヶ月目以降は1ヶ月ごとの自動更新となり、解約金は発生しません。</div>
                     </div>
                 </div>
-
-                <!-- FAQ Item 4 -->
                 <div class="border border-slate-200 rounded-lg overflow-hidden faq-item">
                     <button class="w-full px-6 py-4 text-left bg-white hover:bg-slate-50 flex items-center justify-between font-bold text-slate-800 transition-colors faq-btn">
-                        <span class="flex items-center gap-3">
-                            <span class="text-teal-500">Q.</span>
-                            独自ドメインの取得費用はかかりますか？
-                        </span>
+                        <span class="flex items-center gap-3"><span class="text-teal-500">Q.</span>独自ドメインの取得費用はかかりますか？</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 chevron"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="px-6 bg-slate-50 text-slate-600 leading-relaxed max-h-0 overflow-hidden transition-all duration-300 faq-answer">
-                        <div class="py-4 border-t border-slate-100">
-                            <span class="font-bold text-teal-500 mr-2">A.</span>
-                            いいえ、ドメインの取得・管理費用も月額料金に含まれています。面倒な更新手続きも弊社が代行しますのでご安心ください。
-                        </div>
+                        <div class="py-4 border-t border-slate-100"><span class="font-bold text-teal-500 mr-2">A.</span>いいえ、ドメインの取得・管理費用も月額料金に含まれています。面倒な更新手続きも弊社が代行しますのでご安心ください。</div>
                     </div>
                 </div>
             </div>
@@ -734,10 +508,7 @@
         <div class="container mx-auto px-4 md:px-6 max-w-4xl">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">お問い合わせ・お申し込み</h2>
-                <p class="text-slate-300">
-                    まずは無料相談から。<br />
-                    あなたの犬舎・猫舎に最適なプランをご提案します。
-                </p>
+                <p class="text-slate-300">まずは無料相談から。<br />あなたの犬舎・猫舎に最適なプランをご提案します。</p>
             </div>
 
             <form class="bg-white text-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl space-y-6">
@@ -762,120 +533,39 @@
                         この内容で送信する
                     </button>
                     <p class="mt-4 text-xs text-slate-500">
-                        送信することで、<a href="#" class="underline">プライバシーポリシー</a>に同意したものとみなします。
+                        送信することで、<a href="privacy.html" class="underline">プライバシーポリシー</a>に同意したものとみなします。
                     </p>
                 </div>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-12">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid md:grid-cols-4 gap-8 mb-8 border-b border-slate-800 pb-8">
-                <div class="col-span-1 md:col-span-1">
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="image/Breeders_Flow_logo-removebg-preview.png" alt="Breeders Flow" class="h-12 w-auto brightness-0 invert" />
-                        <span class="text-lg font-bold text-white">Breeders-Flow</span>
-                    </div>
-                    <p class="text-sm">
-                        ブリーダーと未来の家族を繋ぐ、<br />
-                        新しいHP制作プラットフォーム。
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-white mb-4">サービス</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#concept" class="hover:text-white transition-colors">Breeders-Flowとは</a></li>
-                        <li><a href="#features" class="hover:text-white transition-colors">機能一覧</a></li>
-                        <li><a href="#pricing" class="hover:text-white transition-colors">料金プラン</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">制作実績</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-white mb-4">サポート</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#faq" class="hover:text-white transition-colors">よくある質問</a></li>
-                        <li><a href="#contact" class="hover:text-white transition-colors">お問い合わせ</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">お知らせ</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-white mb-4">リーガル</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white transition-colors">利用規約</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center text-xs">
-                &copy; 2024 Breeders-Flow All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
+    <!-- FAQ Accordion Script (page-specific) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Toggle
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const iconMenu = document.getElementById('icon-menu');
-            const iconClose = document.getElementById('icon-close');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-
-            function toggleMenu() {
-                mobileMenu.classList.toggle('hidden');
-                iconMenu.classList.toggle('hidden');
-                iconClose.classList.toggle('hidden');
-            }
-
-            menuBtn.addEventListener('click', toggleMenu);
-
-            // Close mobile menu when a link is clicked
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', toggleMenu);
-            });
-
-            // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
-
             faqItems.forEach(item => {
                 const btn = item.querySelector('.faq-btn');
                 const answer = item.querySelector('.faq-answer');
                 const chevron = item.querySelector('.chevron');
-
                 btn.addEventListener('click', () => {
                     const isOpen = !answer.classList.contains('max-h-0');
-
-                    // Close all other items
                     faqItems.forEach(otherItem => {
                         const otherAnswer = otherItem.querySelector('.faq-answer');
                         const otherChevron = otherItem.querySelector('.chevron');
-                        
                         if (otherItem !== item) {
                             otherAnswer.classList.add('max-h-0');
                             otherChevron.style.transform = 'rotate(0deg)';
                         }
                     });
-
-                    // Toggle current item
                     if (isOpen) {
                         answer.classList.add('max-h-0');
                         chevron.style.transform = 'rotate(0deg)';
                     } else {
                         answer.classList.remove('max-h-0');
                     }
-                    
-                    // Simple rotate
                     chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
                 });
             });
         });
     </script>
-</body>
-</html>

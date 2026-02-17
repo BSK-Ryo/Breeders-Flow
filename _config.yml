@@ -1,0 +1,9 @@
+title: Breeders Flow
+description: ブリーダー専用HP制作サービス
+baseurl: ""
+url: ""
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
