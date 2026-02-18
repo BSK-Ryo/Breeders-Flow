@@ -37,6 +37,18 @@
     }
 })();
 
+// Contact form: show success message after redirect
+(function() {
+    if (window.location.search.indexOf('sent=true') !== -1) {
+        var form = document.getElementById('contact-form');
+        var msg = document.getElementById('sent-message');
+        if (form && msg) {
+            form.style.display = 'none';
+            msg.classList.remove('hidden');
+        }
+    }
+})();
+
 // Navbar scroll shadow
 (function() {
     var navbar = document.querySelector('header');
