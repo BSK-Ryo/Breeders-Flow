@@ -505,38 +505,84 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
-        <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+        <div class="container mx-auto px-4 md:px-6 max-w-5xl">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">お問い合わせ・お申し込み</h2>
                 <p class="text-slate-300">まずは無料相談から。<br />あなたの犬舎・猫舎に最適なプランをご提案します。</p>
             </div>
 
-            <form class="bg-white text-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="block text-sm font-bold text-slate-700">お名前 / 犬舎名 <span class="text-red-500">*</span></label>
-                        <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="山田 太郎 / わんわんハウス" required />
-                    </div>
-                    <div class="space-y-2">
-                        <label class="block text-sm font-bold text-slate-700">メールアドレス <span class="text-red-500">*</span></label>
-                        <input type="email" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="example@breeders-flow.com" required />
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- LINE Section -->
+                <div>
+                    <div class="bg-green-50 border border-green-200 rounded-2xl p-8 text-center text-slate-800">
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-brands fa-line text-green-500 text-2xl"></i></div>
+                        <h3 class="font-bold mb-2">LINEでご相談</h3>
+                        <p class="text-sm text-gray-600 mb-4">LINEでお気軽にご相談いただけます。トーク画面からご質問をどうぞ。</p>
+                        <a href="https://lin.ee/zsve441" class="inline-block bg-green-500 hover:bg-green-600 text-white rounded-lg px-6 py-3 text-sm font-medium transition w-full">友だち追加する</a>
+                        <div class="mt-4 bg-white rounded-lg p-4">
+                            <img src="https://qr-official.line.me/gs/M_011fycjm_GW.png?oat__id=6381470&oat_content=qr" alt="LINE QRコード" class="w-32 h-32 mx-auto">
+                        </div>
                     </div>
                 </div>
 
-                <div class="space-y-2">
-                    <label class="block text-sm font-bold text-slate-700">お問い合わせ内容 <span class="text-red-500">*</span></label>
-                    <textarea class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all h-32" placeholder="HP制作について詳しく聞きたい、現在のHPからの乗り換えについて相談したい、など" required></textarea>
+                <!-- Form -->
+                <div class="lg:col-span-2">
+                    <form action="https://formsubmit.co/r.tada@breeders-flow.com" method="POST" class="bg-white text-slate-800 rounded-3xl p-8 md:p-10 shadow-2xl">
+                        <input type="hidden" name="_subject" value="【Breeders Flow】お問い合わせがありました">
+                        <input type="hidden" name="_next" value="https://breeders-flow.com/contact.html?sent=true">
+                        <input type="hidden" name="_captcha" value="true">
+                        <input type="text" name="_honey" style="display:none">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">お名前 <span class="text-red-500 text-xs">必須</span></label>
+                                <input type="text" name="name" required placeholder="山田 太郎" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">メールアドレス <span class="text-red-500 text-xs">必須</span></label>
+                                <input type="email" name="email" required placeholder="example@email.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm">
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">電話番号 <span class="text-gray-400 text-xs">任意</span></label>
+                                <input type="tel" name="phone" placeholder="090-0000-0000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">犬舎名・キャッテリー名 <span class="text-gray-400 text-xs">任意</span></label>
+                                <input type="text" name="kennel_name" placeholder="例: ハッピーパピーケンネル" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-slate-700 mb-2">お問い合わせ種別 <span class="text-red-500 text-xs">必須</span></label>
+                            <select name="inquiry_type" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm bg-white">
+                                <option value="">選択してください</option>
+                                <option value="new">新規HP制作のご相談</option>
+                                <option value="migration">既存HPからの乗り換え</option>
+                                <option value="question">サービスについてのご質問</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-slate-700 mb-2">現在のHP URL <span class="text-gray-400 text-xs">任意（乗り換えの方）</span></label>
+                            <input type="url" name="website_url" placeholder="https://example.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-slate-700 mb-2">お問い合わせ内容 <span class="text-red-500 text-xs">必須</span></label>
+                            <textarea name="message" required rows="5" placeholder="ご質問やご要望をご記入ください" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-sm resize-y"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label class="flex items-start gap-2 cursor-pointer">
+                                <input type="checkbox" required class="mt-1 accent-teal-600">
+                                <span class="text-sm text-gray-600"><a href="privacy.html" class="text-teal-600 underline">プライバシーポリシー</a>に同意の上、送信してください。</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full px-12 py-4 bg-gradient-to-r from-teal-500 to-amber-500 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:opacity-90 transition-all transform hover:-translate-y-1">
+                            送信する
+                        </button>
+                        <p class="text-xs text-gray-400 text-center mt-4"><i class="fa-solid fa-lock mr-1"></i>SSL暗号化通信で保護されています</p>
+                    </form>
                 </div>
-
-                <div class="pt-4 text-center">
-                    <button type="submit" class="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-teal-500 to-amber-500 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:opacity-90 transition-all transform hover:-translate-y-1">
-                        この内容で送信する
-                    </button>
-                    <p class="mt-4 text-xs text-slate-500">
-                        送信することで、<a href="privacy.html" class="underline">プライバシーポリシー</a>に同意したものとみなします。
-                    </p>
-                </div>
-            </form>
+            </div>
         </div>
     </section>
 
