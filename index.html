@@ -357,45 +357,84 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">料金プラン</h2>
-                <p class="text-slate-600">シンプルで分かりやすい料金体系をご用意しました。</p>
+                <p class="text-slate-600">あなたに合ったプランをお選びください。どちらも初期費用0円。</p>
             </div>
 
             <div class="max-w-5xl mx-auto">
 
-                <!-- Main Plan Card -->
-                <div class="bg-white border-2 border-teal-100 rounded-3xl shadow-xl overflow-hidden mb-8 relative">
-                    <div class="absolute top-0 right-0 bg-red-500 text-white font-bold px-6 py-2 rounded-bl-xl z-10">初期費用無料キャンペーン中！</div>
-                    <div class="p-8 md:p-12 text-center border-b border-slate-100">
-                        <h3 class="text-2xl font-bold text-slate-800 mb-2">スタンダードプラン</h3>
-                        <p class="text-slate-600 font-bold mb-4 bg-teal-50 inline-block px-4 py-1 rounded-full text-sm">厳選された3つのテンプレートからデザインを選択</p>
-                        <div class="flex justify-center items-end gap-2 mb-4">
-                            <span class="text-slate-400 font-bold text-lg relative top-[-8px]">月額</span>
-                            <span class="text-5xl md:text-6xl font-extrabold text-slate-900">19,800</span>
-                            <span class="text-slate-600 font-medium pb-2">円 (税込)</span>
-                        </div>
-                        <p class="text-slate-500 text-sm mb-6">※最低契約期間6ヶ月 / 初期費用 <span class="line-through">50,000円</span> → <span class="text-red-500 font-bold">0円</span></p>
+                <!-- Plan Cards -->
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
 
-                        <!-- Daily cost callout -->
-                        <div class="inline-block relative">
-                            <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl px-6 py-4 relative">
-                                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">つまり...</div>
-                                <p class="text-amber-800 font-bold text-sm md:text-base mt-1">
-                                    <i class="fa-solid fa-clock mr-1"></i>24時間365日あなたの犬舎をPRしてくれるHPを、<br>
-                                    <span class="text-xl md:text-2xl text-amber-600">1日わずか<span class="text-3xl md:text-4xl font-extrabold">660</span>円</span>で。
-                                </p>
+                    <!-- Standard Plan -->
+                    <div class="bg-white border-2 border-teal-100 rounded-3xl shadow-xl overflow-hidden relative">
+                        <div class="absolute top-0 right-0 bg-red-500 text-white font-bold px-4 py-1.5 rounded-bl-xl text-sm z-10">初期費用無料キャンペーン中！</div>
+                        <div class="p-8 md:p-10 text-center border-b border-slate-100">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">スタンダードプラン</h3>
+                            <p class="text-slate-600 font-bold mb-4 bg-teal-50 inline-block px-4 py-1 rounded-full text-sm">3つのテンプレートからデザインを選択</p>
+                            <div class="flex justify-center items-end gap-2 mb-4">
+                                <span class="text-slate-400 font-bold text-base relative top-[-6px]">月額</span>
+                                <span class="text-4xl md:text-5xl font-extrabold text-slate-900">19,800</span>
+                                <span class="text-slate-600 font-medium pb-1">円 (税込)</span>
+                            </div>
+                            <p class="text-slate-500 text-sm mb-4">※最低契約期間6ヶ月 / 初期費用 <span class="line-through">50,000円</span> → <span class="text-red-500 font-bold">0円</span></p>
+                            <div class="inline-block">
+                                <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl px-5 py-3 relative">
+                                    <p class="text-amber-800 font-bold text-sm">
+                                        <i class="fa-solid fa-clock mr-1"></i>1日わずか<span class="text-2xl font-extrabold text-amber-600">660</span>円
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-50">
+                            <ul class="space-y-3 text-left">
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm">独自ドメイン取得・更新費込み</span></li>
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm">サーバー維持管理費込み</span></li>
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm">LINE更新システム利用料</span></li>
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm">SEO対策・スマホ対応</span></li>
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm">メール・LINEサポート</span></li>
+                            </ul>
+                            <div class="mt-6 text-center">
+                                <a href="#contact" class="inline-block px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all w-full text-center">無料で相談する</a>
                             </div>
                         </div>
                     </div>
-                    <div class="p-8 bg-slate-50">
-                        <ul class="grid md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>独自ドメイン取得・更新費込み</span></li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>サーバー維持管理費込み</span></li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>LINE更新システム利用料</span></li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>お問い合わせフォーム設置</span></li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>スマホ・タブレット対応</span></li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>基本的なSEO対策</span></li>
-                        </ul>
+
+                    <!-- Premium Plan -->
+                    <div class="bg-white border-2 border-amber-200 rounded-3xl shadow-xl overflow-hidden relative">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-white font-bold px-4 py-1.5 rounded-bl-xl text-sm z-10">おすすめ</div>
+                        <div class="p-8 md:p-10 text-center border-b border-slate-100">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">プレミアムプラン</h3>
+                            <p class="text-amber-700 font-bold mb-4 bg-amber-50 inline-block px-4 py-1 rounded-full text-sm">HP + 集客支援パッケージ</p>
+                            <div class="flex justify-center items-end gap-2 mb-4">
+                                <span class="text-slate-400 font-bold text-base relative top-[-6px]">月額</span>
+                                <span class="text-4xl md:text-5xl font-extrabold text-slate-900">29,800</span>
+                                <span class="text-slate-600 font-medium pb-1">円 (税込)</span>
+                            </div>
+                            <p class="text-slate-500 text-sm mb-4">※最低契約期間6ヶ月 / 初期費用 <span class="text-red-500 font-bold">0円</span></p>
+                            <div class="inline-block">
+                                <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl px-5 py-3 relative">
+                                    <p class="text-amber-800 font-bold text-sm">
+                                        <i class="fa-solid fa-clock mr-1"></i>1日わずか<span class="text-2xl font-extrabold text-amber-600">993</span>円
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-50">
+                            <ul class="space-y-3 text-left">
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm font-medium">スタンダードの全機能</span></li>
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm font-medium">公式LINE構築<span class="text-xs text-slate-500 ml-1">リッチメニュー・自動応答等</span></span></li>
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm font-medium">GBP最適化<span class="text-xs text-slate-500 ml-1">地域検索の露出アップ</span></span></li>
+                                <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span class="text-sm font-medium">優先サポート<span class="text-xs text-slate-500 ml-1">即日対応</span></span></li>
+                            </ul>
+                            <div class="mt-4 bg-amber-50 rounded-lg p-3">
+                                <p class="text-xs text-slate-500"><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i>別々に外注すると<strong>¥60,000〜150,000</strong>相当のサービスが月額に含まれています。</p>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <a href="#contact" class="inline-block px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all w-full text-center">プレミアムで始める</a>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
                 <!-- Cost Comparison Table -->
@@ -437,7 +476,7 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
                                     <td class="py-4 px-4 bg-slate-50 font-medium text-slate-700">月額費用</td>
                                     <td class="py-4 px-4 text-center text-slate-600">5,000〜30,000円<br><span class="text-xs text-slate-400">（保守・管理費）</span></td>
                                     <td class="py-4 px-4 text-center text-slate-600">1,000〜3,000円<br><span class="text-xs text-slate-400">（サーバー・ドメイン代）</span></td>
-                                    <td class="py-4 px-4 text-center bg-teal-50 font-bold text-teal-700">19,800円<br><span class="text-xs font-normal text-teal-600">（全て込み）</span></td>
+                                    <td class="py-4 px-4 text-center bg-teal-50 font-bold text-teal-700">19,800円〜<br><span class="text-xs font-normal text-teal-600">（全て込み）</span></td>
                                 </tr>
                                 <tr class="border-b border-slate-100">
                                     <td class="py-4 px-4 bg-slate-50 font-medium text-slate-700">更新・修正費用</td>
@@ -467,7 +506,7 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
                                     <td class="py-5 px-4 bg-slate-800 font-bold text-white rounded-bl-xl">年間トータルコスト</td>
                                     <td class="py-5 px-4 text-center bg-slate-700 text-white font-bold">40〜130万円以上</td>
                                     <td class="py-5 px-4 text-center bg-slate-700 text-white">5〜15万円<span class="text-xs block text-slate-300">＋多大な労力</span></td>
-                                    <td class="py-5 px-4 text-center bg-teal-600 text-white font-bold text-lg rounded-br-xl">約24万円<span class="text-xs block font-normal text-teal-100">全て込みでこの価格</span></td>
+                                    <td class="py-5 px-4 text-center bg-teal-600 text-white font-bold text-lg rounded-br-xl">約24万円〜<span class="text-xs block font-normal text-teal-100">全て込みでこの価格</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -476,9 +515,8 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
 
                 <!-- Option Cards -->
                 <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">オプションサービス</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 text-center relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-slate-100 text-[10px] text-slate-500 px-2 py-1 rounded-bl-lg">Recommend</div>
+                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
                         <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-palette text-slate-600 text-xl"></i></div>
                         <h4 class="font-bold mb-2 text-sm md:text-base">オリジナルデザイン</h4>
                         <p class="text-xs text-slate-500 mb-2">テンプレート以外の<br>完全オーダーメイド制作</p>
@@ -488,18 +526,6 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
                         <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-pen-nib text-slate-600 text-xl"></i></div>
                         <h4 class="font-bold mb-2 text-sm md:text-base">ロゴ制作</h4>
                         <p class="text-xs text-slate-500 mb-2">オリジナルの<br>犬舎ロゴデザイン</p>
-                        <p class="font-bold text-teal-600 text-sm">お問い合わせください</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-brands fa-line text-slate-600 text-xl"></i></div>
-                        <h4 class="font-bold mb-2 text-sm md:text-base">公式LINE運用</h4>
-                        <p class="text-xs text-slate-500 mb-2">LINE公式アカウントの<br>開設・運用サポート</p>
-                        <p class="font-bold text-teal-600 text-sm">お問い合わせください</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
-                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-map-location-dot text-slate-600 text-xl"></i></div>
-                        <h4 class="font-bold mb-2 text-sm md:text-base">Googleビジネス<br>プロフィール最適化</h4>
-                        <p class="text-xs text-slate-500 mb-2">MEO対策で<br>地域検索の露出アップ</p>
                         <p class="font-bold text-teal-600 text-sm">お問い合わせください</p>
                     </div>
                 </div>

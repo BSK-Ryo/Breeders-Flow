@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "料金プラン | Breeder Flow"
-description: "初期費用0円、月額19,800円（税込）。HP制作・LINE更新・SEO・SSL・サポートすべて込み。シンプルで分かりやすい料金体系。"
+description: "初期費用0円。スタンダード月額19,800円・プレミアム月額29,800円（税込）。HP制作・LINE更新・SEO・SSL・サポートすべて込み。集客支援付きプレミアムプランも。"
 nav_active: pricing
 fade_in: true
 details_animation: true
@@ -13,21 +13,40 @@ details_animation: true
         "@type": "Product",
         "name": "Breeder Flow",
         "description": "ブリーダー専用HP制作・運用サービス",
-        "offers": {
-            "@type": "Offer",
-            "price": "19800",
-            "priceCurrency": "JPY",
-            "priceSpecification": {
-                "@type": "UnitPriceSpecification",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "スタンダードプラン",
                 "price": "19800",
                 "priceCurrency": "JPY",
-                "referenceQuantity": {
-                    "@type": "QuantitativeValue",
-                    "value": "1",
-                    "unitCode": "MON"
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "19800",
+                    "priceCurrency": "JPY",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "1",
+                        "unitCode": "MON"
+                    }
+                }
+            },
+            {
+                "@type": "Offer",
+                "name": "プレミアムプラン",
+                "price": "29800",
+                "priceCurrency": "JPY",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "29800",
+                    "priceCurrency": "JPY",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "1",
+                        "unitCode": "MON"
+                    }
                 }
             }
-        }
+        ]
     }
     </script>
 
@@ -35,46 +54,102 @@ details_animation: true
     <section class="bg-gradient-to-b from-teal-50 to-white py-20 md:py-24">
         <div class="max-w-5xl mx-auto px-4 text-center fade-in">
             <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">シンプルな料金体系。<br>隠れた費用はありません。</h1>
-            <p class="text-lg text-gray-600">初期費用0円。すべての機能が月額料金に含まれています。</p>
+            <p class="text-lg text-gray-600">初期費用0円。あなたに合ったプランをお選びください。</p>
         </div>
     </section>
 
-    <!-- 2. Pricing Card -->
+    <!-- 2. Pricing Cards -->
     <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 fade-in">
-            <div class="bg-white border-t-4 border-teal-600 rounded-2xl shadow-xl p-8 md:p-12 max-w-2xl mx-auto">
-                <div class="text-center mb-8">
-                    <h2 class="text-xl font-bold mb-2">Breeder Flow</h2>
-                    <p class="text-5xl md:text-6xl font-bold text-teal-600">¥19,800</p>
-                    <p class="text-gray-500 mt-2">月額（税込）</p>
+        <div class="max-w-5xl mx-auto px-4 fade-in">
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+
+                <!-- Standard Plan -->
+                <div class="bg-white border-t-4 border-teal-600 rounded-2xl shadow-xl p-8 md:p-10">
+                    <div class="text-center mb-8">
+                        <h2 class="text-lg font-bold mb-1 text-gray-700">スタンダードプラン</h2>
+                        <p class="text-4xl md:text-5xl font-bold text-teal-600">¥19,800</p>
+                        <p class="text-gray-500 mt-2">月額（税込）</p>
+                    </div>
+                    <div class="space-y-1 mb-6">
+                        <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-teal-600 text-sm"></i><span class="text-sm">初期費用 ¥0</span></div>
+                        <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-teal-600 text-sm"></i><span class="text-sm">最低利用期間 6ヶ月</span></div>
+                    </div>
+                    <h3 class="font-bold text-sm text-gray-500 uppercase tracking-wider mb-4">含まれるもの</h3>
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">ブリーダー専用HP制作</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">3テーマから選べるデザイン</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">カラーカスタマイズ</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">LINE完結の更新機能</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">13ページ以上の自動生成</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">SEO対策（構造化データ等）</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">SSL証明書・HTTPS</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">CDN高速配信</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">画像最適化・EXIF自動除去</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">お知らせ・お客様の声管理</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">自動ビルド・デプロイ</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">個人情報暗号化保護</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">メール・LINEサポート</span></div>
+                    </div>
+                    <div class="text-center">
+                        <a href="contact.html" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-8 py-4 text-base shadow-lg transition w-full">無料で相談する</a>
+                    </div>
                 </div>
-                <div class="grid md:grid-cols-2 gap-x-8 gap-y-1 mb-8">
-                    <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-teal-600 text-sm"></i><span class="text-sm">初期費用 ¥0</span></div>
-                    <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-teal-600 text-sm"></i><span class="text-sm">最低利用期間 6ヶ月</span></div>
+
+                <!-- Premium Plan -->
+                <div class="bg-white border-t-4 border-amber-500 rounded-2xl shadow-xl p-8 md:p-10 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-sm font-bold px-4 py-1 rounded-full">おすすめ</div>
+                    <div class="text-center mb-8">
+                        <h2 class="text-lg font-bold mb-1 text-gray-700">プレミアムプラン</h2>
+                        <p class="text-4xl md:text-5xl font-bold text-amber-600">¥29,800</p>
+                        <p class="text-gray-500 mt-2">月額（税込）</p>
+                    </div>
+                    <div class="space-y-1 mb-6">
+                        <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-amber-500 text-sm"></i><span class="text-sm">初期費用 ¥0</span></div>
+                        <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-amber-500 text-sm"></i><span class="text-sm">最低利用期間 6ヶ月</span></div>
+                    </div>
+                    <h3 class="font-bold text-sm text-gray-500 uppercase tracking-wider mb-4">スタンダードの全機能 +</h3>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-amber-500 text-xs"></i><span class="text-sm font-medium">スタンダードプランの全機能</span></div>
+                    </div>
+                    <div class="bg-amber-50 rounded-xl p-4 mb-6">
+                        <h4 class="font-bold text-sm text-amber-700 mb-3"><i class="fa-solid fa-star text-amber-500 mr-1"></i>集客支援パッケージ</h4>
+                        <div class="space-y-2">
+                            <div class="flex items-start gap-2 py-1">
+                                <i class="fa-solid fa-plus text-amber-500 text-xs mt-1"></i>
+                                <div>
+                                    <span class="text-sm font-medium">公式LINE構築</span>
+                                    <p class="text-xs text-gray-500">リッチメニュー・自動応答・ステップ配信の初期設定</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2 py-1">
+                                <i class="fa-solid fa-plus text-amber-500 text-xs mt-1"></i>
+                                <div>
+                                    <span class="text-sm font-medium">Googleビジネスプロフィール最適化</span>
+                                    <p class="text-xs text-gray-500">MEO対策で地域検索の露出アップ</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2 py-1">
+                                <i class="fa-solid fa-plus text-amber-500 text-xs mt-1"></i>
+                                <div>
+                                    <span class="text-sm font-medium">優先サポート</span>
+                                    <p class="text-xs text-gray-500">お問い合わせに即日対応</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 mb-8">
+                        <p class="text-xs text-gray-500"><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i>公式LINE構築・GBP最適化を別々に外注すると <strong>¥60,000〜150,000</strong> 相当。プレミアムなら月額に含まれています。</p>
+                    </div>
+                    <div class="text-center">
+                        <a href="contact.html" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-lg px-8 py-4 text-base shadow-lg transition w-full">プレミアムで始める</a>
+                    </div>
                 </div>
-                <h3 class="font-bold text-sm text-gray-500 uppercase tracking-wider mb-4">含まれるもの</h3>
-                <div class="grid md:grid-cols-2 gap-x-8 gap-y-2 mb-8">
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">ブリーダー専用HP制作</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">3テーマから選べるデザイン</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">カラーカスタマイズ</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">LINE完結の更新機能</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">13ページ以上の自動生成</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">SEO対策（構造化データ等）</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">SSL証明書・HTTPS</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">CDN高速配信</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">画像最適化</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">EXIF情報自動除去</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">お知らせ・お客様の声管理</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">自動ビルド・デプロイ</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">メール・LINEサポート</span></div>
-                    <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">個人情報暗号化保護</span></div>
-                </div>
-                <div class="bg-gray-50 rounded-xl p-4 mb-8">
-                    <p class="text-sm text-gray-600"><i class="fa-solid fa-circle-info text-teal-600 mr-1"></i><strong>オプション:</strong> 独自ドメイン設定対応（ドメイン取得・維持費 年間約1,500円〜はお客様負担）</p>
-                </div>
-                <div class="text-center">
-                    <a href="contact.html" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition w-full sm:w-auto">無料で相談する</a>
-                </div>
+
+            </div>
+
+            <!-- Both plans note -->
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500"><i class="fa-solid fa-circle-info text-teal-600 mr-1"></i>両プランとも独自ドメイン設定対応（ドメイン取得・維持費込み）</p>
             </div>
         </div>
     </section>
@@ -240,11 +315,15 @@ details_animation: true
             <div class="space-y-4 fade-in">
                 <details class="bg-gray-50 rounded-xl">
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>最低利用期間中に解約した場合、料金はどうなりますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
-                    <div class="px-6 pb-6 text-sm text-gray-600">最低利用期間（6ヶ月）内に解約される場合、残存期間分の利用料をお支払いいただきます。例えば、3ヶ月目で解約の場合、残り3ヶ月分（¥59,400）がお支払い金額となります。</div>
+                    <div class="px-6 pb-6 text-sm text-gray-600">最低利用期間（6ヶ月）内に解約される場合、残存期間分の利用料をお支払いいただきます。例えば、スタンダードプランを3ヶ月目で解約の場合、残り3ヶ月分（¥59,400）がお支払い金額となります。</div>
+                </details>
+                <details class="bg-gray-50 rounded-xl">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>スタンダードとプレミアムの違いは何ですか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">スタンダードプランはHP制作・運用に必要な全機能が含まれています。プレミアムプランでは、スタンダードの全機能に加えて「公式LINEアカウント構築」「Googleビジネスプロフィール最適化」「優先サポート（即日対応）」が付きます。HPだけでなく集客導線まで一括で整えたい方におすすめです。</div>
                 </details>
                 <details class="bg-gray-50 rounded-xl">
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>追加費用が発生することはありますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
-                    <div class="px-6 pb-6 text-sm text-gray-600">月額19,800円にすべての機能が含まれています。唯一の追加費用は、独自ドメインをご利用される場合のドメイン維持費（年間約1,500円〜）のみです。独自ドメインが不要な場合は追加費用は一切発生しません。</div>
+                    <div class="px-6 pb-6 text-sm text-gray-600">各プランの月額料金にすべての機能が含まれています。追加費用は一切発生しません。</div>
                 </details>
                 <details class="bg-gray-50 rounded-xl">
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>値上げされることはありますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
