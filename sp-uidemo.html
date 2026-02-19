@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smape - LINEから10秒でHP更新</title>
+    <!-- Tailwind CSS の読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons の読み込み -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- カスタムアニメーションの定義 -->
+    <style>
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800 overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <i data-lucide="smartphone" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Smape</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#how-it-works" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors">仕組み</a>
+                    <a href="#features" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors">特徴</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors">料金</a>
+                </nav>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-slate-600 hover:text-indigo-600 font-medium transition-colors">ログイン</button>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm hover:shadow-md">
+                        無料ではじめる
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon-open" class="h-6 w-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="h-6 w-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation (初期状態は非表示) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#how-it-works" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50">仕組み</a>
+            <a href="#features" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50">特徴</a>
+            <a href="#pricing" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-indigo-50">料金</a>
+            <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                <button class="w-full text-center px-4 py-2 text-slate-600 font-medium border border-slate-300 rounded-lg">ログイン</button>
+                <button class="w-full text-center px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg">無料ではじめる</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <!-- Hero Text -->
+            <div class="flex-1 space-y-8 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#06C755]/10 text-[#06C755] text-sm font-bold">
+                    <i data-lucide="layout-template" class="w-4 h-4"></i>
+                    <span>LIFFアプリ連携でさらに便利に！</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                    LINEのメニューから、<br class="hidden md:block" />
+                    10秒でHPを更新。
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                    Webサイトの更新、面倒に感じていませんか？<br class="hidden lg:block" />
+                    Smape（スマペ）なら、LINEのメニューから専用アプリ（LIFF）を開いて情報を入力するだけ。専門知識ゼロで、子犬や子猫の情報を今すぐ発信できます。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2">
+                        無料で試してみる
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <p class="text-sm text-slate-500">※クレジットカード登録不要・1分で開始できます</p>
+            </div>
+            
+            <!-- Dynamic Hero Animation (Phone Mockup) -->
+            <div class="flex-1 relative w-full max-w-md mx-auto">
+                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-200 to-[#06C755]/30 rounded-[3rem] transform rotate-3 scale-105 opacity-50 blur-xl"></div>
+                
+                <div class="relative mx-auto w-[280px] h-[580px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-800">
+                    <!-- Notch -->
+                    <div class="absolute top-0 inset-x-0 h-6 bg-slate-900 rounded-t-[3rem] flex justify-center z-40">
+                        <div class="w-20 h-5 bg-black rounded-b-2xl mt-[-2px]"></div>
+                    </div>
+
+                    <div class="relative w-full h-full bg-white rounded-[2.25rem] overflow-hidden">
+                        
+                        <!-- 1. LINE風 UI (リッチメニュー付き) -->
+                        <div id="line-ui" class="absolute inset-0 transition-transform duration-700 ease-in-out flex flex-col z-10 translate-y-0 opacity-100 bg-[#7494C0]">
+                            <!-- LINE Header -->
+                            <div class="bg-[#06C755] text-white p-4 pt-10 flex items-center gap-3 shadow-sm z-20">
+                                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                                    <i data-lucide="bot" class="w-4 h-4"></i>
+                                </div>
+                                <span class="font-bold text-sm">ペットショップHP管理</span>
+                            </div>
+                            
+                            <!-- LINE Chat Area -->
+                            <div class="flex-1 p-4 flex flex-col justify-end gap-4 overflow-y-auto pb-6">
+                                <div class="self-start max-w-[85%] flex gap-2">
+                                    <div class="w-8 h-8 bg-[#06C755] rounded-full flex-shrink-0 flex items-center justify-center border-2 border-white shadow-sm">
+                                        <i data-lucide="bot" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-2xl rounded-tl-none text-sm text-slate-800 shadow-sm flex flex-col gap-1">
+                                        <p>下のメニューから「新しい子を登録」を選んでください🐾</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LINE Rich Menu -->
+                            <div class="bg-white border-t border-slate-200">
+                                <div class="flex justify-center py-1 border-b border-slate-100">
+                                    <span class="text-[10px] text-slate-400">メニュー ▲</span>
+                                </div>
+                                <div class="grid grid-cols-2 h-36 p-1 gap-1 bg-slate-100">
+                                    <div id="rich-menu-btn" class="bg-white rounded-lg flex flex-col items-center justify-center gap-2 border border-slate-200 shadow-sm relative overflow-hidden">
+                                        <div id="click-ripple" class="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-200"></div>
+                                        <i data-lucide="paw-print" class="w-7 h-7 text-[#06C755]"></i>
+                                        <span class="text-xs font-bold text-slate-700">新しい子を登録</span>
+                                    </div>
+                                    <div class="bg-white rounded-lg flex flex-col items-center justify-center gap-2 border border-slate-200 shadow-sm opacity-60">
+                                        <i data-lucide="list" class="w-7 h-7 text-indigo-500"></i>
+                                        <span class="text-xs font-bold text-slate-700">登録済み一覧</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. LIFFアプリ UI (入力フォーム) -->
+                        <div id="liff-ui" class="absolute inset-x-0 bottom-0 h-[88%] bg-white rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.2)] z-30 transition-transform duration-500 ease-out translate-y-full flex flex-col">
+                            <div class="flex justify-center pt-3 pb-1">
+                                <div class="w-12 h-1 bg-slate-300 rounded-full"></div>
+                            </div>
+                            <div class="px-4 py-2 border-b border-slate-100 flex justify-between items-center">
+                                <span class="font-bold text-slate-800 text-sm">新規登録フォーム</span>
+                                <i data-lucide="x" class="w-5 h-5 text-slate-400"></i>
+                            </div>
+                            <div class="p-4 flex-1 overflow-y-auto space-y-4">
+                                <!-- 写真アップロード -->
+                                <div class="border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 flex items-center justify-center relative overflow-hidden h-28">
+                                    <div id="liff-img-placeholder" class="flex flex-col items-center gap-1 text-slate-400">
+                                        <i data-lucide="camera" class="w-6 h-6"></i>
+                                        <span class="text-xs">写真をアップロード</span>
+                                    </div>
+                                    <img id="liff-img-preview" src="https://images.unsplash.com/photo-1593134257782-e89567b7718a?w=400&q=80" alt="トイプードル" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" />
+                                </div>
+                                
+                                <!-- 入力項目 -->
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="text-[10px] font-bold text-slate-500 block mb-1">種類</label>
+                                        <div id="liff-input-1" class="w-full bg-slate-100 rounded-lg p-2 text-sm text-slate-400 transition-colors h-9 flex items-center">
+                                            <span class="input-text hidden text-slate-800 font-medium">トイプードル</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="text-[10px] font-bold text-slate-500 block mb-1">性別</label>
+                                            <div id="liff-input-2" class="w-full bg-slate-100 rounded-lg p-2 text-sm text-slate-400 transition-colors h-9 flex items-center">
+                                                <span class="input-text hidden text-pink-600 font-bold">女の子 ♀</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="text-[10px] font-bold text-slate-500 block mb-1">生年月日</label>
+                                            <div id="liff-input-3" class="w-full bg-slate-100 rounded-lg p-2 text-sm text-slate-400 transition-colors h-9 flex items-center">
+                                                <span class="input-text hidden text-slate-800">2026/02/10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button id="liff-submit-btn" class="w-full bg-[#06C755] text-white font-bold py-3 rounded-xl mt-4 relative overflow-hidden shadow-md">
+                                    <span id="liff-btn-text">ウェブサイトに登録</span>
+                                    <div id="liff-btn-loading" class="absolute inset-0 bg-[#04a044] flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                        <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. ホームページ プレビュー UI -->
+                        <div id="hp-ui" class="absolute inset-0 transition-transform duration-700 ease-in-out flex flex-col bg-amber-50 z-20 translate-y-full">
+                            <!-- HP Header -->
+                            <div class="bg-white p-4 pt-10 border-b border-amber-100 flex justify-between items-center shadow-sm">
+                                <span class="font-black text-amber-800 tracking-wider">Happy Pets</span>
+                                <i data-lucide="menu" class="w-5 h-5 text-amber-600"></i>
+                            </div>
+                            
+                            <!-- HP Content -->
+                            <div class="p-4 flex-1 overflow-y-auto">
+                                <h2 class="text-sm font-bold text-amber-800 mb-3 border-b border-amber-200 pb-1 flex items-center gap-1">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>新しい家族を探す
+                                </h2>
+                                
+                                <div class="grid grid-cols-2 gap-3">
+                                    <!-- 更新された新しい記事 -->
+                                    <div id="hp-new-post" class="rounded-2xl overflow-hidden shadow-lg border-2 border-[#06C755] bg-white transform transition-all duration-700 opacity-0 translate-y-8 col-span-2 flex mb-1">
+                                        <div class="w-2/5 relative">
+                                            <img src="https://images.unsplash.com/photo-1593134257782-e89567b7718a?w=400&q=80" alt="トイプードル" class="w-full h-full object-cover" />
+                                            <div class="absolute top-0 left-0 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10">
+                                                NEW
+                                            </div>
+                                        </div>
+                                        <div class="p-3 w-3/5 flex flex-col justify-center">
+                                            <h3 class="font-bold text-slate-900 text-sm mb-1 leading-tight">トイプードル</h3>
+                                            <p class="text-[11px] text-pink-600 font-bold mb-1">女の子 ♀</p>
+                                            <p class="text-[10px] text-slate-500 mb-2">2026/02/10生まれ</p>
+                                            <div class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded w-fit border border-indigo-100">詳細を見る</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 既存の記事 -->
+                                    <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-white opacity-80 pb-2">
+                                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&q=80" alt="子猫" class="w-full h-24 object-cover" />
+                                        <div class="p-2">
+                                            <h3 class="font-bold text-slate-800 text-[11px]">マンチカン</h3>
+                                            <p class="text-[10px] text-blue-500 font-bold">男の子 ♂</p>
+                                        </div>
+                                    </div>
+                                    <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-white opacity-80 pb-2">
+                                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&q=80" alt="子犬" class="w-full h-24 object-cover" />
+                                        <div class="p-2">
+                                            <h3 class="font-bold text-slate-800 text-[11px]">チワワ</h3>
+                                            <p class="text-[10px] text-pink-500 font-bold">女の子 ♀</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- "ホームページ表示中" ツールチップ -->
+                            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-4 py-2 rounded-full flex items-center gap-2 shadow-xl whitespace-nowrap">
+                                <i data-lucide="globe" class="w-4 h-4 text-[#06C755]"></i>
+                                <span class="font-medium">Webサイトに即時反映！</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="how-it-works" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm">How it Works</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4 text-slate-900">本当にLINEから入力するだけ。</h2>
+                <p class="text-lg text-slate-600">管理画面にログインする必要すらありません。</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4 relative">
+                <!-- 隠し背景線 (PC表示時のみ) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-indigo-100 -translate-y-1/2 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 bg-white p-8 rounded-3xl shadow-lg border border-slate-100 flex-1 w-full text-center hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-[#06C755] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md rotate-3 transform">
+                        <i data-lucide="layout-grid" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-sm font-bold text-[#06C755] mb-2 tracking-widest">STEP 1</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">メニューを開く</h3>
+                    <p class="text-slate-600 text-sm">LINEトーク画面下部のメニューをタップし、専用の入力アプリ（LIFF）を開きます。</p>
+                </div>
+
+                <i data-lucide="chevron-right" class="hidden md:block w-10 h-10 text-indigo-300 relative z-10 flex-shrink-0"></i>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 bg-white p-8 rounded-3xl shadow-lg border border-slate-100 flex-1 w-full text-center hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-indigo-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md -rotate-3 transform">
+                        <i data-lucide="file-edit" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-sm font-bold text-indigo-600 mb-2 tracking-widest">STEP 2</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">情報を入力</h3>
+                    <p class="text-slate-600 text-sm">フォームに従って、写真や種類・価格などの詳細情報を入力し、登録ボタンを押します。</p>
+                </div>
+
+                <i data-lucide="chevron-right" class="hidden md:block w-10 h-10 text-indigo-300 relative z-10 flex-shrink-0"></i>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 bg-white p-8 rounded-3xl shadow-lg border border-slate-100 flex-1 w-full text-center hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-teal-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md rotate-3 transform">
+                        <i data-lucide="globe" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-sm font-bold text-teal-500 mb-2 tracking-widest">STEP 3</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">即時公開</h3>
+                    <p class="text-slate-600 text-sm">たった数秒でホームページが更新されます。新しい家族を待っているお客様に最新情報がすぐに届きます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">こんな「お悩み」ありませんか？</h2>
+                <p class="text-lg text-slate-600">ホームページの運用が、本業の負担になってはいけません。</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="monitor-off" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">PCを開く暇がない</h3>
+                    <p class="text-slate-600 text-sm">お店の営業や仕込みで忙しく、わざわざパソコンの前に座る時間が作れない。</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="settings" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">操作が難しくて放置</h3>
+                    <p class="text-slate-600 text-sm">既存のシステムは専門用語が多く、どこを触ればいいか分からず更新が止まっている。</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="clock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">業者に頼むと遅い</h3>
+                    <p class="text-slate-600 text-sm">「明日から臨時休業」など、すぐに出したい情報も制作会社を通すとタイムラグが。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-teal-400 font-bold tracking-wider uppercase text-sm">Why Smape?</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-6">Smapeが選ばれる理由</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 bg-[#06C755]/20 border border-[#06C755]/30 rounded-xl flex items-center justify-center">
+                        <i data-lucide="layout-template" class="w-7 h-7 text-[#06C755]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">LINEアプリから一発起動</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        ログインIDやパスワードを思い出す必要はありません。使い慣れたLINEアプリのメニューから専用フォームを開くだけで、すべての更新作業が完了します。
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <div class="w-14 h-14 bg-teal-500/20 border border-teal-500/30 rounded-xl flex items-center justify-center">
+                        <i data-lucide="image" class="w-7 h-7 text-teal-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">写真も自動最適化</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        フォームからスマホの写真を選ぶだけ。Smapeが自動でホームページに最適なサイズとレイアウトに調整し、可愛らしさを引き立てて掲載します。
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <div class="w-14 h-14 bg-amber-500/20 border border-amber-500/30 rounded-xl flex items-center justify-center">
+                        <i data-lucide="zap" class="w-7 h-7 text-amber-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">超高速な反映スピード</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        登録ボタンを押してから数秒で本番のホームページが書き換わります。新しい家族の情報をいち早くお客様に届け、お問い合わせの機会を逃しません。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">シンプルで分かりやすい料金体系</h2>
+                <p class="text-lg text-slate-600">隠れた費用はありません。あなたのビジネスの規模に合わせて選べます。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">スターター</h3>
+                    <p class="text-slate-500 mb-6 h-12">まずは小さく始めたい個人事業主・小規模店舗様向け</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-slate-900">¥1,980</span>
+                        <span class="text-slate-500"> / 月</span>
+                    </div>
+                    <button class="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl transition-colors mb-8">
+                        14日間無料で試す
+                    </button>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-indigo-500"></i>
+                            <span class="text-slate-700">LINEからの無制限更新</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-indigo-500"></i>
+                            <span class="text-slate-700">基本デザインテンプレート5種</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-indigo-500"></i>
+                            <span class="text-slate-700">写真アップロード（月100枚まで）</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-slate-300"></i>
+                            <span class="text-slate-400">独自ドメイン非対応</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="bg-indigo-600 border border-indigo-500 rounded-3xl p-8 shadow-xl relative transform md:-translate-y-4">
+                    <div class="absolute top-0 right-8 transform -translate-y-1/2">
+                        <span class="bg-amber-400 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            一番人気
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">プロフェッショナル</h3>
+                    <p class="text-indigo-100 mb-6 h-12">本格的に集客を強化したい店舗・企業様向け</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-extrabold text-white">¥4,980</span>
+                        <span class="text-indigo-200"> / 月</span>
+                    </div>
+                    <button class="w-full py-3 px-4 bg-white hover:bg-slate-50 text-indigo-600 font-bold rounded-xl transition-colors mb-8 shadow-sm">
+                        14日間無料で試す
+                    </button>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-teal-300"></i>
+                            <span class="text-white">LINEからの無制限更新</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-teal-300"></i>
+                            <span class="text-white">全デザインテンプレート利用可能</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-teal-300"></i>
+                            <span class="text-white">写真アップロード無制限</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-teal-300"></i>
+                            <span class="text-white">独自ドメイン接続（無料SSL込）</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-teal-300"></i>
+                            <span class="text-white">アクセス解析機能</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 text-teal-300"></i>
+                            <span class="text-white">優先メールサポート</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-indigo-600 to-teal-500 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+                今日から、LINEでホームページを育てよう。
+            </h2>
+            <p class="text-indigo-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                セットアップはたったの1分。クレジットカード情報の入力なしで、すぐにすべての機能をお試しいただけます。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    無料でアカウント作成
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="smartphone" class="text-white w-5 h-5"></i>
+                        </div>
+                        <span class="font-bold text-xl text-white">Smape</span>
+                    </div>
+                    <p class="text-sm">LINE完結のHP作成・更新サービス。</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">プロダクト</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">機能一覧</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">料金プラン</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">デザイン集</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">サポート</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">ヘルプセンター</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">よくある質問</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">会社情報</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">運営会社</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">利用規約</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                <p>&copy; 2026 Smape Inc. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <span class="cursor-pointer hover:text-white">Twitter</span>
+                    <span class="cursor-pointer hover:text-white">Instagram</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript ロジック -->
+    <script>
+        // 1. アイコンの初期化 (Lucide)
+        lucide.createIcons();
+
+        // 2. モバイルメニューの開閉制御
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+
+        // スマホメニューのリンクを押した時にメニューを閉じる
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            });
+        });
+
+        // 3. ヒーローセクションのデモアニメーション制御
+        const sequence = [
+            { step: 0, duration: 1500 }, // 初期状態（LINEメニュー）
+            { step: 1, duration: 500 },  // メニュータップ（波紋）
+            { step: 2, duration: 1000 }, // LIFF開く
+            { step: 3, duration: 1500 }, // フォーム入力（写真と文字）
+            { step: 4, duration: 1000 }, // 登録ボタンタップ（ローディング）
+            { step: 5, duration: 4000 }, // HP画面へ切り替え＆反映
+        ];
+        
+        let currentIdx = 0;
+
+        // アニメーション対象の要素を取得
+        const lineUi = document.getElementById('line-ui');
+        const liffUi = document.getElementById('liff-ui');
+        const hpUi = document.getElementById('hp-ui');
+        
+        const clickRipple = document.getElementById('click-ripple');
+        const imgPlaceholder = document.getElementById('liff-img-placeholder');
+        const imgPreview = document.getElementById('liff-img-preview');
+        const inputTexts = document.querySelectorAll('.input-text');
+        const inputs = [document.getElementById('liff-input-1'), document.getElementById('liff-input-2'), document.getElementById('liff-input-3')];
+        const btnLoading = document.getElementById('liff-btn-loading');
+        
+        const hpNewPost = document.getElementById('hp-new-post');
+
+        function updateAnimation(step) {
+            // 新しいアイコンが追加された場合に備えて再評価
+            lucide.createIcons();
+
+            // Step 0: 全てリセット（LINE画面に戻る）
+            if (step === 0) {
+                lineUi.classList.remove('-translate-y-full', 'opacity-0');
+                lineUi.classList.add('translate-y-0', 'opacity-100');
+                
+                liffUi.classList.remove('translate-y-0');
+                liffUi.classList.add('translate-y-full');
+
+                hpUi.classList.remove('translate-y-0');
+                hpUi.classList.add('translate-y-full');
+
+                clickRipple.classList.remove('opacity-20');
+                clickRipple.classList.add('opacity-0');
+
+                imgPreview.classList.remove('opacity-100');
+                imgPreview.classList.add('opacity-0');
+                imgPlaceholder.classList.remove('hidden');
+
+                inputs.forEach(el => el.classList.remove('bg-white', 'border', 'border-[#06C755]'));
+                inputTexts.forEach(el => el.classList.add('hidden'));
+
+                btnLoading.classList.remove('opacity-100');
+                btnLoading.classList.add('opacity-0');
+
+                hpNewPost.classList.remove('translate-y-0', 'opacity-100');
+                hpNewPost.classList.add('translate-y-8', 'opacity-0');
+            }
+
+            // Step 1: リッチメニュータップ
+            if (step === 1) {
+                clickRipple.classList.remove('opacity-0');
+                clickRipple.classList.add('opacity-20');
+            }
+
+            // Step 2: LIFFスライドイン
+            if (step === 2) {
+                clickRipple.classList.remove('opacity-20');
+                clickRipple.classList.add('opacity-0');
+                liffUi.classList.remove('translate-y-full');
+                liffUi.classList.add('translate-y-0');
+            }
+
+            // Step 3: フォーム入力
+            if (step === 3) {
+                imgPlaceholder.classList.add('hidden');
+                imgPreview.classList.remove('opacity-0');
+                imgPreview.classList.add('opacity-100');
+
+                inputs.forEach(el => {
+                    el.classList.add('bg-white', 'border', 'border-[#06C755]');
+                });
+                inputTexts.forEach(el => el.classList.remove('hidden'));
+            }
+
+            // Step 4: ボタンローディング
+            if (step === 4) {
+                btnLoading.classList.remove('opacity-0');
+                btnLoading.classList.add('opacity-100');
+            }
+
+            // Step 5: HP画面にスライド切り替え
+            if (step === 5) {
+                lineUi.classList.remove('translate-y-0', 'opacity-100');
+                lineUi.classList.add('-translate-y-full', 'opacity-0');
+
+                liffUi.classList.remove('translate-y-0');
+                liffUi.classList.add('translate-y-full');
+
+                hpUi.classList.remove('translate-y-full');
+                hpUi.classList.add('translate-y-0');
+
+                // 新しい記事が少し遅れてフワッと表示される演出
+                setTimeout(() => {
+                    hpNewPost.classList.remove('translate-y-8', 'opacity-0');
+                    hpNewPost.classList.add('translate-y-0', 'opacity-100');
+                }, 300);
+            }
+        }
+
+        function runSequence() {
+            updateAnimation(sequence[currentIdx].step);
+            setTimeout(() => {
+                currentIdx = (currentIdx + 1) % sequence.length;
+                runSequence();
+            }, sequence[currentIdx].duration);
+        }
+
+        // アニメーション開始
+        runSequence();
+    </script>
+</body>
+</html>
