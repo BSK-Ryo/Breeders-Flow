@@ -93,8 +93,8 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
                                         <p class="text-[7px] text-slate-500">♀ 2ヶ月</p>
                                     </div>
                                 </div>
-                                <!-- Card 3 (NEW!) -->
-                                <div class="bg-teal-50 rounded-lg overflow-hidden border-2 border-teal-400 relative">
+                                <!-- Card 3 (NEW! - animated) -->
+                                <div id="pc-new-card" class="bg-teal-50 rounded-lg overflow-hidden border-2 border-teal-400 relative opacity-0 translate-y-2 transition-all duration-700">
                                     <div class="absolute top-0 right-0 bg-red-500 text-white text-[7px] font-bold px-1.5 py-0.5 rounded-bl-lg z-10 animate-pulse">NEW</div>
                                     <div class="h-12 md:h-16 bg-teal-100 flex items-center justify-center text-xl md:text-2xl">🐩</div>
                                     <div class="p-1.5">
@@ -107,76 +107,112 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
                     </div>
 
                     <!-- Phone Mockup (Foreground, overlapping bottom-right) -->
-                    <div class="absolute -bottom-4 -right-2 md:-right-6 z-20 w-40 md:w-48 h-[340px] md:h-[380px] bg-slate-900 rounded-[2rem] border-4 border-slate-900 shadow-2xl overflow-hidden flex flex-col">
+                    <div class="absolute -bottom-4 -right-2 md:-right-6 z-20 w-44 md:w-52 h-[370px] md:h-[420px] bg-slate-900 rounded-[2rem] border-4 border-slate-900 shadow-2xl overflow-hidden">
                         <!-- Phone notch -->
-                        <div class="bg-slate-800 w-full h-5 absolute top-0 left-0 z-20 flex justify-center">
+                        <div class="bg-slate-900 w-full h-5 absolute top-0 left-0 z-40 flex justify-center">
                             <div class="w-14 h-3.5 bg-black rounded-b-lg"></div>
                         </div>
 
-                        <!-- Header Bar -->
-                        <div class="bg-slate-800 text-white pt-6 pb-1.5 px-2.5 flex items-center justify-between text-[8px] font-bold shadow-md z-10 relative">
-                            <div class="flex items-center gap-0.5"><span class="text-[7px]">&lt; 10</span></div>
-                            <div class="text-[9px]">Breeders Flow</div>
-                            <div class="flex gap-1.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
-                            </div>
-                        </div>
+                        <!-- Phone screen container -->
+                        <div class="relative w-full h-full overflow-hidden">
 
-                        <!-- Chat Area -->
-                        <div class="bg-slate-700 flex-1 overflow-hidden p-2 phone-scroll relative">
-                            <!-- User Message (short) -->
-                            <div class="flex justify-end mb-2">
-                                <div class="bg-green-500 text-white text-[7px] rounded-xl rounded-tr-none py-1.5 px-2 max-w-[85%] shadow-sm leading-relaxed">
-                                    子犬・子猫の登録・管理<br>
-                                    → リッチメニューの「動物を登録・管理」をタップ
-                                </div>
-                            </div>
-                            <div class="text-[6px] text-slate-400 text-right -mt-1 mb-2 mr-0.5">4:43</div>
-
-                            <!-- Bot Message -->
-                            <div class="flex items-start gap-1 mb-1">
-                                <div class="w-4 h-4 rounded-full bg-white flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200">
-                                    <div class="w-full h-full bg-gradient-to-br from-teal-100 to-amber-100 flex items-center justify-center text-[5px] font-bold text-teal-600">B</div>
-                                </div>
-                                <div class="bg-slate-200 text-slate-800 text-[7px] rounded-xl rounded-tl-none py-1.5 px-2 max-w-[85%] shadow-sm leading-relaxed">
-                                    POODLE-2026-002 の登録が完了しました！<br><br>
-                                    ホームページに掲載されました:<br>
-                                    <span class="text-blue-600 underline text-[6px]">https://test-kennel.breeder-flow.jp</span>
-                                </div>
-                            </div>
-                            <div class="text-[6px] text-slate-400 ml-5">5:00</div>
-                        </div>
-
-                        <!-- Rich Menu (simplified) -->
-                        <div class="bg-slate-800 border-t border-slate-900">
-                            <div class="grid grid-cols-3 h-16 border-t border-slate-600">
-                                <div class="col-span-2 bg-gradient-to-br from-teal-50 via-amber-50 to-yellow-50 relative flex flex-col items-center justify-center text-center border-r border-slate-400">
-                                    <div class="flex gap-0.5 absolute top-0.5 w-full justify-center opacity-60">
-                                        <span class="text-xs">🐱</span><span class="text-xs">🐶</span><span class="text-xs">🐱</span>
+                            <!-- LINE UI (default visible) -->
+                            <div id="phone-line-ui" class="absolute inset-0 flex flex-col transition-all duration-500 bg-[#7494C0]">
+                                <!-- LINE Header -->
+                                <div class="bg-[#06C755] text-white pt-7 pb-1.5 px-2.5 flex items-center gap-1.5 z-10 relative">
+                                    <div class="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
+                                        <i class="fa-solid fa-paw text-[5px]"></i>
                                     </div>
-                                    <p class="font-bold text-slate-800 text-[8px]">動物を登録・管理</p>
-                                    <p class="text-[6px] text-slate-600">親・子の登録はこちら！</p>
+                                    <span class="text-[8px] font-bold">Breeders Flow</span>
                                 </div>
-                                <div class="col-span-1 flex flex-col">
-                                    <div class="h-1/2 bg-slate-600 border-b border-slate-500 flex flex-col items-center justify-center text-white p-0.5">
-                                        <p class="text-[6px]">アカウント連携</p>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+
+                                <!-- Chat area -->
+                                <div class="flex-1 p-2 flex flex-col justify-end gap-2 overflow-hidden pb-2">
+                                    <div class="flex items-start gap-1">
+                                        <div class="w-4 h-4 bg-[#06C755] rounded-full flex-shrink-0 flex items-center justify-center border border-white/50">
+                                            <i class="fa-solid fa-paw text-[4px] text-white"></i>
+                                        </div>
+                                        <div class="bg-white p-1.5 rounded-lg rounded-tl-none text-[6px] text-slate-800 shadow-sm leading-relaxed">
+                                            下のメニューから<br>「新しい子を登録」を<br>選んでください🐾
+                                        </div>
                                     </div>
-                                    <div class="h-1/2 bg-slate-600 flex flex-col items-center justify-center text-white p-0.5">
-                                        <p class="text-[6px]">ヘルプ</p>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                </div>
+
+                                <!-- Rich Menu -->
+                                <div class="bg-white border-t border-slate-200">
+                                    <div class="flex justify-center py-0.5 border-b border-slate-100">
+                                        <span class="text-[5px] text-slate-400">メニュー ▲</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 h-14 p-0.5 gap-0.5 bg-slate-100">
+                                        <div id="phone-rich-menu-btn" class="bg-white rounded-md flex flex-col items-center justify-center gap-0.5 border border-slate-200 relative overflow-hidden">
+                                            <div id="phone-click-ripple" class="absolute inset-0 bg-teal-500/30 opacity-0 transition-opacity duration-200"></div>
+                                            <i class="fa-solid fa-paw text-[#06C755] text-[10px]"></i>
+                                            <span class="text-[5px] font-bold text-slate-700">新しい子を登録</span>
+                                        </div>
+                                        <div class="bg-white rounded-md flex flex-col items-center justify-center gap-0.5 border border-slate-200 opacity-60">
+                                            <i class="fa-solid fa-list text-slate-500 text-[10px]"></i>
+                                            <span class="text-[5px] font-bold text-slate-700">登録済み一覧</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="h-6 bg-slate-800 flex items-center justify-center text-slate-400">
-                                <span class="text-[8px] font-bold">メニュー ▼</span>
+
+                            <!-- LIFF Form UI (slides up over LINE) -->
+                            <div id="phone-liff-ui" class="absolute inset-x-0 bottom-0 h-[85%] bg-white rounded-t-xl shadow-[0_-5px_20px_rgba(0,0,0,0.15)] z-30 transition-transform duration-500 ease-out translate-y-full flex flex-col">
+                                <div class="flex justify-center pt-1.5 pb-0.5">
+                                    <div class="w-8 h-0.5 bg-slate-300 rounded-full"></div>
+                                </div>
+                                <div class="px-2.5 py-1 border-b border-slate-100 flex justify-between items-center">
+                                    <span class="font-bold text-slate-800 text-[7px]">新規登録フォーム</span>
+                                    <i class="fa-solid fa-xmark text-slate-400 text-[7px]"></i>
+                                </div>
+                                <div class="p-2.5 flex-1 overflow-hidden space-y-2">
+                                    <!-- Photo upload area -->
+                                    <div class="border border-dashed border-slate-200 rounded-lg bg-slate-50 flex items-center justify-center relative overflow-hidden h-16">
+                                        <div id="phone-img-placeholder" class="flex flex-col items-center gap-0.5 text-slate-400">
+                                            <i class="fa-solid fa-camera text-[10px]"></i>
+                                            <span class="text-[5px]">写真をアップロード</span>
+                                        </div>
+                                        <img id="phone-img-preview" src="https://images.unsplash.com/photo-1593134257782-e89567b7718a?w=200&q=60" alt="トイプードル" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" />
+                                    </div>
+                                    <!-- Input fields -->
+                                    <div class="space-y-1.5">
+                                        <div>
+                                            <label class="text-[5px] font-bold text-slate-500 block mb-0.5">犬種</label>
+                                            <div id="phone-input-1" class="w-full bg-slate-100 rounded p-1 text-[7px] text-slate-400 transition-colors h-5 flex items-center">
+                                                <span class="phone-input-text hidden text-slate-800 font-medium">トイプードル</span>
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-1.5">
+                                            <div>
+                                                <label class="text-[5px] font-bold text-slate-500 block mb-0.5">性別</label>
+                                                <div id="phone-input-2" class="w-full bg-slate-100 rounded p-1 text-[7px] text-slate-400 transition-colors h-5 flex items-center">
+                                                    <span class="phone-input-text hidden text-pink-600 font-bold">女の子 ♀</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="text-[5px] font-bold text-slate-500 block mb-0.5">誕生日</label>
+                                                <div id="phone-input-3" class="w-full bg-slate-100 rounded p-1 text-[7px] text-slate-400 transition-colors h-5 flex items-center">
+                                                    <span class="phone-input-text hidden text-slate-800">2026/02/10</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Submit button -->
+                                    <button class="w-full bg-[#06C755] text-white font-bold py-2 rounded-lg relative overflow-hidden text-[7px] shadow-sm mt-1">
+                                        <span id="phone-btn-text">ウェブサイトに登録</span>
+                                        <div id="phone-btn-loading" class="absolute inset-0 bg-[#04a044] flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                            <i class="fa-solid fa-spinner fa-spin text-[10px]"></i>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
+
                         </div>
                     </div>
 
                     <!-- Animation Arrow (SVG curved dashed line from phone to PC) -->
-                    <svg class="absolute bottom-24 right-28 md:bottom-28 md:right-32 z-20 w-20 h-20 md:w-24 md:h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="absolute bottom-28 right-32 md:bottom-32 md:right-36 z-20 w-20 h-20 md:w-24 md:h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M 85 90 C 65 55, 35 45, 15 15" stroke="#14b8a6" stroke-width="2.5" stroke-dasharray="6 4" fill="none" stroke-linecap="round">
                             <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.5s" repeatCount="indefinite"/>
                         </path>
@@ -184,7 +220,7 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
                     </svg>
 
                     <!-- 即時反映 Badge -->
-                    <div class="absolute bottom-36 right-16 md:bottom-44 md:right-20 z-30 animate-bounce" style="animation-duration: 3s;">
+                    <div class="absolute bottom-40 right-20 md:bottom-48 md:right-24 z-30 animate-bounce" style="animation-duration: 3s;">
                         <div class="bg-gradient-to-r from-teal-500 to-amber-500 text-white font-bold text-[10px] md:text-xs px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg whitespace-nowrap">
                             <i class="fa-solid fa-bolt mr-1"></i>LINEで更新 → HP即時反映！
                         </div>
@@ -194,6 +230,85 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
             </div>
         </div>
     </section>
+
+    <!-- Hero Animation Script -->
+    <script>
+    (function() {
+        var liffUi = document.getElementById('phone-liff-ui');
+        var clickRipple = document.getElementById('phone-click-ripple');
+        var imgPlaceholder = document.getElementById('phone-img-placeholder');
+        var imgPreview = document.getElementById('phone-img-preview');
+        var phoneInputTexts = document.querySelectorAll('.phone-input-text');
+        var phoneInputs = [document.getElementById('phone-input-1'), document.getElementById('phone-input-2'), document.getElementById('phone-input-3')];
+        var btnLoading = document.getElementById('phone-btn-loading');
+        var pcNewCard = document.getElementById('pc-new-card');
+
+        if (!liffUi || !pcNewCard) return;
+
+        var sequence = [
+            { step: 0, duration: 2000 },
+            { step: 1, duration: 600 },
+            { step: 2, duration: 2000 },
+            { step: 3, duration: 2500 },
+            { step: 4, duration: 3000 }
+        ];
+
+        var currentIdx = 0;
+
+        function updateAnimation(step) {
+            if (step === 0) {
+                liffUi.classList.remove('translate-y-0');
+                liffUi.classList.add('translate-y-full');
+                clickRipple.classList.remove('opacity-100');
+                clickRipple.classList.add('opacity-0');
+                imgPreview.classList.remove('opacity-100');
+                imgPreview.classList.add('opacity-0');
+                imgPlaceholder.classList.remove('hidden');
+                phoneInputs.forEach(function(el) { el.classList.remove('bg-white', 'border', 'border-teal-400'); });
+                phoneInputTexts.forEach(function(el) { el.classList.add('hidden'); });
+                btnLoading.classList.remove('opacity-100');
+                btnLoading.classList.add('opacity-0');
+                pcNewCard.classList.remove('opacity-100', 'translate-y-0');
+                pcNewCard.classList.add('opacity-0', 'translate-y-2');
+            }
+            if (step === 1) {
+                clickRipple.classList.remove('opacity-0');
+                clickRipple.classList.add('opacity-100');
+            }
+            if (step === 2) {
+                clickRipple.classList.remove('opacity-100');
+                clickRipple.classList.add('opacity-0');
+                liffUi.classList.remove('translate-y-full');
+                liffUi.classList.add('translate-y-0');
+                setTimeout(function() {
+                    imgPlaceholder.classList.add('hidden');
+                    imgPreview.classList.remove('opacity-0');
+                    imgPreview.classList.add('opacity-100');
+                    phoneInputs.forEach(function(el) { el.classList.add('bg-white', 'border', 'border-teal-400'); });
+                    phoneInputTexts.forEach(function(el) { el.classList.remove('hidden'); });
+                }, 500);
+            }
+            if (step === 3) {
+                btnLoading.classList.remove('opacity-0');
+                btnLoading.classList.add('opacity-100');
+                setTimeout(function() {
+                    pcNewCard.classList.remove('opacity-0', 'translate-y-2');
+                    pcNewCard.classList.add('opacity-100', 'translate-y-0');
+                }, 800);
+            }
+        }
+
+        function runSequence() {
+            updateAnimation(sequence[currentIdx].step);
+            setTimeout(function() {
+                currentIdx = (currentIdx + 1) % sequence.length;
+                runSequence();
+            }, sequence[currentIdx].duration);
+        }
+
+        runSequence();
+    })();
+    </script>
 
     <!-- Problems / Pain Points Section -->
     <section class="py-20 bg-slate-50 relative overflow-hidden">
