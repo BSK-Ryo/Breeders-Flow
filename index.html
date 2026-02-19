@@ -5,7 +5,7 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
 ---
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-b from-teal-50 to-white overflow-hidden relative">
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-b from-teal-50 to-white overflow-x-clip relative">
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2 space-y-6">
@@ -36,122 +36,160 @@ description: "LINEでかんたん更新。ポータルサイトに頼らない�
                         ※初期費用0円キャンペーン実施中
                     </p>
                 </div>
-                <div class="md:w-1/2 relative">
-                    <div class="relative z-10 mx-auto w-64 md:w-80 h-[550px] bg-slate-900 rounded-[3rem] border-8 border-slate-900 shadow-2xl overflow-hidden flex flex-col">
-                        <div class="bg-slate-800 w-full h-8 absolute top-0 left-0 z-20 flex justify-center">
-                            <div class="w-24 h-5 bg-black rounded-b-xl"></div>
+                <div class="md:w-1/2 relative pb-16 md:pb-12">
+
+                    <!-- PC Screen Mockup (Background) -->
+                    <div class="relative z-10 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden max-w-md mx-auto md:mx-0">
+                        <!-- Browser Bar -->
+                        <div class="bg-slate-800 text-white px-3 py-2 flex items-center gap-2.5">
+                            <div class="flex gap-1.5">
+                                <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                                <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+                                <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="flex-1 bg-slate-700 rounded-md px-2.5 py-1 text-[10px] text-slate-300 flex items-center gap-1">
+                                <i class="fa-solid fa-lock text-green-400 text-[8px]"></i>
+                                test-kennel.breeder-flow.jp
+                            </div>
                         </div>
 
-                        <!-- Simulated Phone Screen -->
+                        <!-- Site Header -->
+                        <div class="bg-white border-b border-slate-100 px-4 py-2 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 bg-gradient-to-br from-teal-400 to-amber-400 rounded-full flex items-center justify-center text-white text-[8px] font-bold">T</div>
+                                <span class="text-xs font-bold text-slate-800">テストケンネル</span>
+                            </div>
+                            <div class="hidden sm:flex gap-3 text-[9px] text-slate-500">
+                                <span class="text-teal-600 font-bold">ホーム</span>
+                                <span>子犬紹介</span>
+                                <span>ブリーダー紹介</span>
+                                <span>お問い合わせ</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini Hero Banner -->
+                        <div class="bg-gradient-to-r from-teal-50 to-amber-50 px-4 py-4 text-center">
+                            <p class="text-xs md:text-sm font-bold text-slate-800 mb-1">家族になる子犬をお探しですか？</p>
+                            <p class="text-[9px] text-slate-500">テストケンネルは心身ともに健康な子犬をお届けします</p>
+                        </div>
+
+                        <!-- Puppy Cards Section -->
+                        <div class="px-4 py-3 bg-white">
+                            <p class="text-[10px] font-bold text-slate-700 mb-2"><i class="fa-solid fa-paw text-teal-500 mr-1"></i>子犬一覧</p>
+                            <div class="grid grid-cols-3 gap-2">
+                                <!-- Card 1 -->
+                                <div class="bg-slate-50 rounded-lg overflow-hidden border border-slate-100">
+                                    <div class="h-12 md:h-16 bg-amber-100 flex items-center justify-center text-xl md:text-2xl">🐩</div>
+                                    <div class="p-1.5">
+                                        <p class="text-[8px] font-bold text-slate-700 truncate">トイプードル</p>
+                                        <p class="text-[7px] text-slate-500">♂ 3ヶ月</p>
+                                    </div>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="bg-slate-50 rounded-lg overflow-hidden border border-slate-100">
+                                    <div class="h-12 md:h-16 bg-orange-100 flex items-center justify-center text-xl md:text-2xl">🐕</div>
+                                    <div class="p-1.5">
+                                        <p class="text-[8px] font-bold text-slate-700 truncate">柴犬</p>
+                                        <p class="text-[7px] text-slate-500">♀ 2ヶ月</p>
+                                    </div>
+                                </div>
+                                <!-- Card 3 (NEW!) -->
+                                <div class="bg-teal-50 rounded-lg overflow-hidden border-2 border-teal-400 relative">
+                                    <div class="absolute top-0 right-0 bg-red-500 text-white text-[7px] font-bold px-1.5 py-0.5 rounded-bl-lg z-10 animate-pulse">NEW</div>
+                                    <div class="h-12 md:h-16 bg-teal-100 flex items-center justify-center text-xl md:text-2xl">🐩</div>
+                                    <div class="p-1.5">
+                                        <p class="text-[8px] font-bold text-teal-700 truncate">トイプードル</p>
+                                        <p class="text-[7px] text-teal-600">♂ 1ヶ月</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Mockup (Foreground, overlapping bottom-right) -->
+                    <div class="absolute -bottom-4 -right-2 md:-right-6 z-20 w-40 md:w-48 h-[340px] md:h-[380px] bg-slate-900 rounded-[2rem] border-4 border-slate-900 shadow-2xl overflow-hidden flex flex-col">
+                        <!-- Phone notch -->
+                        <div class="bg-slate-800 w-full h-5 absolute top-0 left-0 z-20 flex justify-center">
+                            <div class="w-14 h-3.5 bg-black rounded-b-lg"></div>
+                        </div>
+
                         <!-- Header Bar -->
-                        <div class="bg-slate-800 text-white pt-10 pb-2 px-4 flex items-center justify-between text-sm font-bold shadow-md z-10 relative">
-                            <div class="flex items-center gap-1"><span class="text-xs">&lt; 10</span></div>
-                            <div>Breeders Flow</div>
-                            <div class="flex gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+                        <div class="bg-slate-800 text-white pt-6 pb-1.5 px-2.5 flex items-center justify-between text-[8px] font-bold shadow-md z-10 relative">
+                            <div class="flex items-center gap-0.5"><span class="text-[7px]">&lt; 10</span></div>
+                            <div class="text-[9px]">Breeders Flow</div>
+                            <div class="flex gap-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
                             </div>
                         </div>
 
                         <!-- Chat Area -->
-                        <div class="bg-slate-700 flex-1 overflow-y-auto p-4 phone-scroll relative">
-                            <!-- User Message -->
-                            <div class="flex justify-end mb-4">
-                                <div class="bg-green-500 text-white text-[10px] rounded-2xl rounded-tr-none py-2 px-3 max-w-[85%] shadow-sm leading-relaxed">
-                                    1. アカウント連携<br>
-                                    → 登録済みメールアドレスを送信<br><br>
-                                    2. 子犬・子猫の登録・管理<br>
-                                    → リッチメニューの「動物を登録・管理」をタップ<br><br>
-                                    3. 登録した情報は自動でホームページに掲載されます
+                        <div class="bg-slate-700 flex-1 overflow-hidden p-2 phone-scroll relative">
+                            <!-- User Message (short) -->
+                            <div class="flex justify-end mb-2">
+                                <div class="bg-green-500 text-white text-[7px] rounded-xl rounded-tr-none py-1.5 px-2 max-w-[85%] shadow-sm leading-relaxed">
+                                    子犬・子猫の登録・管理<br>
+                                    → リッチメニューの「動物を登録・管理」をタップ
                                 </div>
                             </div>
-                            <div class="text-[9px] text-slate-400 text-right -mt-3 mb-4 mr-1">4:43</div>
+                            <div class="text-[6px] text-slate-400 text-right -mt-1 mb-2 mr-0.5">4:43</div>
 
                             <!-- Bot Message -->
-                            <div class="flex items-start gap-2 mb-2">
-                                <div class="w-8 h-8 rounded-full bg-white flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200">
-                                   <div class="w-full h-full bg-gradient-to-br from-teal-100 to-amber-100 flex items-center justify-center text-[8px] font-bold text-teal-600">B</div>
+                            <div class="flex items-start gap-1 mb-1">
+                                <div class="w-4 h-4 rounded-full bg-white flex-shrink-0 flex items-center justify-center overflow-hidden border border-slate-200">
+                                    <div class="w-full h-full bg-gradient-to-br from-teal-100 to-amber-100 flex items-center justify-center text-[5px] font-bold text-teal-600">B</div>
                                 </div>
-                                <div class="bg-slate-200 text-slate-800 text-[10px] rounded-2xl rounded-tl-none py-2 px-3 max-w-[85%] shadow-sm">
+                                <div class="bg-slate-200 text-slate-800 text-[7px] rounded-xl rounded-tl-none py-1.5 px-2 max-w-[85%] shadow-sm leading-relaxed">
                                     POODLE-2026-002 の登録が完了しました！<br><br>
                                     ホームページに掲載されました:<br>
-                                    <span class="text-blue-600 underline cursor-pointer">https://breeder-flow.example.com</span>
-
-                                    <!-- Link Card Preview -->
-                                    <div class="mt-2 bg-slate-100 border-l-4 border-slate-400 p-2 flex gap-2 rounded-sm">
-                                        <div class="flex-1 overflow-hidden">
-                                            <div class="font-bold truncate text-slate-700">テストケンネル | ブリー...</div>
-                                            <div class="text-[8px] text-slate-500 line-clamp-2">田中 太郎が運営するテストケンネルは東京都渋谷区のブ...</div>
-                                        </div>
-                                        <div class="w-10 h-10 bg-slate-300 rounded overflow-hidden flex-shrink-0">
-                                            <img src="https://placehold.co/100x100?text=Dog" alt="dog" class="w-full h-full object-cover">
-                                        </div>
-                                    </div>
+                                    <span class="text-blue-600 underline text-[6px]">https://test-kennel.breeder-flow.jp</span>
                                 </div>
                             </div>
-                            <div class="text-[9px] text-slate-400 ml-10">5:00</div>
+                            <div class="text-[6px] text-slate-400 ml-5">5:00</div>
                         </div>
 
-                        <!-- Rich Menu Area -->
+                        <!-- Rich Menu (simplified) -->
                         <div class="bg-slate-800 border-t border-slate-900">
-                            <div class="grid grid-cols-3 h-36 border-t border-slate-600">
-                                <!-- Big Button Left -->
-                                <div class="col-span-2 bg-gradient-to-br from-teal-50 via-amber-50 to-yellow-50 relative p-2 flex flex-col items-center justify-center text-center border-r border-slate-400 cursor-pointer hover:opacity-90 transition-opacity">
-                                    <div class="flex gap-1 absolute top-1 w-full justify-center opacity-60">
-                                         <span class="text-xl">🐱</span><span class="text-xl">🐶</span><span class="text-xl">🐱</span>
+                            <div class="grid grid-cols-3 h-16 border-t border-slate-600">
+                                <div class="col-span-2 bg-gradient-to-br from-teal-50 via-amber-50 to-yellow-50 relative flex flex-col items-center justify-center text-center border-r border-slate-400">
+                                    <div class="flex gap-0.5 absolute top-0.5 w-full justify-center opacity-60">
+                                        <span class="text-xs">🐱</span><span class="text-xs">🐶</span><span class="text-xs">🐱</span>
                                     </div>
-                                    <div class="z-10 mt-2">
-                                        <p class="font-bold text-slate-800 text-sm mb-1">動物を登録・管理</p>
-                                        <p class="text-[9px] text-slate-600 font-medium">親・子ども達の登録はこちらから！</p>
-                                    </div>
-                                    <div class="flex gap-1 absolute bottom-1 w-full justify-center opacity-60">
-                                        <span class="text-xl">🐶</span><span class="text-xl">🐱</span><span class="text-xl">🐶</span>
-                                    </div>
+                                    <p class="font-bold text-slate-800 text-[8px]">動物を登録・管理</p>
+                                    <p class="text-[6px] text-slate-600">親・子の登録はこちら！</p>
                                 </div>
-
-                                <!-- Right Column Buttons -->
                                 <div class="col-span-1 flex flex-col">
-                                    <div class="h-1/2 bg-slate-600 border-b border-slate-500 flex flex-col items-center justify-center text-white cursor-pointer hover:bg-slate-500 transition-colors p-1">
-                                        <p class="text-[9px] mb-1">アカウント連携</p>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    <div class="h-1/2 bg-slate-600 border-b border-slate-500 flex flex-col items-center justify-center text-white p-0.5">
+                                        <p class="text-[6px]">アカウント連携</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                                     </div>
-                                    <div class="h-1/2 bg-slate-600 flex flex-col items-center justify-center text-white cursor-pointer hover:bg-slate-500 transition-colors p-1">
-                                        <p class="text-[9px] mb-1">ヘルプ/使い方</p>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                                    <div class="h-1/2 bg-slate-600 flex flex-col items-center justify-center text-white p-0.5">
+                                        <p class="text-[6px]">ヘルプ</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                                     </div>
                                 </div>
                             </div>
-                            <div class="h-10 bg-slate-800 flex items-center justify-between px-4 text-slate-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="6" rx="2" ry="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
-                                <span class="text-xs font-bold">メニュー ▼</span>
+                            <div class="h-6 bg-slate-800 flex items-center justify-center text-slate-400">
+                                <span class="text-[8px] font-bold">メニュー ▼</span>
                             </div>
                         </div>
-
                     </div>
 
-                    <!-- Decorative Elements -->
-                    <div class="absolute top-20 -right-10 md:-right-20 bg-white p-4 rounded-xl shadow-lg animate-bounce duration-3000" style="animation-duration: 3s;">
-                        <div class="flex items-center gap-3">
-                            <div class="p-2 bg-green-100 text-green-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-sm">LINEで完結</p>
-                                <p class="text-xs text-slate-500">PC操作不要</p>
-                            </div>
+                    <!-- Animation Arrow (SVG curved dashed line from phone to PC) -->
+                    <svg class="absolute bottom-24 right-28 md:bottom-28 md:right-32 z-20 w-20 h-20 md:w-24 md:h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 85 90 C 65 55, 35 45, 15 15" stroke="#14b8a6" stroke-width="2.5" stroke-dasharray="6 4" fill="none" stroke-linecap="round">
+                            <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.5s" repeatCount="indefinite"/>
+                        </path>
+                        <polygon points="12,15 20,10 18,22" fill="#14b8a6"/>
+                    </svg>
+
+                    <!-- 即時反映 Badge -->
+                    <div class="absolute bottom-36 right-16 md:bottom-44 md:right-20 z-30 animate-bounce" style="animation-duration: 3s;">
+                        <div class="bg-gradient-to-r from-teal-500 to-amber-500 text-white font-bold text-[10px] md:text-xs px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg whitespace-nowrap">
+                            <i class="fa-solid fa-bolt mr-1"></i>LINEで更新 → HP即時反映！
                         </div>
                     </div>
-                    <div class="absolute bottom-40 -left-10 md:-left-20 bg-white p-4 rounded-xl shadow-lg">
-                        <div class="flex items-center gap-3">
-                            <div class="p-2 bg-blue-100 text-blue-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-sm">24時間365日即時反映</p>
-                                <p class="text-xs text-slate-500">リアルタイム更新</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
