@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "HP乗り換え | Breeder Flow"
-description: "制作会社のHPから乗り換えで年間24万円以上のコスト削減。ドメイン移管・SEO引き継ぎも安心サポート。"
+description: "制作会社からの乗り換えも、自作HPからのステップアップも。年間40万円以上のコスト削減。ドメイン移管・SEO引き継ぎも安心サポート。"
 nav_active: migration
 fade_in: true
 details_animation: true
@@ -10,19 +10,25 @@ details_animation: true
     <!-- 1. Hero -->
     <section class="bg-gradient-to-b from-teal-50 to-white py-20 md:py-28">
         <div class="max-w-5xl mx-auto px-4 text-center fade-in">
-            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">今のホームページ、<br>月いくら払っていますか？</h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-8">制作会社に月5万円以上。更新は電話で依頼して数日待ち。<br class="hidden md:block">そんな「当たり前」を変える時が来ました。</p>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">そのHP運用、<br>もっとラクに、もっとプロに。</h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8">制作会社からの乗り換えも、自作HPからのステップアップも。<br class="hidden md:block">Breeder Flowなら、LINEだけでプロ品質のHPを運用できます。</p>
             <a href="contact.html" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">無料で移行相談する</a>
         </div>
     </section>
 
-    <!-- 2. Pain Points -->
+    <!-- 2. Pain Points (Tab Switching) -->
     <section class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-12 fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">こんなことに困っていませんか？</h2>
+            <div class="text-center mb-8 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6">こんなことに困っていませんか？</h2>
+                <!-- Tab Buttons -->
+                <div class="inline-flex bg-gray-100 rounded-full p-1">
+                    <button onclick="switchTab('agency')" id="tab-agency" class="px-6 py-2.5 rounded-full text-sm font-bold transition-all bg-teal-600 text-white shadow-sm">制作会社に依頼している方</button>
+                    <button onclick="switchTab('diy')" id="tab-diy" class="px-6 py-2.5 rounded-full text-sm font-bold transition-all text-gray-500 hover:text-gray-700">自分でHPを作っている方</button>
+                </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 fade-in">
+            <!-- Agency Pain Points -->
+            <div id="pain-agency" class="grid md:grid-cols-3 gap-8 fade-in">
                 <div class="border border-red-200 rounded-xl p-8 text-center bg-red-50">
                     <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-yen-sign text-red-500 text-xl"></i></div>
                     <h3 class="font-bold mb-3 text-red-700">高すぎる維持費</h3>
@@ -39,37 +45,115 @@ details_animation: true
                     <p class="text-sm text-gray-600">検索しても出てこない。SEO対策は「別料金」と言われ、追加コストが発生します。</p>
                 </div>
             </div>
+            <!-- DIY Pain Points -->
+            <div id="pain-diy" class="grid md:grid-cols-3 gap-8 fade-in hidden">
+                <div class="border border-red-200 rounded-xl p-8 text-center bg-red-50">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-hourglass-half text-red-500 text-xl"></i></div>
+                    <h3 class="font-bold mb-3 text-red-700">HP更新に何時間かけていますか？</h3>
+                    <p class="text-sm text-gray-600">写真のリサイズ、HTMLの編集、FTPアップロード…。その時間、子犬たちと過ごしませんか？</p>
+                </div>
+                <div class="border border-red-200 rounded-xl p-8 text-center bg-red-50">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-palette text-red-500 text-xl"></i></div>
+                    <h3 class="font-bold mb-3 text-red-700">「素人っぽい」と思われていませんか？</h3>
+                    <p class="text-sm text-gray-600">手作りHPは、どうしてもデザインに限界が。プロ品質のデザインは、お客様の第一印象と信頼感を大きく変えます。</p>
+                </div>
+                <div class="border border-red-200 rounded-xl p-8 text-center bg-red-50">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-magnifying-glass text-red-500 text-xl"></i></div>
+                    <h3 class="font-bold mb-3 text-red-700">検索しても出てこない…</h3>
+                    <p class="text-sm text-gray-600">SEO対策には専門知識が必要。構造化データ・メタタグ・サイトマップなど、Breeder Flowなら全て標準搭載。</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 3. Comparison Table -->
+    <script>
+    function switchTab(tab) {
+        const agencyBtn = document.getElementById('tab-agency');
+        const diyBtn = document.getElementById('tab-diy');
+        const agencyContent = document.getElementById('pain-agency');
+        const diyContent = document.getElementById('pain-diy');
+        const agencyTable = document.getElementById('table-agency');
+        const diyTable = document.getElementById('table-diy');
+        if (tab === 'agency') {
+            agencyBtn.classList.add('bg-teal-600', 'text-white', 'shadow-sm');
+            agencyBtn.classList.remove('text-gray-500');
+            diyBtn.classList.remove('bg-teal-600', 'text-white', 'shadow-sm');
+            diyBtn.classList.add('text-gray-500');
+            agencyContent.classList.remove('hidden');
+            diyContent.classList.add('hidden');
+            if (agencyTable) agencyTable.classList.remove('hidden');
+            if (diyTable) diyTable.classList.add('hidden');
+        } else {
+            diyBtn.classList.add('bg-teal-600', 'text-white', 'shadow-sm');
+            diyBtn.classList.remove('text-gray-500');
+            agencyBtn.classList.remove('bg-teal-600', 'text-white', 'shadow-sm');
+            agencyBtn.classList.add('text-gray-500');
+            diyContent.classList.remove('hidden');
+            agencyContent.classList.add('hidden');
+            if (diyTable) diyTable.classList.remove('hidden');
+            if (agencyTable) agencyTable.classList.add('hidden');
+        }
+    }
+    </script>
+
+    <!-- 3. Comparison Tables (Agency / DIY) -->
     <section class="py-20 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-12 fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">制作会社との徹底比較</h2>
-                <p class="text-gray-600">同じ品質のHPを、圧倒的なコストパフォーマンスで提供します。</p>
+            <!-- Agency Comparison Table -->
+            <div id="table-agency" class="fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">制作会社との徹底比較</h2>
+                    <p class="text-gray-600">同じ品質のHPを、圧倒的なコストパフォーマンスで提供します。</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[500px] text-sm border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="p-4 text-left border-b-2 border-gray-200 w-1/3"></th>
+                                <th class="p-4 text-center border-b-2 border-gray-200 text-gray-500">一般的な制作会社</th>
+                                <th class="p-4 text-center border-b-2 bg-teal-600 text-white rounded-t-lg font-bold">Breeder Flow</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">初期費用</td><td class="p-4 text-center text-gray-500">30万〜100万円</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">0円</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">月額費用</td><td class="p-4 text-center text-gray-500">3万〜10万円</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">19,800円<br><span class="text-xs text-amber-600 font-bold">6ヶ月目〜14,800円</span></td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">年間コスト（月5万の場合）</td><td class="p-4 text-center text-gray-500">約60万円</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">約20万円</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">更新方法</td><td class="p-4 text-center text-gray-500">メール・電話で依頼</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">LINEで即時</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">更新反映時間</td><td class="p-4 text-center text-gray-500">数日〜1週間</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">数秒</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">自分で更新</td><td class="p-4 text-center text-gray-500">PC操作必要/不可</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">スマホLINEのみ</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">SEO対策</td><td class="p-4 text-center text-gray-500">追加費用（月1〜5万円）</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">標準搭載（追加費用なし）</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">SSL証明書</td><td class="p-4 text-center text-gray-500">追加費用の場合あり</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">標準搭載</td></tr>
+                            <tr><td class="p-4 font-medium">セキュリティ</td><td class="p-4 text-center text-gray-500">業者による</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">AES-256暗号化・EXIF除去</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="overflow-x-auto fade-in">
-                <table class="w-full min-w-[500px] text-sm border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="p-4 text-left border-b-2 border-gray-200 w-1/3"></th>
-                            <th class="p-4 text-center border-b-2 border-gray-200 text-gray-500">一般的な制作会社</th>
-                            <th class="p-4 text-center border-b-2 bg-teal-600 text-white rounded-t-lg font-bold">Breeder Flow</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">初期費用</td><td class="p-4 text-center text-gray-500">30万〜100万円</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">0円</td></tr>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">月額費用</td><td class="p-4 text-center text-gray-500">3万〜10万円</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">19,800円（税込）</td></tr>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">年間コスト（月5万の場合）</td><td class="p-4 text-center text-gray-500">約60万円</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">約23.8万円</td></tr>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">更新方法</td><td class="p-4 text-center text-gray-500">メール・電話で依頼</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">LINEで即時</td></tr>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">更新反映時間</td><td class="p-4 text-center text-gray-500">数日〜1週間</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">数秒</td></tr>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">自分で更新</td><td class="p-4 text-center text-gray-500">PC操作必要/不可</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">スマホLINEのみ</td></tr>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">SEO対策</td><td class="p-4 text-center text-gray-500">追加費用（月1〜5万円）</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">標準搭載（追加費用なし）</td></tr>
-                        <tr class="border-b border-gray-100"><td class="p-4 font-medium">SSL証明書</td><td class="p-4 text-center text-gray-500">追加費用の場合あり</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">標準搭載</td></tr>
-                        <tr><td class="p-4 font-medium">セキュリティ</td><td class="p-4 text-center text-gray-500">業者による</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">AES-256暗号化・EXIF除去</td></tr>
-                    </tbody>
-                </table>
+            <!-- DIY Comparison Table -->
+            <div id="table-diy" class="fade-in hidden">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">自作HPとの比較</h2>
+                    <p class="text-gray-600">あなたの「時間」も含めたトータルコストで比較してみませんか？</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[500px] text-sm border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="p-4 text-left border-b-2 border-gray-200 w-1/3"></th>
+                                <th class="p-4 text-center border-b-2 border-gray-200 text-gray-500">自作HP</th>
+                                <th class="p-4 text-center border-b-2 bg-teal-600 text-white rounded-t-lg font-bold">Breeder Flow</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">更新にかかる時間</td><td class="p-4 text-center text-gray-500">30分〜数時間/回</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">数秒（LINEで送るだけ）</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">デザイン品質</td><td class="p-4 text-center text-gray-500">スキル次第</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">プロ品質3テーマ</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">スマホ対応</td><td class="p-4 text-center text-gray-500">自分で対応が必要</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">完全レスポンシブ対応</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">SEO対策</td><td class="p-4 text-center text-gray-500">自分で設定（専門知識必要）</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">標準搭載</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">SSL/セキュリティ</td><td class="p-4 text-center text-gray-500">自己管理</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">AES-256暗号化・自動管理</td></tr>
+                            <tr class="border-b border-gray-100"><td class="p-4 font-medium">ドメイン・サーバー</td><td class="p-4 text-center text-gray-500">自分で契約・管理</td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">全て込み</td></tr>
+                            <tr><td class="p-4 font-medium">月額コスト</td><td class="p-4 text-center text-gray-500">1,000〜3,000円<br><span class="text-xs">+ あなたの時間</span></td><td class="p-4 text-center font-bold text-teal-600 bg-teal-50">19,800円<br><span class="text-xs text-amber-600 font-bold">6ヶ月目〜14,800円（全部込み）</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
@@ -78,9 +162,79 @@ details_animation: true
     <section class="py-16 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 text-center fade-in">
             <p class="text-slate-300 text-lg mb-2">制作会社から乗り換えた場合</p>
-            <p class="text-5xl md:text-6xl font-bold text-white mb-2">年間<span class="text-amber-400">¥360,000</span>以上</p>
+            <p class="text-5xl md:text-6xl font-bold text-white mb-2">年間<span class="text-amber-400">¥400,000</span>以上</p>
             <p class="text-xl text-slate-300">のコスト削減</p>
-            <p class="text-sm text-slate-400 mt-4">※月額5万円の制作会社からの乗り換えの場合の概算</p>
+            <p class="text-sm text-slate-400 mt-4">※月額5万円の制作会社からの乗り換え（1年目）の場合の概算</p>
+        </div>
+    </section>
+
+    <!-- 4.5. Time Value (DIY appeal) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">あなたの時間、いくらですか？</h2>
+                <p class="text-gray-600">自作HPにかけている時間を、金額に換算してみませんか？</p>
+            </div>
+            <div class="fade-in">
+                <div class="bg-gray-50 rounded-2xl p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <!-- Left: Time Cost Calculation -->
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-red-600"><i class="fa-solid fa-calculator mr-2"></i>自作HPの隠れたコスト</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                    <span class="text-sm text-gray-600">HP更新 週3時間 × 月4回</span>
+                                    <span class="font-bold">月12時間</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                    <span class="text-sm text-gray-600">時給換算（1,500円/時）</span>
+                                    <span class="font-bold text-red-600 text-lg">月18,000円相当</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                                    <span class="text-sm text-gray-600">サーバー・ドメイン費</span>
+                                    <span class="font-bold">月1,000〜3,000円</span>
+                                </div>
+                                <div class="flex justify-between items-center pt-2">
+                                    <span class="font-bold">実質月額コスト</span>
+                                    <span class="font-bold text-red-600 text-xl">約20,000円</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right: Breeder Flow Solution -->
+                        <div class="bg-teal-50 rounded-xl p-6 border-2 border-teal-200">
+                            <h3 class="font-bold text-lg mb-4 text-teal-700"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Breeder Flowなら</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-clock text-sm"></i></div>
+                                    <div>
+                                        <p class="font-bold text-sm">月の作業時間</p>
+                                        <p class="text-teal-700 font-bold text-lg">約30分</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-yen-sign text-sm"></i></div>
+                                    <div>
+                                        <p class="font-bold text-sm">月額費用（6ヶ月目以降）</p>
+                                        <p class="text-teal-700 font-bold text-lg">14,800円（全部込み）</p>
+                                    </div>
+                                </div>
+                                <div class="border-t border-teal-300 pt-4">
+                                    <p class="text-sm text-gray-600 mb-2">浮いた時間でできること:</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-white text-teal-700 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-200">子犬のお世話</span>
+                                        <span class="bg-white text-teal-700 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-200">お客様対応</span>
+                                        <span class="bg-white text-teal-700 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-200">繁殖計画</span>
+                                        <span class="bg-white text-teal-700 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-200">家族の時間</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <p class="text-gray-700 font-bold text-lg">ブリーダーさんの本業は、子犬を大切に育てること。<br class="hidden md:block">HP管理はBreeder Flowにお任せください。</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -183,6 +337,18 @@ details_animation: true
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>今のサイトのコンテンツ（写真・テキスト）は引き継げますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
                     <div class="px-6 pb-6 text-sm text-gray-600">はい、テキスト・画像とも移行可能です。既存サイトからコンテンツを取得し、新しいテーマのデザインに合わせて配置します。</div>
                 </details>
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>自作HPからでも乗り換えできますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、もちろん可能です。WordPress、Wix、Jimdo、手書きHTMLなど、どんな形式の自作HPからでも移行できます。既存コンテンツの移行もサポートいたします。</div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>自作HPのドメインはそのまま使えますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、お持ちの独自ドメインをそのまま引き継げます。新しいドメインで始めることも可能です。ドメイン移管の手続きもサポートいたします。</div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>パソコンが苦手でも使えますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、LINEで写真と情報を送るだけなので、スマホ操作ができれば問題ありません。HTMLやCSSの知識は一切不要です。初期設定やテーマ選びもサポートいたします。</div>
+                </details>
             </div>
         </div>
     </section>
@@ -190,8 +356,8 @@ details_animation: true
     <!-- 9. CTA -->
     <section class="py-20 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 text-center fade-in">
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">制作会社に払い続けるのは、<br>もうやめませんか？</h2>
-            <p class="text-slate-300 mb-8">まずは無料でご相談ください。しつこい営業は一切いたしません。</p>
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">HP運用のストレスから、<br>解放されませんか？</h2>
+            <p class="text-slate-300 mb-8">制作会社からの乗り換えも、自作HPからのステップアップも。<br>まずは無料でご相談ください。しつこい営業は一切いたしません。</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="contact.html" class="bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">無料で移行相談する</a>
                 <a href="#" class="border-2 border-white text-white hover:bg-white hover:text-teal-600 font-bold rounded-lg px-10 py-4 text-lg transition"><i class="fa-brands fa-line mr-2"></i>LINEで相談</a>
