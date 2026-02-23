@@ -46,6 +46,26 @@ details_animation: true
                 "@type": "Question",
                 "name": "解約後のデータはどうなりますか？",
                 "acceptedAnswer": { "@type": "Answer", "text": "解約後30日間はデータを保持し、コンテンツ（テキスト・画像）のエクスポートが可能です。30日経過後は全データを完全に削除いたします。" }
+            },
+            {
+                "@type": "Question",
+                "name": "ポータルサイト（みんなのブリーダー等）と併用できますか？",
+                "acceptedAnswer": { "@type": "Answer", "text": "はい、併用可能です。ポータルサイトで認知→自社HPで信頼構築→LINEで直接お問い合わせ、という導線が最も効果的です。" }
+            },
+            {
+                "@type": "Question",
+                "name": "親犬・親猫の紹介もできますか？",
+                "acceptedAnswer": { "@type": "Answer", "text": "はい、専用の親犬・親猫紹介ページが自動生成されます。血統情報や健康状態を掲載でき、ブリーダーとしての信頼性を訴求できます。" }
+            },
+            {
+                "@type": "Question",
+                "name": "Googleアナリティクスは使えますか？",
+                "acceptedAnswer": { "@type": "Answer", "text": "はい、Google Analytics 4（GA4）に対応しています。どのページが何回見られたか、どの子犬ページが人気かなど、アクセスデータを分析できます。" }
+            },
+            {
+                "@type": "Question",
+                "name": "プライバシーポリシーや利用規約は用意してもらえますか？",
+                "acceptedAnswer": { "@type": "Answer", "text": "はい、プライバシーポリシー・利用規約・特定商取引法表記・Cookie同意バナーがすべて自動生成されます。通常、弁護士に依頼すると数万円〜十数万円かかる法的ページが標準搭載です。" }
             }
         ]
     }
@@ -109,7 +129,7 @@ details_animation: true
                 </details>
                 <details class="bg-white rounded-xl shadow-sm">
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>月額料金に含まれるものは何ですか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
-                    <div class="px-6 pb-6 text-sm text-gray-600">両プラン共通で、HP制作、3テーマから選べるデザイン、カラーカスタマイズ、LINE更新機能、13ページ以上の自動生成、SEO対策、SSL証明書、CDN高速配信、画像最適化、EXIF除去、お知らせ・お客様の声管理、自動ビルド・デプロイ、メール・LINEサポートが含まれます。プレミアムプランにはさらに集客支援サービスが加わります。</div>
+                    <div class="px-6 pb-6 text-sm text-gray-600">両プラン共通で、HP制作、3テーマから選べるデザイン、カラー・フォントカスタマイズ、LINE更新機能、16ページ以上の自動生成（子犬・子猫の詳細ページは無制限）、SEO対策（JSON-LD 5種・サイトマップ等）、SSL証明書、CDN高速配信、画像最適化、EXIF除去、お知らせ・お客様の声・FAQ管理、親犬・親猫紹介ページ、プライバシーポリシー・利用規約・特定商取引法表記・Cookie同意バナーの自動生成、Google Analytics 4対応、自動ビルド・デプロイ、メール・LINEサポートが含まれます。プレミアムプランにはさらに集客支援サービスが加わります。</div>
                 </details>
                 <details class="bg-white rounded-xl shadow-sm">
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>最低利用期間はありますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
@@ -146,11 +166,31 @@ details_animation: true
                 </details>
                 <details class="bg-gray-50 rounded-xl">
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>デザインのカスタマイズ範囲は？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
-                    <div class="px-6 pb-6 text-sm text-gray-600">テーマカラー（メインカラー・アクセントカラー）の変更、ロゴの設置、ヒーロー画像の変更が可能です。テンプレートのレイアウト構造自体の変更はできません。</div>
+                    <div class="px-6 pb-6 text-sm text-gray-600">カラー5色変更、フォント2種類からの選択、ロゴ設置、ヒーロー画像スライドショー（最大5枚）、施設画像（最大3枚）、トップページ13セクションの並び替え・表示/非表示、ナビゲーション項目のカスタマイズ、カスタムCSSの追加が可能です。</div>
                 </details>
                 <details class="bg-gray-50 rounded-xl">
                     <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>お知らせやブログの投稿はできますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
                     <div class="px-6 pb-6 text-sm text-gray-600">はい、お知らせの投稿が可能です。イベント告知やニュースをLINEから簡単に投稿でき、画像付きのお知らせにも対応しています。</div>
+                </details>
+                <details class="bg-gray-50 rounded-xl">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>ポータルサイト（みんなのブリーダー等）と併用できますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、併用可能です。ポータルサイトで認知→自社HPで信頼構築→LINEで直接お問い合わせ、という導線が最も効果的です。自社HPを持つことで、ポータルサイトに依存しない集客基盤を作れます。</div>
+                </details>
+                <details class="bg-gray-50 rounded-xl">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>写真は何枚まで掲載できますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">1頭あたり最大5枚まで掲載できます。サムネイルも自動生成されるため、画像の加工作業は不要です。アップロードした画像はGPS位置情報（EXIF）が自動削除されるので、安心して写真を掲載いただけます。</div>
+                </details>
+                <details class="bg-gray-50 rounded-xl">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>親犬・親猫の紹介もできますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、専用の親犬・親猫紹介ページが自動生成されます。血統情報や健康状態を掲載でき、ブリーダーとしての信頼性を訴求できます。これはペットショップにはない、ブリーダーならではの大きな強みです。</div>
+                </details>
+                <details class="bg-gray-50 rounded-xl">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>Googleアナリティクスは使えますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、Google Analytics 4（GA4）に対応しています。どのページが何回見られたか、どの子犬・子猫ページが人気かなど、アクセスデータを分析できます。データに基づいた運営改善が可能です。</div>
+                </details>
+                <details class="bg-gray-50 rounded-xl">
+                    <summary class="flex items-center justify-between p-6 font-medium cursor-pointer"><span>プライバシーポリシーや利用規約は用意してもらえますか？</span><i class="fa-solid fa-chevron-down text-teal-600 text-sm"></i></summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600">はい、プライバシーポリシー・利用規約・特定商取引法表記・Cookie同意バナーがすべて自動生成されます。通常、弁護士に依頼すると数万円〜十数万円かかる法的ページが標準搭載です。</div>
                 </details>
             </div>
         </div>
