@@ -4,6 +4,12 @@ baseurl: ""
 url: "https://breeders-flow.com"
 permalink: pretty
 
+# Google Analytics 4（測定ID: G-XXXXXXXXXX）
+google_analytics: ""
+
+# Google Search Console（HTMLタグの content 値）
+google_site_verification: ""
+
 exclude:
   - README.md
   - Gemfile
