@@ -2,6 +2,7 @@ title: Breeders Flow
 description: ブリーダー専用HP制作サービス
 baseurl: ""
 url: "https://breeders-flow.com"
+permalink: pretty
 
 exclude:
   - README.md
