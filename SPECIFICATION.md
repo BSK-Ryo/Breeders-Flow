@@ -1,7 +1,7 @@
 # Breeder Flow — システム仕様書
 
-> **バージョン**: 0.4.0
-> **最終更新**: 2026-02-15
+> **バージョン**: 0.5.0
+> **最終更新**: 2026-02-23
 > **プロジェクト名**: breeder-flow
 
 ---
@@ -116,7 +116,10 @@
 │  ├─ flow.html               （お迎えの流れ・見学案内）      │
 │  ├─ contact.html            （お問い合わせ）               │
 │  ├─ testimonials/index.html （お客様の声）                 │
+│  ├─ faq/index.html          （よくある質問 *条件付き）      │
 │  ├─ legal.html              （動物取扱業者表記 *条件付き）  │
+│  ├─ privacy.html            （プライバシーポリシー）        │
+│  ├─ terms.html              （利用規約）                   │
 │  ├─ 404.html                （エラーページ）               │
 │  ├─ sitemap.xml / robots.txt                              │
 │  ├─ _redirects              （/access.html → /flow.html） │
@@ -152,18 +155,23 @@ breeder-flow/
 │   │   │   ├── index.ts        # エントリーポイント (Hono)
 │   │   │   ├── bindings.ts     # Workers バインディング型定義
 │   │   │   ├── routes/
-│   │   │   │   ├── animals.ts       # 子犬/子猫 CRUD
-│   │   │   │   ├── breeders.ts      # ブリーダー管理
-│   │   │   │   ├── sites.ts         # サイトビルド・デプロイ
-│   │   │   │   ├── webhook.ts       # LINE Webhook
-│   │   │   │   ├── announcements.ts # お知らせ CRUD
-│   │   │   │   ├── testimonials.ts  # お客様の声 CRUD
-│   │   │   │   └── pages.ts         # 固定ページ CRUD
+│   │   │   │   ├── animals.ts            # 子犬/子猫 CRUD（LIFF用）
+│   │   │   │   ├── admin-animals.ts      # 管理者用動物 CRUD
+│   │   │   │   ├── breeders.ts           # ブリーダー管理
+│   │   │   │   ├── sites.ts              # サイトビルド・デプロイ・画像管理
+│   │   │   │   ├── webhook.ts            # LINE Webhook
+│   │   │   │   ├── announcements.ts      # お知らせ CRUD（管理者用）
+│   │   │   │   ├── liff-announcements.ts # お知らせ CRUD（LIFF用）
+│   │   │   │   ├── testimonials.ts       # お客様の声 CRUD
+│   │   │   │   ├── faqs.ts              # FAQ CRUD
+│   │   │   │   ├── pages.ts             # 固定ページ CRUD
+│   │   │   │   └── migration.ts         # 旧サイト移行ツール
 │   │   │   ├── services/
-│   │   │   │   ├── line.ts     # LINE Messaging API
-│   │   │   │   ├── builder.ts  # サイトビルダー
-│   │   │   │   ├── deployer.ts # Cloudflare Pages Deploy
-│   │   │   │   └── image.ts    # R2 画像アップロード・リサイズ
+│   │   │   │   ├── line.ts           # LINE Messaging API
+│   │   │   │   ├── builder.ts        # サイトビルダー
+│   │   │   │   ├── deployer.ts       # Cloudflare Pages Deploy
+│   │   │   │   ├── deploy-trigger.ts # ビルド・デプロイ共通トリガー
+│   │   │   │   └── image.ts          # R2 画像アップロード・リサイズ
 │   │   │   ├── lib/
 │   │   │   │   ├── crypto.ts   # AES-256-GCM PII 暗号化
 │   │   │   │   ├── mask.ts     # PII マスキング
@@ -183,12 +191,15 @@ breeder-flow/
 │   │   │   ├── App.tsx         # メインコンポーネント
 │   │   │   ├── main.tsx        # エントリーポイント
 │   │   │   ├── components/
-│   │   │   │   ├── AnimalForm.tsx       # 動物登録フォーム
-│   │   │   │   ├── AnimalList.tsx       # 動物一覧（更新/取り下げ選択）
-│   │   │   │   ├── ImageUpload.tsx      # 画像アップロード
-│   │   │   │   ├── StatusUpdate.tsx     # ステータス更新
-│   │   │   │   ├── CompletionScreen.tsx # 完了画面
-│   │   │   │   └── ErrorBoundary.tsx    # エラーハンドリング
+│   │   │   │   ├── AnimalForm.tsx        # 動物登録フォーム
+│   │   │   │   ├── AnimalList.tsx        # 動物一覧（更新/取り下げ選択）
+│   │   │   │   ├── ImageUpload.tsx       # 画像アップロード
+│   │   │   │   ├── StatusUpdate.tsx      # ステータス更新
+│   │   │   │   ├── AnnouncementForm.tsx  # お知らせ作成フォーム
+│   │   │   │   ├── AnnouncementList.tsx  # お知らせ一覧
+│   │   │   │   ├── AnnouncementEdit.tsx  # お知らせ編集フォーム
+│   │   │   │   ├── CompletionScreen.tsx  # 完了画面
+│   │   │   │   └── ErrorBoundary.tsx     # エラーハンドリング
 │   │   │   └── lib/
 │   │   │       ├── liff.ts     # LIFF SDK初期化
 │   │   │       └── api.ts      # API呼び出し
@@ -205,10 +216,16 @@ breeder-flow/
 │   │   │   │   ├── Dashboard.tsx           # ダッシュボード
 │   │   │   │   ├── BreederList.tsx         # ブリーダー一覧
 │   │   │   │   ├── BreederForm.tsx         # ブリーダー作成
-│   │   │   │   ├── BreederDetail.tsx       # ブリーダー詳細（タブ構成）
+│   │   │   │   ├── BreederDetail.tsx       # ブリーダー詳細（6タブ構成）
 │   │   │   │   ├── SiteConfigEditor.tsx    # サイト設定エディタ
+│   │   │   │   ├── SectionOrderEditor.tsx  # トップページセクション並び替え
+│   │   │   │   ├── NavOrderEditor.tsx      # ナビゲーション項目並び替え
 │   │   │   │   ├── AnnouncementEditor.tsx  # お知らせエディタ
 │   │   │   │   ├── TestimonialEditor.tsx   # お客様の声エディタ
+│   │   │   │   ├── FaqEditor.tsx           # FAQ エディタ
+│   │   │   │   ├── AnimalEditor.tsx        # 動物情報 CRUD
+│   │   │   │   ├── AnimalImageUpload.tsx   # 動物画像アップロード
+│   │   │   │   ├── MigrationWizard.tsx     # 旧サイト移行ウィザード
 │   │   │   │   ├── DeployLogList.tsx       # デプロイ履歴
 │   │   │   │   └── ErrorBoundary.tsx       # エラーハンドリング
 │   │   │   └── lib/
@@ -224,6 +241,7 @@ breeder-flow/
 │   │   │   ├── engine.ts            # テンプレートヘルパー・動物データ加工
 │   │   │   ├── pages.ts             # ページ生成ロジック
 │   │   │   ├── seo.ts               # SEO（メタタグ・JSON-LD・サイトマップ）
+│   │   │   ├── section-reorder.ts   # セクション並び替えエンジン
 │   │   │   ├── template-registry.ts # テーマ選択・テンプレート取得
 │   │   │   └── template-bundle.ts   # バンドル済みテンプレート（自動生成）
 │   │   ├── scripts/
@@ -262,9 +280,11 @@ templates/{theme}/
 │   ├── header.html           # ヘッダー・ナビゲーション（動的）
 │   ├── footer.html           # フッター
 │   ├── animal-card.html      # 動物カードコンポーネント
-│   └── breadcrumb.html       # パンくずナビ
+│   ├── breadcrumb.html       # パンくずナビ
+│   ├── cookie-banner.html    # Cookie 同意バナー
+│   └── custom-section.html   # カスタムセクション
 ├── pages/
-│   ├── index.html            # トップページ（10セクション）
+│   ├── index.html            # トップページ（13セクション）
 │   ├── about.html            # 犬舎/猫舎紹介
 │   ├── animals.html          # 子犬一覧
 │   ├── animal.html           # 子犬/子猫詳細
@@ -274,7 +294,11 @@ templates/{theme}/
 │   ├── flow.html             # お迎えの流れ・見学案内
 │   ├── contact.html          # お問い合わせ
 │   ├── testimonials.html     # お客様の声
+│   ├── faq.html              # よくある質問
 │   ├── legal.html            # 動物取扱業者表記
+│   ├── privacy.html          # プライバシーポリシー
+│   ├── terms.html            # 利用規約
+│   ├── access.html           # アクセス（flow.html へのリダイレクト用）
 │   └── 404.html              # エラーページ
 └── assets/
     ├── css/
@@ -306,6 +330,7 @@ CREATE TABLE breeders (
   description  TEXT,                       -- 犬舎紹介文
   site_domain  TEXT UNIQUE,               -- xxx-kennel.com
   site_config  TEXT,                       -- JSON: テーマ設定、色、フォント等
+  migration_checklist TEXT,               -- JSON: 移行チェックリスト
   status       TEXT NOT NULL DEFAULT 'active',  -- active / suspended / cancelled
   created_at   TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
@@ -400,12 +425,26 @@ CREATE TABLE testimonials (
 );
 ```
 
+#### faqs（よくある質問）
+```sql
+CREATE TABLE faqs (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  breeder_id  TEXT NOT NULL REFERENCES breeders(id),
+  question    TEXT NOT NULL CHECK(length(question) <= 200),
+  answer      TEXT NOT NULL CHECK(length(answer) <= 2000),
+  is_published INTEGER NOT NULL DEFAULT 1,
+  sort_order  INTEGER NOT NULL DEFAULT 0,
+  created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+```
+
 #### deploy_logs（デプロイ履歴）
 ```sql
 CREATE TABLE deploy_logs (
   id           INTEGER PRIMARY KEY AUTOINCREMENT,
   breeder_id   TEXT NOT NULL REFERENCES breeders(id),
-  trigger_type TEXT NOT NULL,              -- animal_create / animal_update / manual / page_update
+  trigger_type TEXT NOT NULL,              -- animal_create / animal_update / manual / page_update / announcement_update
   trigger_id   TEXT,                       -- 契機となったanimal_id等
   status       TEXT NOT NULL DEFAULT 'pending',  -- pending / building / deployed / failed
   pages_url    TEXT,                       -- デプロイ先URL
@@ -421,7 +460,7 @@ CREATE TABLE deploy_logs (
 CREATE TABLE audit_logs (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   timestamp  TEXT NOT NULL DEFAULT (datetime('now')),
-  actor_type TEXT NOT NULL,              -- liff / admin / system
+  actor_type TEXT NOT NULL,              -- breeder / admin / system / webhook
   actor_id   TEXT NOT NULL,              -- breeder_id or 'system'
   action     TEXT NOT NULL,              -- animal.create, site.build 等
   resource   TEXT NOT NULL,              -- animals, breeders 等
@@ -449,8 +488,15 @@ CREATE INDEX idx_pages_breeder ON pages(breeder_id, slug);
 CREATE INDEX idx_deploy_breeder ON deploy_logs(breeder_id, started_at DESC);
 CREATE INDEX idx_announcements_breeder ON announcements(breeder_id, is_published);
 CREATE INDEX idx_testimonials_breeder ON testimonials(breeder_id, is_published);
-CREATE INDEX idx_breeders_email_hash ON breeders(email_hash);
-CREATE INDEX idx_breeders_line ON breeders(line_user_id);
+CREATE INDEX idx_faqs_breeder ON faqs(breeder_id, is_published);
+CREATE UNIQUE INDEX idx_breeders_line_user ON breeders(line_user_id)
+  WHERE line_user_id IS NOT NULL;
+CREATE INDEX idx_breeders_email_hash ON breeders(email_hash)
+  WHERE email_hash IS NOT NULL;
+CREATE INDEX idx_audit_actor ON audit_logs(actor_id, timestamp DESC);
+CREATE INDEX idx_audit_resource ON audit_logs(resource, resource_id);
+CREATE INDEX idx_audit_timestamp ON audit_logs(timestamp);
+CREATE INDEX idx_webhook_received ON webhook_events(received_at);
 ```
 
 ---
@@ -546,7 +592,7 @@ LINE プラットフォームからの Webhook イベントを受信。
 
 | 項目 | 仕様 |
 |------|------|
-| 許可する image_type | `hero`, `logo`, `greeting` |
+| 許可する image_type | `hero`, `logo`, `greeting`, `facility` |
 | R2 キー形式 | `{breederId}/site/{imageType}/{uuid}.{ext}` |
 | サイズ上限 | 10MB（Base64 デコード後） |
 | MIME 検証 | マジックバイト（JPEG, PNG, WebP） |
@@ -556,6 +602,53 @@ LINE プラットフォームからの Webhook イベントを受信。
 
 #### DELETE /api/sites/:breederId/image/:imageType
 サイト画像の削除。R2 から削除し、`site_config` から該当キーを除去する。
+
+#### ヒーロー画像スライドショー
+
+複数のヒーロー画像をスライドショーとして管理する。
+
+##### POST /api/sites/:breederId/hero-images
+ヒーロー画像の追加（最大 `MAX_HERO_IMAGES` = 5 枚）。
+
+```json
+// Request
+{ "base64": "<base64エンコードされた画像データ>" }
+
+// Response
+{
+  "success": true,
+  "data": { "r2_key": "...", "hero_r2_keys": ["key1.jpg", "key2.jpg"] },
+  "message": "ヒーロー画像を追加しました"
+}
+```
+
+##### DELETE /api/sites/:breederId/hero-images/:index
+ヒーロー画像の削除（インデックス指定）。R2 からも削除する。
+
+##### PUT /api/sites/:breederId/hero-images/order
+ヒーロー画像の並び替え。
+
+```json
+// Request
+{ "hero_r2_keys": ["key2.jpg", "key1.jpg"] }
+```
+
+キーの構成が現在の画像と一致していること（並び替えのみ）をバリデーション。
+
+#### 施設画像
+
+施設の写真を複数管理する。
+
+##### POST /api/sites/:breederId/facility-images
+施設画像の追加（最大 `MAX_FACILITY_IMAGES` = 3 枚）。
+
+```json
+// Request
+{ "base64": "<base64エンコードされた画像データ>" }
+```
+
+##### DELETE /api/sites/:breederId/facility-images/:index
+施設画像の削除（インデックス指定）。
 
 ### 5.4 お知らせ API（管理者用）
 
@@ -619,6 +712,145 @@ LINE プラットフォームからの Webhook イベントを受信。
 #### DELETE /api/pages/:id
 固定ページの削除。
 
+### 5.7 FAQ API（管理者用）
+
+#### GET /api/faqs?breeder_id=XXX
+ブリーダーの FAQ 一覧を取得。
+
+#### POST /api/faqs
+FAQ を新規作成。
+
+```json
+{
+  "breeder_id": "BREEDER001",
+  "question": "子犬の見学は予約制ですか？",
+  "answer": "はい、LINEまたはお電話でご予約ください。",
+  "is_published": true,
+  "sort_order": 0
+}
+```
+
+#### PUT /api/faqs/:id
+FAQ の更新。
+
+#### DELETE /api/faqs/:id
+FAQ の削除。
+
+### 5.8 LIFF お知らせ API（ブリーダー用）
+
+ブリーダーが LINE LIFF 経由で自身のお知らせを管理する。認証は LIFF トークンで行い、`breeder_id` は自動判定される。
+お知らせの作成・更新・削除時に自動でサイト再ビルド・デプロイがトリガーされる。
+
+#### GET /api/liff/announcements
+自ブリーダーのお知らせ一覧を取得。
+
+#### POST /api/liff/announcements
+お知らせを新規作成。作成後にサイトを自動デプロイ。
+
+```json
+{
+  "title": "新しい子犬が生まれました",
+  "content": "トイプードルの子犬が3匹誕生しました。"
+}
+```
+
+#### PUT /api/liff/announcements/:id
+お知らせの更新。更新後にサイトを自動デプロイ。所有権チェックあり。
+
+#### DELETE /api/liff/announcements/:id
+お知らせの削除。削除後にサイトを自動デプロイ。所有権チェックあり。
+
+### 5.9 管理者用動物 API
+
+管理者が Admin UI から動物の登録・更新・削除を行う。認証は `ADMIN_API_KEY`。
+
+#### GET /api/admin/animals?breeder_id=XXX&animal_type=&status=
+ブリーダーの動物一覧を取得（画像情報付き）。`animal_type` と `status` でフィルタ可能。
+
+#### POST /api/admin/animals
+管理者による動物の新規登録。画像アップロード対応。登録後にサイトを自動デプロイ。
+
+```json
+{
+  "breeder_id": "BREEDER001",
+  "animal_type": "puppy",
+  "animal_id": "POODLE-2026-001",
+  "breed": "トイプードル",
+  "sex": "female",
+  "birth_date": "2026-01-15",
+  "color": "レッド",
+  "price": 350000,
+  "description": "おてんばな女の子です",
+  "images": ["<base64>"]
+}
+```
+
+#### PUT /api/admin/animals/:id
+管理者による動物情報の更新。画像の差し替え対応。更新後にサイトを自動デプロイ。
+
+#### DELETE /api/admin/animals/:id
+管理者による動物の削除。R2 の画像も削除し、サイトを自動デプロイ。
+
+### 5.10 移行 API（管理者用）
+
+旧サイト（WordPress 等）からの移行を支援するツール。
+
+#### POST /api/migration/crawl
+既存サイトをクロールしてコンテンツを抽出する。
+
+```json
+// Request
+{ "url": "https://old-kennel.com" }
+
+// Response
+{
+  "success": true,
+  "data": {
+    "siteInfo": { "title": "旧サイト名", "description": "メタディスクリプション" },
+    "pages": [
+      {
+        "url": "https://old-kennel.com/about",
+        "title": "犬舎紹介",
+        "content": "テキストコンテンツ...",
+        "images": ["https://old-kennel.com/img/photo.jpg"],
+        "suggestedType": "about"
+      }
+    ],
+    "suggestedRedirects": [
+      { "from": "/about", "to": "/about.html", "status": 301 }
+    ]
+  }
+}
+```
+
+| 項目 | 仕様 |
+|------|------|
+| 最大クロールページ数 | 50 |
+| ページ種別自動判定 | about / puppies / news / testimonials / faq / contact / other |
+| フェッチタイムアウト | 5秒 |
+| リダイレクト提案 | URL パスパターンから自動生成 |
+
+#### POST /api/migration/verify
+移行完了後の検証を行う。DNS / HTTP、sitemap.xml、robots.txt、リダイレクトの正常性を確認。
+
+```json
+// Request
+{ "breeder_id": "BREEDER001", "domain": "new-kennel.com" }
+
+// Response
+{
+  "success": true,
+  "data": {
+    "checks": [
+      { "name": "DNS / HTTP", "status": "pass", "detail": "https://new-kennel.com returned 200" },
+      { "name": "sitemap.xml", "status": "pass", "detail": "..." },
+      { "name": "robots.txt", "status": "warn", "detail": "..." },
+      { "name": "Redirect /about", "status": "pass", "detail": "..." }
+    ]
+  }
+}
+```
+
 ---
 
 ## 6. LINE LIFF フォーム
@@ -637,7 +869,11 @@ LINEリッチメニュー
             ├─ 操作選択画面
             │   ├─ 新規登録 → 登録フォーム
             │   ├─ 情報更新 → 個体選択 → 更新フォーム
-            │   └─ 取り下げ → 個体選択 → 確認画面
+            │   ├─ 取り下げ → 個体選択 → 確認画面
+            │   └─ お知らせ管理 → お知らせ一覧
+            │       ├─ 新規作成 → お知らせ作成フォーム → 完了（自動デプロイ）
+            │       ├─ 編集 → お知らせ編集フォーム → 完了（自動デプロイ）
+            │       └─ 削除 → 確認画面 → 完了（自動デプロイ）
             │
             ├─ 登録フォーム
             │   ├─ 登録種別（子犬/子猫/親犬/親猫）
@@ -676,6 +912,9 @@ LINEリッチメニュー
 | `AnimalList.tsx` | 動物一覧（更新/取り下げ対象の選択） |
 | `ImageUpload.tsx` | 画像アップロード（プレビュー・複数枚対応） |
 | `StatusUpdate.tsx` | ステータス更新 |
+| `AnnouncementForm.tsx` | お知らせ作成フォーム |
+| `AnnouncementList.tsx` | お知らせ一覧（更新/削除対象の選択） |
+| `AnnouncementEdit.tsx` | お知らせ編集フォーム |
 | `CompletionScreen.tsx` | 完了画面（成功メッセージ・リンク） |
 | `ErrorBoundary.tsx` | エラーハンドリング |
 
@@ -700,10 +939,16 @@ React + Vite で構築し、Cloudflare Pages にデプロイ。
 | ダッシュボード | `Dashboard.tsx` | ブリーダー数・デプロイ統計・最近のアクティビティ |
 | ブリーダー一覧 | `BreederList.tsx` | 全ブリーダーの一覧表示・検索 |
 | ブリーダー作成 | `BreederForm.tsx` | 新規ブリーダー登録フォーム |
-| ブリーダー詳細 | `BreederDetail.tsx` | タブ構成（基本情報/サイト設定/コンテンツ/デプロイ） |
+| ブリーダー詳細 | `BreederDetail.tsx` | 6タブ構成（基本情報/動物管理/サイト設定/コンテンツ/デプロイ/移行） |
 | サイト設定 | `SiteConfigEditor.tsx` | テーマ・色・フォント・ロゴ・SNS・SEO・挨拶文・こだわり・施設・お迎えの流れ |
+| セクション順序 | `SectionOrderEditor.tsx` | トップページセクションの並び替え・表示/非表示・タイトルカスタマイズ |
+| ナビ順序 | `NavOrderEditor.tsx` | ナビゲーション項目の並び替え・カスタマイズ |
 | お知らせ | `AnnouncementEditor.tsx` | お知らせの CRUD |
 | お客様の声 | `TestimonialEditor.tsx` | お客様の声の CRUD |
+| FAQ | `FaqEditor.tsx` | よくある質問の CRUD |
+| 動物管理 | `AnimalEditor.tsx` | 動物情報の CRUD（画像アップロード付き） |
+| 動物画像 | `AnimalImageUpload.tsx` | 動物画像のアップロード・管理 |
+| 移行ウィザード | `MigrationWizard.tsx` | 旧サイトクロール・検証・移行チェックリスト |
 | デプロイ履歴 | `DeployLogList.tsx` | デプロイログの表示・手動リビルド |
 | エラー | `ErrorBoundary.tsx` | エラーハンドリング |
 
@@ -720,14 +965,15 @@ React + Vite で構築し、Cloudflare Pages にデプロイ。
 ### 7.2 生成フロー
 
 ```
-1. D1 からブリーダー情報・動物情報・画像情報・お知らせ・お客様の声を取得
+1. D1 からブリーダー情報・動物情報・画像情報・お知らせ・お客様の声・FAQを取得
 2. site_config からテーマ設定（色、フォント、レイアウト等）を読み込み
 3. テンプレートバンドルからテーマのテンプレート一式を取得
 4. データを加工（enrichAnimal: 年齢計算、ラベル変換、detail_path 等）
-5. Mustache にデータをバインドして HTML を生成（13ページ + 詳細ページ）
-6. CSS に色変数・カスタムCSS を注入
-7. sitemap.xml, robots.txt, _headers, _redirects を生成
-8. Cloudflare Pages Deploy API でデプロイ
+5. home_sections に基づいてセクション順序を決定（section-reorder.ts）
+6. Mustache にデータをバインドして HTML を生成（16ページ + 詳細ページ）
+7. CSS に色変数・カスタムCSS を注入
+8. sitemap.xml, robots.txt, _headers, _redirects を生成
+9. Cloudflare Pages Deploy API でデプロイ
 ```
 
 ### 7.3 テンプレートバンドルシステム
@@ -831,6 +1077,8 @@ export const TEMPLATE_DEFAULTS: Record<string, {
   },
   "logo_r2_key": "breeders/BREEDER001/logo.png",
   "hero_r2_key": "breeders/BREEDER001/hero.jpg",
+  "hero_r2_keys": ["hero1.jpg", "hero2.jpg", "hero3.jpg"],
+  "hero_show_description": false,
   "social": {
     "instagram": "https://instagram.com/xxx",
     "line_url": "https://line.me/xxx"
@@ -841,33 +1089,117 @@ export const TEMPLATE_DEFAULTS: Record<string, {
   "seo": {
     "site_description": "手動で設定するサイト説明文",
     "keywords": "手動キーワード",
-    "og_image_r2_key": "breeders/BREEDER001/og.jpg"
+    "og_image_r2_key": "breeders/BREEDER001/og.jpg",
+    "canonical_base_url": "https://xxx-kennel.com"
   },
   "greeting": {
     "message": "代表挨拶メッセージ",
     "representative_name": "代表者名",
-    "photo_r2_key": "breeders/BREEDER001/greeting.jpg"
+    "photo_r2_key": "breeders/BREEDER001/greeting.jpg",
+    "registration_number": "動物取扱業登録番号"
   },
   "commitments": [
     { "title": "健康第一", "description": "遺伝子検査を実施しています" }
   ],
   "facility": {
-    "description": "施設の紹介文"
+    "description": "施設の紹介文",
+    "facility_r2_keys": ["facility1.jpg", "facility2.jpg"]
   },
   "adoption_flow": [
     { "step_number": 1, "title": "お問い合わせ", "description": "LINEでご連絡ください" },
     { "step_number": 2, "title": "見学", "description": "実際に会いに来てください" },
     { "step_number": 3, "title": "ご契約", "description": "書類の準備をお願いします" },
     { "step_number": 4, "title": "お迎え", "description": "新しい家族をお迎えください" }
+  ],
+  "sections": {
+    "testimonials": true,
+    "faq": true
+  },
+  "redirects": [
+    { "from": "/old-page", "to": "/new-page", "status": 301 }
+  ],
+  "tokushoho": {
+    "payment_methods": "銀行振込・クレジットカード",
+    "payment_timing": "契約時",
+    "delivery_timing": "見学当日〜1週間以内",
+    "return_policy": "動物愛護法に基づきお受けできません",
+    "additional_fees": "ワクチン接種費用等"
+  },
+  "home_sections": [
+    { "id": "hero", "visible": true },
+    { "id": "animals", "visible": true, "title": "子犬・子猫のご紹介" },
+    { "id": "announcements", "visible": true },
+    { "id": "welcome", "visible": true },
+    { "id": "commitments", "visible": true },
+    { "id": "greeting", "visible": true },
+    { "id": "facility", "visible": true },
+    { "id": "breeds", "visible": true },
+    { "id": "flow", "visible": true },
+    { "id": "faq", "visible": true },
+    { "id": "testimonials", "visible": true },
+    { "id": "map", "visible": true },
+    { "id": "contact", "visible": true }
+  ],
+  "nav_order": [
+    { "id": "animals", "label": "子犬・子猫", "href": "/#animals" },
+    { "id": "about", "label": "ブリーダー紹介", "href": "/about.html" },
+    { "id": "flow", "label": "お迎えの流れ", "href": "/#flow" },
+    { "id": "contact", "label": "お問い合わせ", "href": "/contact.html" }
   ]
 }
 ```
+
+#### hero_r2_keys（ヒーロー画像スライドショー）
+
+| 項目 | 仕様 |
+|------|------|
+| 最大枚数 | `MAX_HERO_IMAGES` = 5 |
+| 後方互換 | `hero_r2_key`（単一）と `hero_r2_keys`（配列）を同期管理 |
+| 表示 | テンプレートでスライドショー表示 |
+
+#### facility.facility_r2_keys（施設画像）
+
+| 項目 | 仕様 |
+|------|------|
+| 最大枚数 | `MAX_FACILITY_IMAGES` = 3 |
+| 格納場所 | `facility` オブジェクト内 |
+
+#### home_sections（セクション並び替え）
+
+トップページの各セクションの表示順・表示/非表示・タイトルをカスタマイズする。
+
+| 項目 | 仕様 |
+|------|------|
+| ビルトインセクション数 | 13（hero, animals, announcements, welcome, commitments, greeting, facility, breeds, flow, faq, testimonials, map, contact） |
+| タイトルカスタマイズ | `title` フィールドで各セクションの見出しを変更可能 |
+| 英語サブタイトル | `subtitle_en` フィールドで英語サブタイトルを設定可能 |
+| 並び順 | 配列の順序で表示順を制御 |
+| 表示制御 | `visible: false` で非表示 |
+
+#### nav_order（ナビゲーションカスタマイズ）
+
+ヘッダーナビゲーションの項目をカスタマイズする。
+
+| 項目 | 仕様 |
+|------|------|
+| デフォルト | 子犬・子猫 / ブリーダー紹介 / お迎えの流れ / お問い合わせ |
+| カスタマイズ | `id`, `label`, `href` で自由に設定可能 |
+
+#### tokushoho（特定商取引法に基づく表記）
+
+| フィールド | 説明 |
+|-----------|------|
+| `payment_methods` | 支払い方法 |
+| `payment_timing` | 支払い時期 |
+| `delivery_timing` | 引渡時期 |
+| `return_policy` | 返品・交換について |
+| `additional_fees` | 送料以外の追加費用 |
 
 ### 7.7 生成ページ一覧
 
 | # | ページ | URL | 生成条件 | 主要データ |
 |---|--------|-----|---------|-----------|
-| 1 | トップ | `/` | 常時 | 子犬/子猫（各6件）、お知らせ（5件）、お客様の声（6件）、挨拶、こだわり、施設、犬種/猫種 |
+| 1 | トップ | `/` | 常時 | 子犬/子猫（各6件）、お知らせ（5件）、お客様の声（6件）、FAQ、挨拶、こだわり、施設、犬種/猫種 |
 | 2 | 犬舎/猫舎紹介 | `/about.html` | 常時 | description、greeting、commitments、facility、breedGroups、license |
 | 3 | 子犬一覧 | `/puppies/` | `hasDogs` | 全子犬 |
 | 4 | 子猫一覧 | `/kittens/` | `hasCats` | 全子猫 |
@@ -878,16 +1210,22 @@ export const TEMPLATE_DEFAULTS: Record<string, {
 | 9 | お迎えの流れ | `/flow.html` | 常時 | adoption_flow、address、Google Maps |
 | 10 | お問い合わせ | `/contact.html` | 常時 | LINE、電話、メール、Instagram |
 | 11 | お客様の声 | `/testimonials/` | 常時 | 全お客様の声（星評価付き） |
-| 12 | 動物取扱業者表記 | `/legal.html` | `hasLegal` | license_no、license_type、address 等 |
-| 13 | 404エラー | `/404.html` | 常時 | ホームへのリンク |
+| 12 | よくある質問 | `/faq/` | `hasFaqs` | 全FAQ（FAQ JSON-LD 構造化データ付き） |
+| 13 | 動物取扱業者表記 | `/legal.html` | `hasLegal` | license_no、license_type、address 等 |
+| 14 | プライバシーポリシー | `/privacy.html` | 常時 | 犬舎名、サイトドメイン |
+| 15 | 利用規約 | `/terms.html` | 常時 | 犬舎名、サイトドメイン |
+| 16 | 404エラー | `/404.html` | 常時 | ホームへのリンク |
 
 **生成条件フラグ**:
 - `hasDogs`: `breeder_type !== 'cat-only'`
 - `hasCats`: `breeder_type !== 'dog-only'`
+- `hasFaqs`: FAQ が1件以上存在
 - `hasLegal`: `license_no` または `license_type` が存在
 
 **ナビゲーション動的制御**:
-- ヘッダーナビは `hasDogs`, `hasCats`, `hasNewsPage`（お知らせがある場合）で表示を切り替え
+- ヘッダーナビは `nav_order` でカスタマイズ可能（未設定時はデフォルト4項目）
+- デフォルトナビ: 子犬・子猫 / ブリーダー紹介 / お迎えの流れ / お問い合わせ
+- `hasDogs`, `hasCats`, `hasNewsPage` で表示を切り替え
 - ラベルも `breeder_type` で変化: 犬舎紹介 / 猫舎紹介 / ブリーダー紹介
 
 **パンくずナビ**:
@@ -932,6 +1270,7 @@ export const TEMPLATE_DEFAULTS: Record<string, {
 | トップ | `LocalBusiness` / `PetStore` | 犬舎名、住所、電話番号、説明 |
 | 動物詳細 | `Product` | 品種、価格、在庫状況、画像 |
 | 一覧ページ | `ItemList` | 掲載動物のリスト |
+| よくある質問 | `FAQPage` | 質問と回答の構造化データ |
 | 全ページ | `BreadcrumbList` | パンくずナビ構造 |
 
 #### サイトマップ・robots.txt
@@ -979,7 +1318,7 @@ Cloudflare Registrar でドメインを取得・管理すると DNS 設定も自
 
 ### Phase 1: MVP ✅ 完了
 - [x] モノレポ構成・TypeScript設定
-- [x] D1 スキーマ作成（9テーブル）
+- [x] D1 スキーマ作成（10テーブル）
 - [x] Workers API（動物登録・取得）
 - [x] R2 画像アップロード・サムネイル生成
 - [x] テンプレートエンジン（Mustache、default テンプレート）
@@ -1019,6 +1358,23 @@ Cloudflare Registrar でドメインを取得・管理すると DNS 設定も自
 - [x] SEO: `breeder_type` に応じた紹介ページラベル動的生成（犬舎紹介/猫舎紹介/ブリーダー紹介）
 - [x] サムネイル画像対応（`uploadImageWithThumbnail`）
 
+### Phase 5: 機能拡充・移行支援 ✅ 完了
+- [x] FAQ 管理機能（DB + API + 管理画面 + サイト表示 + JSON-LD FAQPage）
+- [x] プライバシーポリシー / 利用規約ページ自動生成
+- [x] LIFF お知らせ管理（ブリーダーが LINE から直接投稿・編集・削除 + 自動デプロイ）
+- [x] ヒーロー画像スライドショー（最大5枚、並び替え対応）
+- [x] 施設画像管理（最大3枚）
+- [x] トップページセクション並び替え・表示制御（home_sections、13セクション対応）
+- [x] ナビゲーション項目カスタマイズ（nav_order）
+- [x] 管理者用動物 CRUD（Admin UI から直接登録・更新・削除 + 自動デプロイ）
+- [x] 旧サイト移行ウィザード（クロール・ページ種別判定・リダイレクト提案）
+- [x] 移行検証ツール（DNS/HTTP・sitemap・robots.txt・リダイレクト確認）
+- [x] 移行チェックリスト（breeders.migration_checklist）
+- [x] deploy-trigger サービス抽出（ビルド・デプロイの共通化）
+- [x] 定期クリーンアップ（Cron: webhook_events / deploy_logs / audit_logs）
+- [x] 特定商取引法に基づく表記対応（tokushoho）
+- [x] Cookie 同意バナー（cookie-banner パーシャル）
+
 ---
 
 ## 10. セキュリティ
@@ -1027,7 +1383,7 @@ Cloudflare Registrar でドメインを取得・管理すると DNS 設定も自
 
 #### LIFF トークン検証（ブリーダー向け API）
 
-すべての `/api/animals` エンドポイントは LIFF アクセストークンを `Authorization: Bearer <token>` ヘッダーで受け取る。
+すべての `/api/animals` および `/api/liff/*` エンドポイントは LIFF アクセストークンを `Authorization: Bearer <token>` ヘッダーで受け取る。
 
 **サーバー側検証手順**:
 1. `GET https://api.line.me/oauth2/v2.1/verify?access_token=<token>` を呼び出し、レスポンスの `client_id` が LIFF アプリの Channel ID（`LIFF_CHANNEL_ID`）と一致することを確認
@@ -1045,6 +1401,9 @@ Cloudflare Registrar でドメインを取得・管理すると DNS 設定も自
 - `/api/pages/*`（固定ページ管理）
 - `/api/announcements/*`（お知らせ管理）
 - `/api/testimonials/*`（お客様の声管理）
+- `/api/faqs/*`（FAQ管理）
+- `/api/admin/animals/*`（管理者用動物管理）
+- `/api/migration/*`（移行ツール）
 
 **認証方式**: `Authorization: Bearer <ADMIN_API_KEY>`
 - `ADMIN_API_KEY` は Cloudflare Workers シークレットに設定
@@ -1273,11 +1632,16 @@ Cloudflare WAF / Rate Limiting Rules で設定:
 | `POST /api/animals/*` | 30 req | 1分 |
 | `POST /api/webhook/line` | 100 req | 1分 |
 | `POST /api/breeders` | 5 req | 1分 |
+| `POST /api/breeders/*/animals` | 30 req | 1分 |
 | `POST /api/sites/build` | 10 req | 1分 |
 | `POST /api/sites/*/upload-image` | 10 req | 1分 |
 | `POST /api/pages` | 10 req | 1分 |
 | `POST /api/announcements` | 10 req | 1分 |
+| `POST /api/liff/announcements` | 10 req | 1分 |
 | `POST /api/testimonials` | 10 req | 1分 |
+| `POST /api/faqs` | 10 req | 1分 |
+| `POST /api/migration/*` | 5 req | 1分 |
+| `POST /api/admin/animals` | 30 req | 1分 |
 
 超過時は `429 Too Many Requests` を返す。
 
@@ -1336,6 +1700,9 @@ Cloudflare Pages の `_headers` ファイルで設定:
 | お客様の声の作成 | `testimonial.create` |
 | お客様の声の更新 | `testimonial.update` |
 | お客様の声の削除 | `testimonial.delete` |
+| FAQ の作成 | `faq.create` |
+| FAQ の更新 | `faq.update` |
+| FAQ の削除 | `faq.delete` |
 | 固定ページの作成 | `page.create` |
 | 固定ページの更新 | `page.update` |
 | 固定ページの削除 | `page.delete` |
@@ -1345,3 +1712,15 @@ Cloudflare Pages の `_headers` ファイルで設定:
 | LINE User ID の紐付け | `breeder.link_line` |
 | ブリーダー情報の閲覧（管理者） | `breeder.view` |
 | 管理者 API アクセス失敗 | `admin.auth_fail` |
+
+### 10.10 定期クリーンアップ
+
+Workers の `scheduled` ハンドラー（Cron トリガー）で以下のテーブルの古いレコードを定期削除する:
+
+| テーブル | 削除条件 |
+|---------|---------|
+| `webhook_events` | `received_at` が一定期間（24時間）より古いレコード |
+| `deploy_logs` | 古いデプロイログレコード |
+| `audit_logs` | 古い監査ログレコード |
+
+**実装ファイル**: `packages/api/src/index.ts`（`scheduled` エクスポート）、`packages/api/src/db/queries.ts`（`cleanOldWebhookEvents`, `cleanOldDeployLogs`, `cleanOldAuditLogs`）
