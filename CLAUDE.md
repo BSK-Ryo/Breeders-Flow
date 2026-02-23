@@ -60,7 +60,7 @@ packages/
 
 | パス | 説明 |
 |------|------|
-| `SPECIFICATION.md` | 詳細仕様書（1,300行超。アーキテクチャ・DB・API・セキュリティ等） |
+| `SPECIFICATION.md` | 詳細仕様書（1,700行超。アーキテクチャ・DB・API・セキュリティ等） |
 | `packages/shared/src/types.ts` | 全型定義（Breeder, Animal, SiteConfig 等） |
 | `packages/shared/src/constants.ts` | 定数・ラベル・テンプレートデフォルト値 |
 | `packages/shared/src/validators.ts` | Zod バリデーションスキーマ |
@@ -69,12 +69,13 @@ packages/
 | `packages/api/src/routes/` | API エンドポイント定義 |
 | `packages/generator/src/pages.ts` | サイト生成のメインロジック（generatePages） |
 | `packages/generator/src/engine.ts` | テンプレートヘルパー関数 |
+| `packages/generator/src/section-reorder.ts` | セクション並び替えエンジン |
 | `packages/generator/templates/` | 3テーマのMustacheテンプレート |
 | `packages/admin/src/components/` | Admin UI コンポーネント |
 
-## DB テーブル（9テーブル）
+## DB テーブル（10テーブル）
 
-`breeders` / `animals` / `images` / `pages` / `announcements` / `testimonials` / `faqs` / `deploy_logs` / `webhook_events`
+`breeders` / `animals` / `images` / `pages` / `announcements` / `testimonials` / `faqs` / `deploy_logs` / `audit_logs` / `webhook_events`
 
 - PIIは AES-256-GCM で暗号化（owner_name, email, phone, address, license_no）
 - `site_config` は JSON カラム（SiteConfig型）でブリーダーごとのサイト設定を保持
@@ -84,7 +85,7 @@ packages/
 - 3つのテーマ: `default`（プレミアム/ダーク）、`modern`（ミニマル/白）、`warm`（温かみ/クリーム）
 - 各テーマに `layout.html` / `pages/*.html` / `partials/*.html` / `assets/`
 - `SiteConfig` でテーマ・色・フォント・SEO・各セクション設定をブリーダーごとに制御
-- 生成サイトは 13+ページ（index, about, puppies, kittens, news, flow, contact, testimonials, faq, legal, privacy, terms, 404 等）
+- 生成サイトは 16ページ（index, about, puppies, kittens, parents, news, flow, contact, testimonials, faq, legal, privacy, terms, 404 + 子犬/子猫詳細ページ）
 
 ## セキュリティ
 
