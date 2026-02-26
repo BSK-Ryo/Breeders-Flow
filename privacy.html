@@ -48,6 +48,15 @@ legal_table_styles: true
                 </ul>
                 <p>これらの情報は個人を特定するものではなく、統計的なデータとして利用します。</p>
 
+                <h3>2-4. 決済に関する情報</h3>
+                <p>クレジットカードによるお支払いをご利用の場合、カード番号・有効期限・セキュリティコード等のクレジットカード情報は、当方では一切保持いたしません。これらの情報は、PCI DSS（Payment Card Industry Data Security Standard）に準拠した決済代行サービス Stripe, Inc. が直接処理します。</p>
+                <p>当方が保持する決済関連情報は以下の通りです。</p>
+                <ul>
+                    <li>ご契約プラン・サブスクリプションの状態</li>
+                    <li>課金履歴（金額・日時）</li>
+                    <li>Stripe が発行する顧客識別子（カード情報は含みません）</li>
+                </ul>
+
                 <h2>第3条（利用目的）</h2>
                 <p>当方は、取得した個人情報を以下の目的のためにのみ利用します。</p>
                 <ol>
@@ -55,6 +64,7 @@ legal_table_styles: true
                     <li>サービスのご案内・ご提案</li>
                     <li>ご契約に関する手続き・管理</li>
                     <li>本サービスの改善・品質向上のための分析（個人を特定しない形で）</li>
+                    <li>利用料の決済処理および請求管理</li>
                 </ol>
 
                 <h2>第4条（個人情報の管理）</h2>
@@ -63,6 +73,7 @@ legal_table_styles: true
                     <li>お問い合わせフォームからの送信は、SSL（HTTPS）による暗号化通信で保護されています。</li>
                     <li>フォーム送信データは、FormSubmit（外部メール送信サービス）を経由して当方のメールアドレスに配信されます。</li>
                     <li>取得した個人情報へのアクセスは、業務上必要な範囲に限定しています。</li>
+                    <li>クレジットカード情報は、PCI DSS に準拠した Stripe, Inc. が直接処理しており、当方のサーバーを経由・保存することはありません。</li>
                 </ul>
 
                 <h2>第5条（第三者提供）</h2>
@@ -83,6 +94,7 @@ legal_table_styles: true
                         <tr><td>LINE公式アカウント</td><td>お客様とのメッセージング</td><td>LINE ヤフー株式会社</td></tr>
                         <tr><td>GitHub Pages</td><td>Webサイトのホスティング</td><td>GitHub, Inc.</td></tr>
                         <tr><td>Google Analytics</td><td>アクセス解析</td><td>Google LLC</td></tr>
+                        <tr><td>Stripe</td><td>利用料の決済処理・サブスクリプション管理</td><td>Stripe, Inc.</td></tr>
                     </tbody>
                 </table>
 
