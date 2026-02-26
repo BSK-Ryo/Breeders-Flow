@@ -13,6 +13,7 @@
 - **サイト生成**: Mustache テンプレートエンジン（ロジックレス）
 - **フロントエンド**: React 19 + Vite + Tailwind CSS
 - **LINE連携**: LINE Messaging API + LIFF v2
+- **決済**: Stripe Billing（サブスクリプション管理・Payment Links）
 - **テスト**: Vitest
 - **バリデーション**: Zod
 - **Node**: >=20.0.0
@@ -71,11 +72,13 @@ packages/
 | `packages/generator/src/engine.ts` | テンプレートヘルパー関数 |
 | `packages/generator/src/section-reorder.ts` | セクション並び替えエンジン |
 | `packages/generator/templates/` | 3テーマのMustacheテンプレート |
+| `packages/api/src/routes/animal-scrape.ts` | ポータルサイト動物情報スクレイプ |
+| `packages/api/src/routes/stripe-webhook.ts` | Stripe Webhook 処理（サブスク管理） |
 | `packages/admin/src/components/` | Admin UI コンポーネント |
 
-## DB テーブル（10テーブル）
+## DB テーブル（12テーブル）
 
-`breeders` / `animals` / `images` / `pages` / `announcements` / `testimonials` / `faqs` / `deploy_logs` / `audit_logs` / `webhook_events`
+`breeders` / `animals` / `images` / `pages` / `announcements` / `testimonials` / `faqs` / `deploy_logs` / `audit_logs` / `webhook_events` / `subscriptions` / `stripe_webhook_events`
 
 - PIIは AES-256-GCM で暗号化（owner_name, email, phone, address, license_no）
 - `site_config` は JSON カラム（SiteConfig型）でブリーダーごとのサイト設定を保持
@@ -85,13 +88,16 @@ packages/
 - 3つのテーマ: `default`（プレミアム/ダーク）、`modern`（ミニマル/白）、`warm`（温かみ/クリーム）
 - 各テーマに `layout.html` / `pages/*.html` / `partials/*.html` / `assets/`
 - `SiteConfig` でテーマ・色・フォント・SEO・各セクション設定をブリーダーごとに制御
-- 生成サイトは 16ページ（index, about, puppies, kittens, parents, news, flow, contact, testimonials, faq, legal, privacy, terms, 404 + 子犬/子猫詳細ページ）
+- 生成サイトは 16ページ + 詳細ページ（index, about, puppies, kittens, parents, news, flow, contact, testimonials, faq, legal, privacy, terms, 404 + 子犬/子猫/親犬/親猫の個別詳細ページ）
+- 動物詳細ページからコンタクトフォームへクエリパラメータ連携（犬種・個体ID自動入力）
 
 ## セキュリティ
 
+- Cloudflare Access（メールOTP）による管理画面アクセス制御
 - LIFF トークン検証（LINE API）
-- Admin API キー認証（constant-time比較）
-- Webhook 署名検証（HMAC-SHA256）
+- Admin API キー認証（constant-time比較 + アカウントロック: 10回失敗/30分でIP単位ブロック）
+- LINE Webhook 署名検証（HMAC-SHA256）
+- Stripe Webhook 署名検証
 - 画像: MIME type 検証（magic bytes）、EXIF除去、サイズ制限
 - Rate Limiting（エンドポイントごと）
 - CSP / X-Frame-Options / HSTS ヘッダー
