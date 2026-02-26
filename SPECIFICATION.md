@@ -1,7 +1,7 @@
 # Breeder Flow — システム仕様書
 
-> **バージョン**: 0.5.0
-> **最終更新**: 2026-02-23
+> **バージョン**: 0.7.0
+> **最終更新**: 2026-02-26
 > **プロジェクト名**: breeder-flow
 
 ---
@@ -112,6 +112,7 @@
 │  ├─ puppies/xxx.html        （子犬詳細）                   │
 │  ├─ kittens/index.html      （子猫一覧 *breeder_type条件） │
 │  ├─ kittens/xxx.html        （子猫詳細）                   │
+│  ├─ parents/xxx.html        （親犬/親猫詳細）              │
 │  ├─ news/index.html         （お知らせ一覧）               │
 │  ├─ flow.html               （お迎えの流れ・見学案内）      │
 │  ├─ contact.html            （お問い合わせ）               │
@@ -165,7 +166,9 @@ breeder-flow/
 │   │   │   │   ├── testimonials.ts       # お客様の声 CRUD
 │   │   │   │   ├── faqs.ts              # FAQ CRUD
 │   │   │   │   ├── pages.ts             # 固定ページ CRUD
-│   │   │   │   └── migration.ts         # 旧サイト移行ツール
+│   │   │   │   ├── migration.ts         # 旧サイト移行ツール
+│   │   │   │   ├── demo-scrape.ts       # デモサイトスクレイプ
+│   │   │   │   └── animal-scrape.ts     # ポータルサイト動物情報スクレイプ
 │   │   │   ├── services/
 │   │   │   │   ├── line.ts           # LINE Messaging API
 │   │   │   │   ├── builder.ts        # サイトビルダー
@@ -290,6 +293,7 @@ templates/{theme}/
 │   ├── animal.html           # 子犬/子猫詳細
 │   ├── kittens.html          # 子猫一覧
 │   ├── parents.html          # 親犬・親猫紹介
+│   ├── parent.html           # 親犬/親猫詳細（個別ページ）
 │   ├── news.html             # お知らせ一覧
 │   ├── flow.html             # お迎えの流れ・見学案内
 │   ├── contact.html          # お問い合わせ
@@ -304,7 +308,7 @@ templates/{theme}/
     ├── css/
     │   └── style.css          # テーマ固有CSS
     └── js/
-        └── main.js            # ハンバーガーメニュー等
+        └── main.js            # ハンバーガーメニュー・コンタクトフォーム自動入力・ヒーロースライドショー
 ```
 
 ---
@@ -344,6 +348,7 @@ CREATE TABLE animals (
   breeder_id     TEXT NOT NULL REFERENCES breeders(id),
   animal_type    TEXT NOT NULL,             -- puppy / kitten / parent_dog / parent_cat
   animal_id      TEXT NOT NULL,             -- 個体識別名（ブリーダー内でユニーク）
+  name           TEXT,                      -- 表示名（親犬/親猫用、最大50文字）
   breed          TEXT,                      -- 犬種/猫種
   sex            TEXT,                      -- male / female
   birth_date     TEXT,                      -- YYYY-MM-DD
@@ -470,6 +475,25 @@ CREATE TABLE audit_logs (
 );
 ```
 
+#### subscriptions（サブスクリプション / Stripe 課金管理）
+```sql
+CREATE TABLE subscriptions (
+  id                     INTEGER PRIMARY KEY AUTOINCREMENT,
+  breeder_id             TEXT NOT NULL UNIQUE REFERENCES breeders(id),
+  stripe_customer_id     TEXT UNIQUE,
+  stripe_subscription_id TEXT UNIQUE,
+  subscription_plan      TEXT NOT NULL DEFAULT 'standard'
+    CHECK(subscription_plan IN ('standard', 'premium')),
+  subscription_status    TEXT NOT NULL DEFAULT 'incomplete'
+    CHECK(subscription_status IN ('incomplete', 'active', 'past_due', 'canceled', 'unpaid', 'trialing')),
+  current_period_start   TEXT,
+  current_period_end     TEXT,
+  cancel_at_period_end   INTEGER NOT NULL DEFAULT 0,
+  created_at             TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at             TEXT NOT NULL DEFAULT (datetime('now'))
+);
+```
+
 #### webhook_events（Webhook重複防止）
 ```sql
 CREATE TABLE webhook_events (
@@ -497,6 +521,11 @@ CREATE INDEX idx_audit_actor ON audit_logs(actor_id, timestamp DESC);
 CREATE INDEX idx_audit_resource ON audit_logs(resource, resource_id);
 CREATE INDEX idx_audit_timestamp ON audit_logs(timestamp);
 CREATE INDEX idx_webhook_received ON webhook_events(received_at);
+CREATE INDEX idx_subscriptions_stripe_customer ON subscriptions(stripe_customer_id)
+  WHERE stripe_customer_id IS NOT NULL;
+CREATE INDEX idx_subscriptions_stripe_subscription ON subscriptions(stripe_subscription_id)
+  WHERE stripe_subscription_id IS NOT NULL;
+CREATE INDEX idx_subscriptions_status ON subscriptions(subscription_status);
 ```
 
 ---
@@ -549,6 +578,30 @@ LINE プラットフォームからの Webhook イベントを受信。
 
 - **follow**: 友だち追加 → 案内メッセージ送信
 - **message (text)**: メールアドレス送信 → ブリーダー照合 → LINE User ID 登録
+
+### 5.2.5 Stripe Webhook
+
+#### POST /api/webhook/stripe
+Stripe からの Webhook イベントを受信・処理。
+
+**認証**: `Stripe-Signature` ヘッダーで HMAC-SHA256 署名検証。タイムスタンプが5分以上古いイベントは拒否。
+
+**処理するイベント**:
+| イベント | 処理内容 |
+|---------|---------|
+| `checkout.session.completed` | `client_reference_id` からブリーダーを特定し、サブスクリプションを作成 |
+| `customer.subscription.created` | サブスクリプション情報を upsert |
+| `customer.subscription.updated` | ステータス・期間を更新、ブリーダーステータス連動 |
+| `customer.subscription.deleted` | サブスクを `canceled` に更新、ブリーダーを `cancelled` に |
+| `invoice.payment_succeeded` | サブスクを `active` に復帰 |
+| `invoice.payment_failed` | 監査ログ記録（Stripe のリトライに任せる） |
+
+**リプレイ攻撃防止**: `webhook_events` テーブルで `event.id` の重複を検知。
+
+**実装ファイル**: `packages/api/src/routes/stripe-webhook.ts`
+
+#### GET /api/breeders/:id/subscription
+ブリーダーのサブスクリプション情報を取得。
 
 ### 5.3 サイト管理 API（管理者用）
 
@@ -851,6 +904,39 @@ FAQ の削除。
 }
 ```
 
+### 5.11 デモスクレイプ API（管理者用）
+
+デモサイト用のデータをポータルサイトからスクレイプする。
+
+#### POST /api/demo-scrape/*
+デモ用データの取得・生成。
+
+### 5.12 動物情報スクレイプ API（管理者用）
+
+ポータルサイト（みんなのブリーダー等）から動物情報を抽出する。
+
+#### POST /api/animal-scrape/extract
+指定 URL から動物情報（犬種、性別、誕生日、価格、画像等）を抽出する。
+
+```json
+// Request
+{ "url": "https://www.min-breeder.com/dog/xxx" }
+
+// Response
+{
+  "success": true,
+  "data": {
+    "breed": "トイプードル",
+    "sex": "female",
+    "birth_date": "2026-01-15",
+    "color": "レッド",
+    "price": 350000,
+    "description": "...",
+    "images": ["https://..."]
+  }
+}
+```
+
 ---
 
 ## 6. LINE LIFF フォーム
@@ -878,6 +964,7 @@ LINEリッチメニュー
             ├─ 登録フォーム
             │   ├─ 登録種別（子犬/子猫/親犬/親猫）
             │   ├─ 個体識別名
+            │   ├─ 名前（親犬/親猫のみ表示）
             │   ├─ 犬種/猫種
             │   ├─ 性別（オス/メス）
             │   ├─ 誕生日
@@ -929,7 +1016,9 @@ React + Vite で構築し、Cloudflare Pages にデプロイ。
 
 ### 認証方式
 
-`ADMIN_API_KEY` を Bearer トークンとして使用。ログイン画面で入力し、ローカルストレージに保存。
+二重認証:
+1. **Cloudflare Access**（メールOTP）で `admin.breeders-flow.com` へのアクセスを制限
+2. **`ADMIN_API_KEY`** を Bearer トークンとしてログイン画面で入力し、ローカルストレージに保存
 
 ### 画面一覧
 
@@ -939,7 +1028,7 @@ React + Vite で構築し、Cloudflare Pages にデプロイ。
 | ダッシュボード | `Dashboard.tsx` | ブリーダー数・デプロイ統計・最近のアクティビティ |
 | ブリーダー一覧 | `BreederList.tsx` | 全ブリーダーの一覧表示・検索 |
 | ブリーダー作成 | `BreederForm.tsx` | 新規ブリーダー登録フォーム |
-| ブリーダー詳細 | `BreederDetail.tsx` | 6タブ構成（基本情報/動物管理/サイト設定/コンテンツ/デプロイ/移行） |
+| ブリーダー詳細 | `BreederDetail.tsx` | 7タブ構成（基本情報/動物管理/サイト設定/コンテンツ/デプロイ/課金/移行） |
 | サイト設定 | `SiteConfigEditor.tsx` | テーマ・色・フォント・ロゴ・SNS・SEO・挨拶文・こだわり・施設・お迎えの流れ |
 | セクション順序 | `SectionOrderEditor.tsx` | トップページセクションの並び替え・表示/非表示・タイトルカスタマイズ |
 | ナビ順序 | `NavOrderEditor.tsx` | ナビゲーション項目の並び替え・カスタマイズ |
@@ -949,8 +1038,25 @@ React + Vite で構築し、Cloudflare Pages にデプロイ。
 | 動物管理 | `AnimalEditor.tsx` | 動物情報の CRUD（画像アップロード付き） |
 | 動物画像 | `AnimalImageUpload.tsx` | 動物画像のアップロード・管理 |
 | 移行ウィザード | `MigrationWizard.tsx` | 旧サイトクロール・検証・移行チェックリスト |
+| デモスクレイプ | `DemoScrapeWizard.tsx` | ポータルサイトからのデモデータ取得 |
 | デプロイ履歴 | `DeployLogList.tsx` | デプロイログの表示・手動リビルド |
 | エラー | `ErrorBoundary.tsx` | エラーハンドリング |
+
+### 課金タブ（Billing）
+
+ブリーダー詳細画面の「課金」タブで以下を提供:
+
+**サブスクリプション情報表示**:
+- プラン（スタンダード / プレミアム）
+- ステータス（有効 / 支払い遅延 / 解約済み 等）
+- 請求期間（開始 / 終了）
+- Stripe Customer ID（Stripe ダッシュボードへのリンク付き）
+
+**決済リンク生成**（サブスクが未設定 or `incomplete` 時に表示）:
+- プラン選択ボタン（スタンダード / プレミアム）
+- `Stripe Payment Link URL + ?client_reference_id={breederId}` を自動生成
+- ワンクリックでクリップボードにコピー
+- 環境変数: `VITE_STRIPE_LINK_STANDARD`, `VITE_STRIPE_LINK_PREMIUM`
 
 ---
 
@@ -1206,6 +1312,8 @@ export const TEMPLATE_DEFAULTS: Record<string, {
 | 5 | 子犬詳細 | `/puppies/{slug}.html` | 子犬ごと | 個体情報、画像一覧 |
 | 6 | 子猫詳細 | `/kittens/{slug}.html` | 子猫ごと | 個体情報、画像一覧 |
 | 7 | 親犬・親猫 | `/parents.html` | 常時 | parentDogs、parentCats |
+| 7a | 親犬詳細 | `/parents/{slug}.html` | 親犬ごと | 個体情報（名前・犬種・画像等） |
+| 7b | 親猫詳細 | `/parents/{slug}.html` | 親猫ごと | 個体情報（名前・猫種・画像等） |
 | 8 | お知らせ | `/news/` | 常時 | 全お知らせ（日付降順） |
 | 9 | お迎えの流れ | `/flow.html` | 常時 | adoption_flow、address、Google Maps |
 | 10 | お問い合わせ | `/contact.html` | 常時 | LINE、電話、メール、Instagram |
@@ -1231,6 +1339,21 @@ export const TEMPLATE_DEFAULTS: Record<string, {
 **パンくずナビ**:
 - 全ページに `breadcrumb.html` パーシャルでパンくずを表示
 - JSON-LD `BreadcrumbList` 構造化データも同時生成
+
+#### コンタクトフォーム自動入力
+
+動物詳細ページのお問い合わせリンクにクエリパラメータを付与し、コンタクトフォームの入力を自動補完する。
+
+| パラメータ | 対象フィールド | 動作 |
+|-----------|-------------|------|
+| `breed` | 犬種/猫種フィールド（`#contact-breed`） | 値を自動入力 |
+| `animal_id` | メッセージ欄（`#contact-message`） | `個体ID: {animal_id} について問い合わせます。` を自動入力 |
+
+**リンク形式**:
+- 子犬/子猫詳細: `/contact.html?breed={breed}&animal_id={animal_id}`
+- 親犬/親猫詳細: `/contact.html?breed={breed}`
+
+**実装ファイル**: `templates/{theme}/assets/js/main.js`
 
 ### 7.8 SEO 機能
 
@@ -1375,47 +1498,26 @@ Cloudflare Registrar でドメインを取得・管理すると DNS 設定も自
 - [x] 特定商取引法に基づく表記対応（tokushoho）
 - [x] Cookie 同意バナー（cookie-banner パーシャル）
 
-### Phase 6: 紹介プログラム（計画中）
+### Phase 6: 親犬親猫詳細・スクレイプ機能 ✅ 完了
+- [x] 親犬/親猫の個別詳細ページ生成（`/parents/{slug}.html`）
+- [x] 親犬/親猫の名前（`name`）フィールド追加（LIFF・Admin 両対応）
+- [x] 親犬/親猫一覧の見出しを名前で表示
+- [x] コンタクトフォーム自動入力（動物詳細ページからクエリパラメータ連携）
+- [x] デモサイトスクレイプ機能（`DemoScrapeWizard`）
+- [x] ポータルサイト動物情報スクレイプ（`animal-scrape` API）
 
-> **ステータス**: アイデア段階。アウトバウンド営業で初期ユーザー（10〜20犬舎）獲得後に実装予定。
-
-#### 目的
-
-ブリーダー同士の横のつながりを活かし、既存ユーザーからの口コミ・紹介で新規ユーザーを獲得する。
-
-#### 前提：初期費用の導入
-
-- 現在 ¥0 の初期費用を、将来的に **¥10,000〜20,000（税込）** に設定予定
-- 紹介プログラムと同時期に導入し、紹介経由の参入ハードルを下げる導線とする
-
-#### 特典設計
-
-| 対象 | 特典内容 |
-|------|---------|
-| **紹介者** | 1人紹介につき翌月無料（1ヶ月分）。上限6ヶ月分まで累積可能 |
-| **被紹介者** | 初期費用免除（¥10,000〜20,000相当） |
-
-- 紹介者：「1人紹介 = 1ヶ月無料」のルールで統一。上限6ヶ月（最低利用期間と同じ）
-- 被紹介者：紹介コード経由の申込で初期費用が免除される。通常申込では初期費用が発生
-- 紹介者・被紹介者で特典の種類が異なるため、双方の動機が明確（既存ユーザーは月額軽減、新規は初期コスト削減）
-
-#### 導入タイミング
-
-```
-Phase A: アウトバウンド営業で初期ユーザー獲得（10〜20犬舎目標）
-Phase B: 紹介制度ローンチ — 既存ユーザーに紹介コード配布、LINE で一斉通知
-Phase C: 実績ベースのマーケティングと紹介制度を併用して拡大
-```
-
-#### 将来の実装スコープ（メモ）
-
-- [ ] `referrals` テーブル追加（紹介コード・紹介者ID・被紹介者ID・ステータス・特典適用状況）
-- [ ] 紹介コードの生成・管理 API
-- [ ] 紹介追跡（誰が誰を紹介したか）
-- [ ] 特典の自動適用（請求管理との連携）
-- [ ] LINE 経由の紹介フロー（紹介コード共有メッセージ）
-- [ ] 管理者ダッシュボードでの紹介状況確認画面
-- [ ] 紹介上限チェック・特典期限管理
+### Phase 7: Stripe 決済・セキュリティ強化 ✅ 完了
+- [x] Stripe Billing 統合（サブスクリプション管理）
+- [x] `subscriptions` テーブル追加（プラン・ステータス・Stripe ID 管理）
+- [x] Stripe Webhook 受信（6イベント: checkout/subscription/invoice）
+- [x] Stripe 署名検証（HMAC-SHA256 + タイムスタンプ + 定数時間比較）
+- [x] Webhook リプレイ攻撃防止（`webhook_events` テーブル共用）
+- [x] サブスクステータス → ブリーダーステータス自動連動
+- [x] Admin 課金タブ（サブスク情報表示・決済リンク生成）
+- [x] Payment Links + `client_reference_id` によるブリーダー紐付け
+- [x] Cloudflare Access 導入（メールOTP による管理画面アクセス制御）
+- [x] Admin 認証アカウントロック（IP単位: 10回失敗/30分でブロック）
+- [x] CORS に `admin.breeders-flow.com` 追加
 
 ---
 
@@ -1446,11 +1548,14 @@ Phase C: 実績ベースのマーケティングと紹介制度を併用して�
 - `/api/faqs/*`（FAQ管理）
 - `/api/admin/animals/*`（管理者用動物管理）
 - `/api/migration/*`（移行ツール）
+- `/api/demo-scrape/*`（デモスクレイプ）
+- `/api/animal-scrape/*`（動物情報スクレイプ）
 
 **認証方式**: `Authorization: Bearer <ADMIN_API_KEY>`
 - `ADMIN_API_KEY` は Cloudflare Workers シークレットに設定
 - タイミング攻撃を防ぐため、定数時間比較（constant-time comparison）を使用
-- 不一致の場合: `403 Forbidden`
+- 不一致の場合: `403 Forbidden`（`audit_logs` に失敗記録）
+- **アカウントロック**: 同一IPから30分以内に10回認証失敗 → `429 Too Many Requests`（自動解除: 30分経過後）
 
 #### データ所有権チェック（Cross-Breeder Isolation）
 
@@ -1647,6 +1752,7 @@ Mustache テンプレートエンジンは `{{variable}}` でデフォルト HTM
 | `LIFF_CHANNEL_ID` | LIFF トークン検証時の Channel ID 照合 |
 | `PII_ENCRYPTION_KEY` | ブリーダー PII 暗号化キー（256bit, Base64） |
 | `ADMIN_API_KEY` | 管理者 API 認証トークン |
+| `STRIPE_WEBHOOK_SECRET` | Stripe Webhook 署名検証シークレット |
 | `CF_PAGES_API_TOKEN` | Cloudflare Pages Deploy API |
 
 #### 本番環境
@@ -1684,6 +1790,9 @@ Cloudflare WAF / Rate Limiting Rules で設定:
 | `POST /api/faqs` | 10 req | 1分 |
 | `POST /api/migration/*` | 5 req | 1分 |
 | `POST /api/admin/animals` | 30 req | 1分 |
+| `POST /api/demo-scrape/*` | 3 req | 1分 |
+| `POST /api/animal-scrape/*` | 5 req | 1分 |
+| `POST /api/webhook/stripe` | 100 req | 1分 |
 
 超過時は `429 Too Many Requests` を返す。
 
@@ -1704,6 +1813,7 @@ Cloudflare WAF / Rate Limiting Rules で設定:
 | `https://liff.line.me` | LIFF 本番（LINE内ブラウザ） |
 | `https://breeder-flow-liff.pages.dev` | LIFF 本番（Pages直接アクセス） |
 | `https://breeder-flow-admin.pages.dev` | Admin UI 本番 |
+| `https://admin.breeders-flow.com` | Admin UI カスタムドメイン |
 | `http://localhost:5173` | LIFF ローカル開発 |
 | `http://localhost:5174` | Admin UI ローカル開発 |
 
