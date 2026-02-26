@@ -1,0 +1,141 @@
+---
+layout: default
+title: "ご契約手続き | Breeder Flow"
+description: "Breeder Flowのご契約手続きページ。利用規約・プライバシーポリシーをご確認の上、お支払い手続きにお進みください。"
+nav_active: ""
+fade_in: true
+---
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-teal-50 to-white py-20 md:py-24">
+        <div class="max-w-5xl mx-auto px-4 text-center fade-in">
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">ご契約手続き</h1>
+            <p class="text-lg text-gray-600">利用規約・プライバシーポリシーをご確認の上、<br>お支払い手続きにお進みください。</p>
+        </div>
+    </section>
+
+    <!-- エラーメッセージ（redirectパラメータなし） -->
+    <section id="error-section" class="py-20 bg-white hidden">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="bg-red-50 border border-red-200 rounded-xl p-8 text-center fade-in">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-circle-exclamation text-red-500 text-3xl"></i></div>
+                <h2 class="text-xl font-bold mb-2 text-red-800">無効なURLです</h2>
+                <p class="text-sm text-gray-600 mb-6">このページは、担当者からお送りする専用リンクからアクセスしてください。</p>
+                <a href="/contact/" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-8 py-4 text-base shadow-lg transition">お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 契約内容 -->
+    <section id="agreement-section" class="py-20 bg-white hidden">
+        <div class="max-w-3xl mx-auto px-4">
+
+            <!-- 契約内容の確認 -->
+            <div class="mb-12 fade-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">契約内容のご確認</h2>
+                    <p class="text-gray-600">以下の内容をご確認ください。</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-file-contract text-teal-600"></i></div>
+                            <h3 class="font-bold">サービス内容</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">ブリーダー向けホームページ制作・運用サービス「Breeder Flow」をご利用いただきます。HP制作、LINE更新機能、SEO対策、SSL証明書、サポート等がすべて含まれます。</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-calendar-check text-teal-600"></i></div>
+                            <h3 class="font-bold">最低利用期間</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">最低利用期間は<strong>6ヶ月間</strong>です。最低利用期間の満了後は1ヶ月単位で自動更新されます。最低利用期間中に解約のご連絡をいただいた場合、満了までサービスおよびお支払いが継続します。</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-credit-card text-teal-600"></i></div>
+                            <h3 class="font-bold">お支払い方法</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">クレジットカードによる毎月自動課金となります。Stripeの安全な決済システムを利用しており、カード情報は当方のサーバーには一切保存されません。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 規約同意 -->
+            <div class="bg-white border-2 border-teal-200 rounded-2xl p-8 md:p-10 shadow-lg fade-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-xl font-bold mb-2">規約への同意</h2>
+                    <p class="text-sm text-gray-600">以下の規約をご確認の上、チェックボックスにチェックを入れてください。</p>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                    <label class="flex items-start gap-3 bg-gray-50 rounded-xl p-5 cursor-pointer hover:bg-gray-100 transition">
+                        <input type="checkbox" id="agree-terms" class="mt-1 w-5 h-5 accent-teal-600 flex-shrink-0">
+                        <span class="text-sm text-gray-700"><a href="/terms/" target="_blank" class="text-teal-600 underline hover:text-teal-800 font-medium">利用規約</a>を確認し、同意します。</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-gray-50 rounded-xl p-5 cursor-pointer hover:bg-gray-100 transition">
+                        <input type="checkbox" id="agree-privacy" class="mt-1 w-5 h-5 accent-teal-600 flex-shrink-0">
+                        <span class="text-sm text-gray-700"><a href="/privacy/" target="_blank" class="text-teal-600 underline hover:text-teal-800 font-medium">プライバシーポリシー</a>を確認し、同意します。</span>
+                    </label>
+                </div>
+
+                <div class="text-center">
+                    <button id="proceed-btn" disabled class="inline-block bg-teal-500 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition w-full md:w-auto opacity-50 cursor-not-allowed">
+                        <i class="fa-solid fa-lock mr-2"></i>お支払いに進む
+                    </button>
+                    <p class="text-xs text-gray-400 mt-4"><i class="fa-solid fa-shield-halved mr-1"></i>お支払い手続き完了後、ご契約が確定します。Stripeの安全なページに遷移します。</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">ご不明な点がございましたら</h2>
+            <p class="text-slate-300 mb-8">お気軽にお問い合わせください。</p>
+            <a href="/contact/" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">お問い合わせ</a>
+        </div>
+    </section>
+
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var redirectUrl = params.get('redirect');
+
+        var errorSection = document.getElementById('error-section');
+        var agreementSection = document.getElementById('agreement-section');
+        var proceedBtn = document.getElementById('proceed-btn');
+        var agreeTerms = document.getElementById('agree-terms');
+        var agreePrivacy = document.getElementById('agree-privacy');
+
+        if (!redirectUrl) {
+            errorSection.classList.remove('hidden');
+            return;
+        }
+
+        agreementSection.classList.remove('hidden');
+
+        function updateButton() {
+            if (agreeTerms.checked && agreePrivacy.checked) {
+                proceedBtn.disabled = false;
+                proceedBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                proceedBtn.classList.add('hover:bg-teal-600', 'cursor-pointer');
+            } else {
+                proceedBtn.disabled = true;
+                proceedBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                proceedBtn.classList.remove('hover:bg-teal-600', 'cursor-pointer');
+            }
+        }
+
+        agreeTerms.addEventListener('change', updateButton);
+        agreePrivacy.addEventListener('change', updateButton);
+
+        proceedBtn.addEventListener('click', function() {
+            if (!proceedBtn.disabled) {
+                window.location.href = redirectUrl;
+            }
+        });
+    })();
+    </script>
