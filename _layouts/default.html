@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}/image/Breeders Flow_logo.png">
+    <meta property="og:site_name" content="Breeders Flow">
+    <meta property="og:locale" content="ja_JP">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:image" content="{{ site.url }}/image/Breeders Flow_logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/image/apple-touch-icon.png">
@@ -30,6 +44,8 @@
         details[open] summary ~ * { animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
         details summary::-webkit-details-marker { display: none; }
+        details summary .fa-chevron-down { transition: transform 0.3s ease; }
+        details[open] summary .fa-chevron-down { transform: rotate(180deg); }
         {% endif %}
         {% if page.legal_styles %}
         .legal-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #E5E7EB; }

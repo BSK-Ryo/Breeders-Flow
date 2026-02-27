@@ -12,13 +12,16 @@ details_animation: true
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Breeder Flow",
-        "description": "ブリーダー専用HP制作・運用サービス",
+        "description": "ブリーダー専用HP制作・運用サービス。LINEでかんたん更新、SEO対策標準搭載。",
+        "url": "https://breeders-flow.com/pricing/",
         "offers": [
             {
                 "@type": "Offer",
                 "name": "スタンダードプラン",
                 "price": "19800",
                 "priceCurrency": "JPY",
+                "availability": "https://schema.org/InStock",
+                "url": "https://breeders-flow.com/pricing/",
                 "priceSpecification": {
                     "@type": "UnitPriceSpecification",
                     "price": "19800",
@@ -35,6 +38,8 @@ details_animation: true
                 "name": "プレミアムプラン",
                 "price": "29800",
                 "priceCurrency": "JPY",
+                "availability": "https://schema.org/InStock",
+                "url": "https://breeders-flow.com/pricing/",
                 "priceSpecification": {
                     "@type": "UnitPriceSpecification",
                     "price": "29800",
@@ -54,9 +59,9 @@ details_animation: true
     <section class="bg-gradient-to-b from-teal-50 to-white py-20 md:py-24">
         <div class="max-w-5xl mx-auto px-4 text-center fade-in">
             <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">シンプルな料金体系。<br>隠れた費用はありません。</h1>
-            <p class="text-lg text-gray-600 mb-6">あなたに合ったプランをお選びください。</p>
-            <div class="inline-flex items-center gap-3 bg-red-500 text-white font-bold px-6 py-3 rounded-full shadow-lg campaign-glow">
-                <span class="bg-white text-red-500 text-xs font-extrabold px-2 py-0.5 rounded-full animate-pulse">毎月5社限定</span>
+            <p class="text-lg text-gray-600 mb-6">初期費用0円。HP制作・運用・SEO・サポート、すべて込みの月額制です。</p>
+            <div class="inline-flex items-center gap-3 bg-red-500 text-white font-bold px-6 py-3 rounded-full shadow-lg">
+                <span class="bg-white text-red-500 text-xs font-extrabold px-2 py-0.5 rounded-full">毎月5社限定</span>
                 <span class="text-base md:text-lg"><i class="fa-solid fa-gift mr-1"></i>初期費用無料キャンペーン実施中！</span>
             </div>
         </div>
@@ -70,7 +75,7 @@ details_animation: true
                 <!-- Standard Plan -->
                 <div class="bg-white border-t-4 border-teal-600 rounded-2xl shadow-xl p-8 md:p-10 relative flex flex-col">
                     <div class="absolute -top-4 left-4 bg-teal-600 text-white text-sm font-bold px-4 py-1 rounded-full">おすすめ</div>
-                    <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse"><i class="fa-solid fa-fire mr-1"></i>毎月5社限定！初期費用無料</div>
+                    <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-fire mr-1"></i>初期費用無料</div>
                     <div class="text-center mb-8">
                         <h2 class="text-lg font-bold mb-1 text-gray-700">スタンダードプラン</h2>
                         <p class="text-4xl md:text-5xl font-bold text-teal-600">¥19,800</p>
@@ -84,33 +89,18 @@ details_animation: true
                         <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-teal-600 text-sm"></i><span class="text-sm">初期費用 <span class="line-through text-gray-400">¥50,000</span> → <span class="text-red-500 font-bold">¥0</span></span></div>
                         <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-teal-600 text-sm"></i><span class="text-sm">最低利用期間 6ヶ月</span></div>
                     </div>
-                    <!-- Daily cost callout -->
-                    <div class="mb-6 relative">
-                        <div class="border-2 border-red-500 rounded-xl px-4 py-3 text-center">
-                            <p class="text-red-600 font-bold text-sm">
-                                <i class="fa-solid fa-clock mr-1"></i>1日わずか<span class="text-2xl font-extrabold">660</span>円
-                            </p>
-                            <p class="text-amber-600 font-bold text-xs mt-1">6ヶ月目以降は約<span class="text-base font-extrabold">493</span>円/日</p>
-                        </div>
-                        <div class="mt-2 bg-red-500 text-white text-xs font-bold px-3 py-2 rounded-lg relative text-center">
-                            <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rotate-45"></div>
-                            <span>24時間自社の魅力を営業してくれる窓口が500円以下で！</span>
-                        </div>
-                    </div>
+                    <p class="text-center text-sm text-gray-500 mb-6"><i class="fa-solid fa-clock text-teal-600 mr-1"></i>1日あたり約<strong class="text-teal-600">660</strong>円 → 6ヶ月目以降は約<strong class="text-amber-600">493</strong>円</p>
                     <h3 class="font-bold text-sm text-gray-500 uppercase tracking-wider mb-4">含まれるもの</h3>
                     <div class="space-y-2 mb-8">
                         <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">ブリーダー専用HP制作</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">3テーマから選べるデザイン</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">カラーカスタマイズ</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">LINE完結の更新機能</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">16ページ+詳細ページの自動生成</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">SEO対策（構造化データ等）</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">SSL証明書・HTTPS</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">CDN高速配信</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">画像最適化・EXIF自動除去</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">3テーマから選べるデザイン + カラーカスタマイズ</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">LINEで完結する更新機能</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">16ページ + 詳細ページの自動生成</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">検索上位に強いSEO設計</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">セキュリティ対策（SSL・暗号化）</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">高速表示・写真の自動最適化</span></div>
                         <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">お知らせ・お客様の声管理</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">自動ビルド・デプロイ</span></div>
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">個人情報暗号化保護</span></div>
+                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">情報更新の自動反映</span></div>
                         <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-teal-600 text-xs"></i><span class="text-sm">メール・LINEサポート</span></div>
                     </div>
                     <div class="text-center mt-auto">
@@ -120,7 +110,7 @@ details_animation: true
 
                 <!-- Premium Plan -->
                 <div class="bg-white border-t-4 border-amber-500 rounded-2xl shadow-xl p-8 md:p-10 relative flex flex-col">
-                    <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse"><i class="fa-solid fa-fire mr-1"></i>毎月5社限定！初期費用無料</div>
+                    <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-fire mr-1"></i>初期費用無料</div>
                     <div class="text-center mb-8">
                         <h2 class="text-lg font-bold mb-1 text-gray-700">プレミアムプラン</h2>
                         <p class="text-4xl md:text-5xl font-bold text-amber-600">¥29,800</p>
@@ -134,22 +124,9 @@ details_animation: true
                         <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-amber-500 text-sm"></i><span class="text-sm">初期費用 <span class="line-through text-gray-400">¥50,000</span> → <span class="text-red-500 font-bold">¥0</span></span></div>
                         <div class="flex items-center gap-2 py-2 border-b border-gray-100"><i class="fa-solid fa-circle-check text-amber-500 text-sm"></i><span class="text-sm">最低利用期間 6ヶ月</span></div>
                     </div>
-                    <!-- Daily cost callout -->
-                    <div class="mb-6 relative">
-                        <div class="border-2 border-red-500 rounded-xl px-4 py-3 text-center">
-                            <p class="text-red-600 font-bold text-sm">
-                                <i class="fa-solid fa-clock mr-1"></i>1日わずか<span class="text-2xl font-extrabold">993</span>円
-                            </p>
-                            <p class="text-amber-600 font-bold text-xs mt-1">6ヶ月目以降は約<span class="text-base font-extrabold">827</span>円/日</p>
-                        </div>
-                        <div class="mt-2 bg-red-500 text-white text-xs font-bold px-3 py-2 rounded-lg relative text-center">
-                            <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rotate-45"></div>
-                            <span>集客支援込みでも1,000円以下！</span>
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-sm text-gray-500 uppercase tracking-wider mb-4">スタンダードの全機能 +</h3>
-                    <div class="space-y-2 mb-6">
-                        <div class="flex items-center gap-2 py-1.5"><i class="fa-solid fa-check text-amber-500 text-xs"></i><span class="text-sm font-medium">スタンダードプランの全機能</span></div>
+                    <p class="text-center text-sm text-gray-500 mb-6"><i class="fa-solid fa-clock text-amber-500 mr-1"></i>1日あたり約<strong class="text-amber-600">993</strong>円 → 6ヶ月目以降は約<strong class="text-amber-600">827</strong>円</p>
+                    <div class="bg-teal-50 border border-teal-200 rounded-lg p-3 mb-6">
+                        <p class="text-sm text-teal-700 font-medium text-center"><i class="fa-solid fa-circle-check text-teal-600 mr-1"></i>スタンダードプランの全機能を含む</p>
                     </div>
                     <div class="bg-amber-50 rounded-xl p-4 mb-6">
                         <h4 class="font-bold text-sm text-amber-700 mb-3"><i class="fa-solid fa-star text-amber-500 mr-1"></i>集客支援パッケージ</h4>
@@ -216,11 +193,11 @@ details_animation: true
                         </div>
                         <div>
                             <p class="text-sm text-gray-500 mb-1">年間削減額</p>
-                            <p class="text-3xl font-bold text-green-600">¥<span id="yearlySaving">362,400</span></p>
+                            <p class="text-3xl font-bold text-green-600">¥<span id="yearlySaving">397,400</span></p>
                         </div>
                         <div>
                             <p class="text-sm text-gray-500 mb-1">削減率</p>
-                            <p class="text-2xl font-bold text-green-600"><span id="savingPercent">60</span>%</p>
+                            <p class="text-2xl font-bold text-green-600"><span id="savingPercent">66</span>%</p>
                         </div>
                     </div>
                 </div>
@@ -235,8 +212,71 @@ details_animation: true
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">他社サービスとの比較</h2>
                 <p class="text-gray-600">主要なHP制作・運用方法と比較しました。</p>
             </div>
-            <div class="overflow-x-auto fade-in">
-                <table class="w-full min-w-[900px] text-sm border-collapse">
+
+            <!-- Mobile: Card Layout -->
+            <div class="md:hidden space-y-4 fade-in">
+                <div class="bg-teal-50 border-2 border-teal-200 rounded-xl p-5">
+                    <h3 class="font-bold text-teal-700 text-center mb-4"><i class="fa-solid fa-crown text-amber-500 mr-1"></i>Breeder Flow</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between py-2 border-b border-teal-100"><span class="text-gray-600">初期費用</span><span class="font-bold text-teal-600">0円 <span class="text-xs text-red-500">キャンペーン中</span></span></div>
+                        <div class="flex justify-between py-2 border-b border-teal-100"><span class="text-gray-600">月額費用</span><span class="font-bold text-teal-600">19,800円〜</span></div>
+                        <div class="flex justify-between py-2 border-b border-teal-100"><span class="text-gray-600">更新方法</span><span class="font-bold text-teal-600"><i class="fa-brands fa-line text-green-500"></i> LINEで即時</span></div>
+                        <div class="flex justify-between py-2 border-b border-teal-100"><span class="text-gray-600">SEO対策</span><span class="font-bold text-teal-600">標準搭載</span></div>
+                        <div class="flex justify-between py-2 border-b border-teal-100"><span class="text-gray-600">ブリーダー特化</span><span class="font-bold text-teal-600">専門設計</span></div>
+                        <div class="flex justify-between py-2"><span class="text-gray-600">LINE更新</span><span class="font-bold text-teal-600">対応</span></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-gray-50 rounded-xl p-4">
+                        <h4 class="font-bold text-xs text-gray-500 mb-3 text-center">制作会社</h4>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <div class="flex justify-between"><span>初期</span><span>30〜100万</span></div>
+                            <div class="flex justify-between"><span>月額</span><span>3〜10万</span></div>
+                            <div class="flex justify-between"><span>更新</span><span>メール依頼</span></div>
+                            <div class="flex justify-between"><span>SEO</span><span>追加費用</span></div>
+                            <div class="flex justify-between"><span>特化</span><span>なし</span></div>
+                            <div class="flex justify-between"><span>LINE</span><span>なし</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4">
+                        <h4 class="font-bold text-xs text-gray-500 mb-3 text-center">専門業者</h4>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <div class="flex justify-between"><span>初期</span><span>5〜20万</span></div>
+                            <div class="flex justify-between"><span>月額</span><span>1〜6.5万</span></div>
+                            <div class="flex justify-between"><span>更新</span><span>管理画面</span></div>
+                            <div class="flex justify-between"><span>SEO</span><span>基本のみ</span></div>
+                            <div class="flex justify-between"><span>特化</span><span>あり</span></div>
+                            <div class="flex justify-between"><span>LINE</span><span>なし</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4">
+                        <h4 class="font-bold text-xs text-gray-500 mb-3 text-center">サブスク型HP</h4>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <div class="flex justify-between"><span>初期</span><span>0〜3.3万</span></div>
+                            <div class="flex justify-between"><span>月額</span><span>5千〜1.3万</span></div>
+                            <div class="flex justify-between"><span>更新</span><span>PC操作</span></div>
+                            <div class="flex justify-between"><span>SEO</span><span>基本のみ</span></div>
+                            <div class="flex justify-between"><span>特化</span><span>なし</span></div>
+                            <div class="flex justify-between"><span>LINE</span><span>なし</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4">
+                        <h4 class="font-bold text-xs text-gray-500 mb-3 text-center">WordPress自作</h4>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <div class="flex justify-between"><span>初期</span><span>0〜5万</span></div>
+                            <div class="flex justify-between"><span>月額</span><span>1〜3千</span></div>
+                            <div class="flex justify-between"><span>更新</span><span>自分でPC</span></div>
+                            <div class="flex justify-between"><span>SEO</span><span>自分で設定</span></div>
+                            <div class="flex justify-between"><span>特化</span><span>自分次第</span></div>
+                            <div class="flex justify-between"><span>LINE</span><span>なし</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop: Table Layout -->
+            <div class="hidden md:block overflow-x-auto fade-in">
+                <table class="w-full text-sm border-collapse">
                     <thead>
                         <tr>
                             <th class="p-4 text-left border-b-2 border-gray-200"></th>
@@ -245,7 +285,6 @@ details_animation: true
                             <th class="p-4 text-center border-b-2 border-gray-200 text-gray-500">サブスク型HP制作</th>
                             <th class="p-4 text-center border-b-2 bg-teal-600 text-white rounded-t-lg font-bold"><span class="text-lg">Breeder Flow</span></th>
                             <th class="p-4 text-center border-b-2 border-gray-200 text-gray-500">WordPress自作</th>
-                            <th class="p-4 text-center border-b-2 border-gray-200 text-gray-500">Wix等無料</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -256,7 +295,6 @@ details_animation: true
                             <td class="p-4 text-center text-gray-500">0〜33,000円</td>
                             <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">0円<br><span class="text-xs font-normal text-red-500"><i class="fa-solid fa-fire mr-0.5"></i>キャンペーン中</span></td>
                             <td class="p-4 text-center text-gray-500">0〜5万円</td>
-                            <td class="p-4 text-center text-gray-500">0円</td>
                         </tr>
                         <tr class="border-b border-gray-100">
                             <td class="p-4 font-medium">月額費用</td>
@@ -265,52 +303,22 @@ details_animation: true
                             <td class="p-4 text-center text-gray-500">5,000〜13,000円</td>
                             <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">19,800円<br><span class="text-xs text-amber-600">6ヶ月目〜14,800円</span></td>
                             <td class="p-4 text-center text-gray-500">1,000〜3,000円</td>
-                            <td class="p-4 text-center text-gray-500">0〜2,000円</td>
                         </tr>
                         <tr class="border-b border-gray-100">
                             <td class="p-4 font-medium">更新方法</td>
                             <td class="p-4 text-center text-gray-500">メール依頼<br>(数日)</td>
                             <td class="p-4 text-center text-gray-500">管理画面<br>(PC必要)</td>
-                            <td class="p-4 text-center text-gray-500">CMS操作<br>/ メール依頼<br><span class="text-xs text-red-400">（PC操作が必要）</span></td>
+                            <td class="p-4 text-center text-gray-500">CMS操作 / メール依頼<br><span class="text-xs text-red-400">（PC操作が必要）</span></td>
                             <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base"><i class="fa-brands fa-line text-green-500 text-lg"></i> LINEで即時<br><span class="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full mt-1">スマホだけでOK</span></td>
                             <td class="p-4 text-center text-gray-500">自分でPC操作</td>
-                            <td class="p-4 text-center text-gray-500">自分でPC操作</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="p-4 font-medium">デザイン品質</td>
-                            <td class="p-4 text-center text-gray-500">高い</td>
-                            <td class="p-4 text-center text-gray-500">中〜高</td>
-                            <td class="p-4 text-center text-gray-500">テンプレート<br>/ 一部オリジナル</td>
-                            <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">プロ品質3テーマ</td>
-                            <td class="p-4 text-center text-gray-500">スキル次第</td>
-                            <td class="p-4 text-center text-gray-500">テンプレ依存</td>
                         </tr>
                         <tr class="border-b border-gray-100">
                             <td class="p-4 font-medium">SEO対策</td>
                             <td class="p-4 text-center text-gray-500">追加費用</td>
                             <td class="p-4 text-center text-gray-500">基本のみ</td>
                             <td class="p-4 text-center text-gray-500">基本のみ</td>
-                            <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">標準搭載<br><span class="text-xs text-teal-600">JSON-LD 5種・サイトマップ等</span></td>
+                            <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">標準搭載<br><span class="text-xs text-teal-600">検索上位に強い設計</span></td>
                             <td class="p-4 text-center text-gray-500">自分で設定</td>
-                            <td class="p-4 text-center text-gray-500">限定的</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="p-4 font-medium">作成ページ数</td>
-                            <td class="p-4 text-center text-gray-500">5〜10ページ</td>
-                            <td class="p-4 text-center text-gray-500">5〜10ページ</td>
-                            <td class="p-4 text-center text-gray-500">5〜10ページ</td>
-                            <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">16ページ+<br><span class="text-xs text-teal-600">詳細ページ無制限</span></td>
-                            <td class="p-4 text-center text-gray-500">制限なし<br><span class="text-xs text-gray-400">（自力で作成）</span></td>
-                            <td class="p-4 text-center text-gray-500">5〜10ページ</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="p-4 font-medium">セキュリティ</td>
-                            <td class="p-4 text-center text-gray-500">業者次第</td>
-                            <td class="p-4 text-center text-gray-500">業者次第</td>
-                            <td class="p-4 text-center text-gray-500">SSL対応</td>
-                            <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">AES-256暗号化</td>
-                            <td class="p-4 text-center text-gray-500">自己責任</td>
-                            <td class="p-4 text-center text-gray-500">プラン次第</td>
                         </tr>
                         <tr class="border-b border-gray-100">
                             <td class="p-4 font-medium">ブリーダー特化</td>
@@ -319,25 +327,14 @@ details_animation: true
                             <td class="p-4 text-center text-gray-500">なし</td>
                             <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">専門設計<br><span class="text-xs text-teal-600">16ページ+法的書類も自動生成</span></td>
                             <td class="p-4 text-center text-gray-500">自分次第</td>
-                            <td class="p-4 text-center text-gray-500">なし</td>
                         </tr>
-                        <tr class="border-b border-gray-100">
+                        <tr>
                             <td class="p-4 font-medium">LINE更新対応</td>
                             <td class="p-4 text-center text-gray-500">なし</td>
                             <td class="p-4 text-center text-gray-500">なし</td>
                             <td class="p-4 text-center text-gray-500">なし</td>
                             <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base"><i class="fa-brands fa-line text-green-500"></i> LINEで即時</td>
                             <td class="p-4 text-center text-gray-500">なし</td>
-                            <td class="p-4 text-center text-gray-500">なし</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-medium">法令準拠ページ</td>
-                            <td class="p-4 text-center text-gray-500">有料</td>
-                            <td class="p-4 text-center text-gray-500">業者次第</td>
-                            <td class="p-4 text-center text-gray-500">なし</td>
-                            <td class="p-4 text-center font-bold text-teal-600 bg-teal-50 text-base">自動生成</td>
-                            <td class="p-4 text-center text-gray-500">自分で作成</td>
-                            <td class="p-4 text-center text-gray-500">自分で作成</td>
                         </tr>
                     </tbody>
                 </table>
@@ -384,6 +381,13 @@ details_animation: true
                     <h3 class="font-bold mb-2">独自ドメイン移管サポート</h3>
                     <p class="text-xs text-gray-500 mb-3">既存ドメインからの<br>移管設定を代行</p>
                     <p class="font-bold text-teal-600 text-sm">お問い合わせください</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-id-card text-purple-600 text-xl"></i></div>
+                    <h3 class="font-bold mb-2">名刺・ショップカード制作</h3>
+                    <p class="text-xs text-gray-500 mb-3">QRコード付き犬舎名刺<br>ロゴ・HP連動デザイン・100枚〜</p>
+                    <p class="font-bold text-teal-600">¥9,800〜<span class="text-xs font-normal text-gray-500">（税抜）</span></p>
+                    <p class="text-xs text-gray-400 mt-1">※ 一般的な名刺制作: 1〜3万円</p>
                 </div>
             </div>
             <div class="mt-6 text-center">
@@ -477,22 +481,31 @@ details_animation: true
     <!-- 7. CTA -->
     <section class="py-20 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+            <p class="inline-block bg-red-500 text-white text-sm font-bold px-4 py-1.5 rounded-full mb-6"><i class="fa-solid fa-gift mr-1"></i>初期費用0円キャンペーン実施中</p>
             <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">まずは無料でご相談ください</h2>
             <p class="text-slate-300 mb-8">しつこい営業は一切いたしません。お気軽にどうぞ。</p>
-            <a href="/contact/" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">無料で相談する</a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact/" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition">フォームで相談する</a>
+                <a href="https://lin.ee/yourline" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold rounded-lg px-10 py-4 text-lg shadow-lg transition"><i class="fa-brands fa-line text-xl"></i>LINEで相談する</a>
+            </div>
+            <p class="text-slate-500 text-sm mt-6">最低利用6ヶ月・解約金なし</p>
         </div>
     </section>
 
     <script>
-    // Cost Simulator
+    // Cost Simulator (6ヶ月目以降の割引を反映: 19,800×5 + 14,800×7 = 202,600円/年)
     const slider = document.getElementById('currentCost');
     const fmt = n => n.toLocaleString();
-    slider.addEventListener('input', () => {
+    const BF_YEARLY = 19800 * 5 + 14800 * 7; // 202,600円
+    function updateSim() {
         const v = parseInt(slider.value);
         document.getElementById('currentCostDisplay').textContent = fmt(v);
-        const saving = v - 19800;
-        document.getElementById('monthlySaving').textContent = fmt(Math.max(saving, 0));
-        document.getElementById('yearlySaving').textContent = fmt(Math.max(saving * 12, 0));
-        document.getElementById('savingPercent').textContent = v > 0 ? Math.round((saving / v) * 100) : 0;
-    });
+        const monthlySaving = v - 19800;
+        const yearlySaving = (v * 12) - BF_YEARLY;
+        document.getElementById('monthlySaving').textContent = fmt(Math.max(monthlySaving, 0));
+        document.getElementById('yearlySaving').textContent = fmt(Math.max(yearlySaving, 0));
+        const pct = v > 0 ? Math.round((yearlySaving / (v * 12)) * 100) : 0;
+        document.getElementById('savingPercent').textContent = Math.max(pct, 0);
+    }
+    slider.addEventListener('input', updateSim);
     </script>
