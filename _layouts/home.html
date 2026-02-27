@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}/image/Breeders Flow_logo.png">
+    <meta property="og:site_name" content="Breeders Flow">
+    <meta property="og:locale" content="ja_JP">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:image" content="{{ site.url }}/image/Breeders Flow_logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/image/apple-touch-icon.png">
@@ -24,6 +38,94 @@
         .campaign-glow { animation: campaign-pulse 2s ease-in-out infinite; }
     </style>
     {% include google-analytics.html %}
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Breeders Flow",
+        "url": "https://breeders-flow.com",
+        "logo": "https://breeders-flow.com/image/Breeders Flow_logo.png",
+        "description": "ブリーダー専用HP制作・更新システムサービス。LINEでかんたん更新、SEO対策標準搭載。",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": "Japanese"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Breeders Flow",
+        "url": "https://breeders-flow.com"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "パソコンが苦手ですが、本当に更新できますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "はい、大丈夫です。普段お使いのLINEアプリで、友だちにメッセージを送る感覚で子犬・子猫の情報を入力するだけでホームページが更新されます。複雑な管理画面へのログインは不要です。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "すでに他のホームページを持っていますが、乗り換えは可能ですか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "可能です。ドメインの移管手続きもサポートいたします。現在のホームページの課題を分析し、より集客効果の高いサイトへリニューアルをご提案します。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "最低契約期間はありますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "はい、最低契約期間は6ヶ月とさせていただいております。SEOの効果が出るまで一定期間が必要なためです。7ヶ月目以降は1ヶ月ごとの自動更新となり、解約金は発生しません。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "独自ドメインの取得費用はかかりますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "いいえ、ドメインの取得・管理費用も月額料金に含まれています。面倒な更新手続きも弊社が代行しますのでご安心ください。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "解約したらサイトはどうなりますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "解約後はサイトの公開が停止されます。独自ドメインをお持ちの場合は、ご希望に応じて移管手続きをサポートいたします。解約金は発生しません。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "支払い方法は何がありますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "クレジットカード（Visa, Mastercard, JCB, American Express）でのお支払いに対応しています。毎月自動決済のため、振込の手間はありません。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "申し込みからどのくらいで公開できますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "テンプレート選択後、最短即日で公開可能です。犬舎の情報や写真をご用意いただければ、スムーズに制作を進められます。"
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
