@@ -21,6 +21,22 @@
     });
 })();
 
+// Mobile Services Sub-menu Toggle
+(function() {
+    var servicesBtn = document.getElementById('mobile-services-toggle');
+    var servicesPanel = document.getElementById('mobile-services-panel');
+    if (servicesBtn && servicesPanel) {
+        servicesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            servicesPanel.classList.toggle('hidden');
+            var chevron = servicesBtn.querySelector('.fa-chevron-down');
+            if (chevron) {
+                chevron.style.transform = servicesPanel.classList.contains('hidden') ? '' : 'rotate(180deg)';
+            }
+        });
+    }
+})();
+
 // Fade-in animation via Intersection Observer
 (function() {
     var fadeEls = document.querySelectorAll('.fade-in');
