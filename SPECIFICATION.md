@@ -1519,6 +1519,16 @@ Cloudflare Registrar でドメインを取得・管理すると DNS 設定も自
 - [x] Admin 認証アカウントロック（IP単位: 10回失敗/30分でブロック）
 - [x] CORS に `admin.breeders-flow.com` 追加
 
+### Phase 8: オンボーディング LIFF（新規ブリーダー自動登録） ✅ 完了
+- [x] `packages/onboarding-liff/` パッケージ新規作成
+- [x] LIFF ID: `2009070163-9kwipCqY`
+- [x] Endpoint URL: `https://breeder-flow-onboarding.pages.dev/`
+- [x] リッチメニュー設定 URL: `https://liff.line.me/2009070163-9kwipCqY`
+- [x] `POST /api/onboarding` エンドポイント（犬舎名・代表者名・登録番号を受け取りデモHP生成）
+- [x] デモHP生成後、管理者の個人 LINE（`ADMIN_LINE_USER_ID`）に犬舎情報 + デモURL を Push 通知
+- [x] ブリーダーには受付完了メッセージを Push 送信
+- [x] CORS 許可オリジンに `https://breeder-flow-onboarding.pages.dev` を追加
+
 ---
 
 ## 10. セキュリティ
