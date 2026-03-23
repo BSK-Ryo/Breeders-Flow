@@ -1,0 +1,16 @@
+{
+  "name": "breeders-flow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "css:build": "npx tailwindcss -i assets/css/input.css -o assets/css/style.css --minify",
+    "css:watch": "npx tailwindcss -i assets/css/input.css -o assets/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
