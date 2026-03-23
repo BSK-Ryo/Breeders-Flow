@@ -597,6 +597,214 @@ fade_in: true
         </div>
     </section>
 
+    <!-- How It Works - かんたん4ステップ -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block bg-teal-100 text-teal-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">STEP</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">かんたん4ステップ</h2>
+                <p class="text-slate-600">スマホひとつで、あなたのHPが完成・更新されます。</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 fade-in">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fa-solid fa-camera text-teal-600 text-2xl"></i>
+                    </div>
+                    <div class="text-xs text-teal-600 font-bold mb-1">STEP 1</div>
+                    <p class="text-sm font-bold text-slate-800">写真を撮る</p>
+                    <p class="text-xs text-slate-500 mt-1 hidden md:block">子犬・子猫の写真を<br>スマホで撮影</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fa-brands fa-line text-[#06C755] text-2xl"></i>
+                    </div>
+                    <div class="text-xs text-teal-600 font-bold mb-1">STEP 2</div>
+                    <p class="text-sm font-bold text-slate-800">LINEに入力</p>
+                    <p class="text-xs text-slate-500 mt-1 hidden md:block">写真と情報を<br>LINEに入力するだけ</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fa-solid fa-globe text-blue-600 text-2xl"></i>
+                    </div>
+                    <div class="text-xs text-teal-600 font-bold mb-1">STEP 3</div>
+                    <p class="text-sm font-bold text-slate-800">HPが自動更新</p>
+                    <p class="text-xs text-slate-500 mt-1 hidden md:block">プロ品質のHPに<br>即座に反映</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fa-solid fa-envelope-open-text text-amber-600 text-2xl"></i>
+                    </div>
+                    <div class="text-xs text-teal-600 font-bold mb-1">STEP 4</div>
+                    <p class="text-sm font-bold text-slate-800">お問い合わせが届く</p>
+                    <p class="text-xs text-slate-500 mt-1 hidden md:block">指名検索で見つけた<br>お客様から直接連絡</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Onboarding Flow Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-8">
+                <span class="text-teal-500 font-bold tracking-wider uppercase text-sm mb-2 block">FLOW</span>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">ご利用開始までの流れ</h2>
+                <p class="text-slate-600">最短即日でHPを公開できます。お好みの方法をお選びください。</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center gap-3 mb-10">
+                <button id="tab-self" onclick="switchFlowTab('self')" class="flow-tab px-5 py-2.5 rounded-full font-bold text-sm transition border-2 border-teal-500 bg-teal-500 text-white shadow-md">
+                    <i class="fa-solid fa-bolt mr-1.5"></i>かんたん導入
+                </button>
+                <button id="tab-support" onclick="switchFlowTab('support')" class="flow-tab px-5 py-2.5 rounded-full font-bold text-sm transition border-2 border-teal-500 bg-white text-teal-600 hover:bg-teal-50">
+                    <i class="fa-solid fa-handshake-angle mr-1.5"></i>おまかせ導入
+                </button>
+            </div>
+
+            <!-- Pattern A: Self-service -->
+            <div id="flow-self" class="max-w-3xl mx-auto">
+                <div class="mb-6 text-center">
+                    <span class="inline-block bg-teal-50 text-teal-700 text-xs font-bold px-3 py-1 rounded-full">LINEからフォーム入力するだけ！約3分で完了</span>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">1</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">LINE友だち追加</h3>
+                        <p class="text-sm text-slate-600">LINE公式アカウントを友だち追加し、メニューから「オンボーディング」をタップします。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">2</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">フォーム入力（約3分）</h3>
+                        <p class="text-sm text-slate-600">犬舎名・動物取扱業登録番号・テーマ選択・写真アップロードなど、簡単なフォームに沿って入力します。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">3</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">デモサイト自動生成</h3>
+                        <p class="text-sm text-slate-600">入力内容をもとに、16ページ以上のデモサイトが即座に自動生成されます。実際の仕上がりをすぐにご確認いただけます。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">4</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">内容確認・ご契約</h3>
+                        <p class="text-sm text-slate-600">デモサイトをご確認いただき、ご納得いただけたらご契約。ドメイン取得・SSL証明書の発行まですべて弊社が対応します。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white shrink-0">
+                            <i class="fa-solid fa-check text-lg"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">運用開始</h3>
+                        <p class="text-sm text-slate-600">Web管理画面とLINEの両方から、24時間いつでもHPを更新できます。子犬・子猫の新着情報やお知らせも、スマホひとつで即反映されます。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pattern B: Supported onboarding -->
+            <div id="flow-support" class="max-w-3xl mx-auto hidden">
+                <div class="mb-6 text-center">
+                    <span class="inline-block bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full">スタッフが丁寧にサポート！すべておまかせOK</span>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">1</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">お問い合わせ・無料相談</h3>
+                        <p class="text-sm text-slate-600">LINEまたはお問い合わせフォームからお気軽にご連絡ください。サービス内容や料金について丁寧にご説明します。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">2</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">ヒアリング・素材共有</h3>
+                        <p class="text-sm text-slate-600">犬舎名・テーマの選択・写真やこだわりポイントなどをお伺いします。LINEでのやり取りもOKです。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">3</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">デモサイト作成・ご確認</h3>
+                        <p class="text-sm text-slate-600">いただいた情報をもとに、16ページ以上のデモサイトを作成。実際の仕上がりをご確認いただき、修正があれば対応します。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6 mb-0">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">4</div>
+                        <div class="w-0.5 bg-teal-200 flex-1 my-2"></div>
+                    </div>
+                    <div class="pb-8">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">ご契約・公開</h3>
+                        <p class="text-sm text-slate-600">内容にご納得いただけましたらご契約。ドメイン取得・サーバー設定・SSL証明書の発行まですべて弊社が対応し、HPを公開します。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white shrink-0">
+                            <i class="fa-solid fa-check text-lg"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">運用開始</h3>
+                        <p class="text-sm text-slate-600">Web管理画面とLINEの両方から、24時間いつでもHPを更新できます。子犬・子猫の新着情報やお知らせも、スマホひとつで即反映されます。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://lin.ee/zsve441" class="inline-block bg-green-500 hover:bg-green-600 text-white rounded-full px-8 py-3 font-bold transition shadow-lg hover:shadow-xl">
+                    <i class="fa-brands fa-line mr-2"></i>まずは無料相談する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    function switchFlowTab(tab) {
+        var selfEl = document.getElementById('flow-self');
+        var supportEl = document.getElementById('flow-support');
+        var tabSelf = document.getElementById('tab-self');
+        var tabSupport = document.getElementById('tab-support');
+        if (tab === 'self') {
+            selfEl.classList.remove('hidden');
+            supportEl.classList.add('hidden');
+            tabSelf.className = 'flow-tab px-5 py-2.5 rounded-full font-bold text-sm transition border-2 border-teal-500 bg-teal-500 text-white shadow-md';
+            tabSupport.className = 'flow-tab px-5 py-2.5 rounded-full font-bold text-sm transition border-2 border-teal-500 bg-white text-teal-600 hover:bg-teal-50';
+        } else {
+            selfEl.classList.add('hidden');
+            supportEl.classList.remove('hidden');
+            tabSupport.className = 'flow-tab px-5 py-2.5 rounded-full font-bold text-sm transition border-2 border-teal-500 bg-teal-500 text-white shadow-md';
+            tabSelf.className = 'flow-tab px-5 py-2.5 rounded-full font-bold text-sm transition border-2 border-teal-500 bg-white text-teal-600 hover:bg-teal-50';
+        }
+    }
+    </script>
+
     <!-- CTA -->
     <section class="py-20 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 text-center fade-in">
