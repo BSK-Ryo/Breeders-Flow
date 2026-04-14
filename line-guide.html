@@ -1,0 +1,523 @@
+---
+layout: default
+title: "ブリーダーのためのLINE活用ガイド | Breeder LINE Manager"
+description: "ブリーダーが公式LINEを運用するべき理由と活用術。メッセージ開封率・自動返信・タグ分けなど、お客様と長く続くご縁を作るLINEの使い方をやさしく解説。"
+nav_active: line-manager
+---
+
+<!-- 丸ゴシックフォントとTailwind CDN（このページのクリーム系テーマ専用） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    base: '#FFFBF0',
+                    surface: '#FFFFFF',
+                    textMain: '#5C4E43',
+                    textLight: '#8A7D71',
+                    accent: '#06C755',
+                    accentLight: '#EAF8ED',
+                    borderLight: '#F3EAE0',
+                    warmOrange: '#FFF3E0',
+                    warmOrangeText: '#E65100'
+                },
+                fontFamily: {
+                    maru: ['"Zen Maru Gothic"', 'sans-serif']
+                },
+                boxShadow: {
+                    'soft': '0 10px 30px -5px rgba(92, 78, 67, 0.08), 0 8px 15px -6px rgba(92, 78, 67, 0.04)',
+                    'soft-hover': '0 20px 40px -5px rgba(92, 78, 67, 0.12), 0 10px 20px -6px rgba(92, 78, 67, 0.06)'
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    /* このページだけクリーム背景・丸ゴシックに切り替え */
+    .line-guide {
+        background-color: #FFFBF0;
+        color: #5C4E43;
+        font-family: '"Zen Maru Gothic"', sans-serif;
+        letter-spacing: 0.03em;
+        line-height: 1.8;
+    }
+    .line-guide * { font-family: inherit; }
+
+    /* セクション内ナビ（ページ内アンカー） */
+    .line-guide .section-nav a {
+        transition: color 0.2s;
+    }
+    .line-guide .section-nav a:hover { color: #06C755; }
+
+    /* Chart container */
+    .line-guide .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 40vh;
+        max-height: 300px;
+    }
+    @media (min-width: 768px) {
+        .line-guide .chart-container { height: 350px; max-height: 350px; }
+    }
+
+    /* Reason card */
+    .line-guide .reason-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+    .line-guide .reason-card:hover,
+    .line-guide .reason-card.active {
+        border-color: #06C755;
+        background-color: #EAF8ED;
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -5px rgba(92, 78, 67, 0.12), 0 10px 20px -6px rgba(92, 78, 67, 0.06);
+    }
+
+    /* Step number */
+    .line-guide .step-item {
+        position: relative;
+        padding-left: 3rem;
+    }
+    .line-guide .step-item::before {
+        content: counter(step-counter);
+        counter-increment: step-counter;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        background-color: #06C755;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+    }
+    .line-guide .step-list { counter-reset: step-counter; }
+</style>
+
+<div class="line-guide">
+
+    <!-- Sub-Nav（ページ内セクションへのジャンプ） -->
+    <nav class="section-nav bg-surface/80 backdrop-blur-sm border-b border-borderLight sticky top-20 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <span class="text-xl text-accent">🐾</span>
+                <span class="font-bold text-textMain text-sm md:text-base">ブリーダーのためのLINE活用ガイド</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-textLight">
+                <a href="#data-impact">どれくらい効果があるの？</a>
+                <a href="#benefits">6つのメリット</a>
+                <a href="#steps">はじめかた</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-12 space-y-24">
+
+        <!-- Intro -->
+        <section class="text-center space-y-6 max-w-3xl mx-auto mt-6">
+            <div class="inline-block bg-warmOrange text-warmOrangeText font-bold px-5 py-2 rounded-full text-sm mb-2 shadow-sm">
+                スマホやパソコンが苦手でも大丈夫！
+            </div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-textMain leading-tight">
+                お客様と「ずっと続くご縁」を作る<br class="hidden md:block">LINEの使いかた 🐾
+            </h1>
+            <p class="text-lg text-textLight leading-relaxed mt-6 bg-surface p-6 rounded-3xl shadow-soft">
+                ブリーダーのお仕事で一番大切なのは、お客様との<strong>「信頼関係」</strong>ですよね。命をバトンタッチするからこそ、お客様は「どんな環境で育ったのかな」「どんなブリーダーさんなのかな」と気にしています。<br><br>
+                実は、いつも使っている「LINE」をお仕事用に少し工夫するだけで、お客様とのやり取りがぐっと楽になり、安心してもらえるようになります。
+            </p>
+        </section>
+
+        <!-- Data Impact -->
+        <section id="data-impact" class="bg-surface rounded-[2rem] p-8 md:p-12 shadow-soft border border-surface scroll-mt-36">
+            <div class="mb-10 text-center">
+                <h2 class="text-2xl font-bold border-b-4 border-accent/30 inline-block pb-2 mb-6">どれくらい効果があるの？</h2>
+                <p class="text-textLight max-w-2xl mx-auto">
+                    「わざわざLINEを入れる必要があるの？」と思うかもしれません。でも、メールやお電話と比べると、こんなに嬉しい違いがあります。日々の忙しいお世話の時間をジャマせずに、お客様としっかり繋がることができます。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex flex-col bg-base/50 p-6 rounded-3xl">
+                    <div class="text-center mb-6">
+                        <h3 class="font-bold text-lg text-textMain">メッセージを見てもらえる確率</h3>
+                        <p class="text-sm text-textLight">メールと比べて、こんなに違います</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="openRateChart"></canvas>
+                    </div>
+                    <p class="text-sm text-textLight mt-6 text-center">
+                        LINEならスマホに直接通知が届くので、お送りした子犬・子猫の写真や「見学のご案内」を見落とされることが少なくなります。
+                    </p>
+                </div>
+
+                <div class="flex flex-col bg-base/50 p-6 rounded-3xl">
+                    <div class="text-center mb-6">
+                        <h3 class="font-bold text-lg text-textMain">お問い合わせの返信にかかる手間</h3>
+                        <p class="text-sm text-textLight">LINEの「自動返信」を使うと、こんなにラクに！</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="taskTimeChart"></canvas>
+                    </div>
+                    <p class="text-sm text-textLight mt-6 text-center">
+                        「見学の予約方法は？」「駐車場はありますか？」といったよくある質問は、LINEが自動で答えてくれるように設定できます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 Benefits -->
+        <section id="benefits" class="space-y-10 scroll-mt-36">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold border-b-4 border-accent/30 inline-block pb-2 mb-6">LINEを使うと嬉しい6つの理由</h2>
+                <p class="text-textLight">
+                    以下のカードをクリックしてみてください。LINEがどのようにお客様との関係を深め、素敵なお迎えに繋がるのかをご紹介します。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                    <button class="reason-card active text-left bg-surface p-5 rounded-3xl shadow-soft flex items-center gap-4" data-index="0">
+                        <div class="text-3xl bg-base p-2 rounded-2xl">📨</div>
+                        <div class="font-bold text-md leading-tight text-textMain">1. 送ったメッセージに<br>気づいてもらいやすい</div>
+                    </button>
+                    <button class="reason-card text-left bg-surface p-5 rounded-3xl shadow-soft flex items-center gap-4" data-index="1">
+                        <div class="text-3xl bg-base p-2 rounded-2xl">📸</div>
+                        <div class="font-bold text-md leading-tight text-textMain">2. 写真や動画で<br>可愛さがすぐに伝わる</div>
+                    </button>
+                    <button class="reason-card text-left bg-surface p-5 rounded-3xl shadow-soft flex items-center gap-4" data-index="2">
+                        <div class="text-3xl bg-base p-2 rounded-2xl">🏷️</div>
+                        <div class="font-bold text-md leading-tight text-textMain">3. 情報を欲しい人にだけ<br>分けて送れる</div>
+                    </button>
+                    <button class="reason-card text-left bg-surface p-5 rounded-3xl shadow-soft flex items-center gap-4" data-index="3">
+                        <div class="text-3xl bg-base p-2 rounded-2xl">🤝</div>
+                        <div class="font-bold text-md leading-tight text-textMain">4. お迎え後のフォローが<br>簡単！口コミにも繋がる</div>
+                    </button>
+                    <button class="reason-card text-left bg-surface p-5 rounded-3xl shadow-soft flex items-center gap-4" data-index="4">
+                        <div class="text-3xl bg-base p-2 rounded-2xl">🤖</div>
+                        <div class="font-bold text-md leading-tight text-textMain">5. よくある質問は<br>LINEが自動でお返事</div>
+                    </button>
+                    <button class="reason-card text-left bg-surface p-5 rounded-3xl shadow-soft flex items-center gap-4" data-index="5">
+                        <div class="text-3xl bg-base p-2 rounded-2xl">🔒</div>
+                        <div class="font-bold text-md leading-tight text-textMain">6. 冷やかしが減り、<br>本気のお客様と出会える</div>
+                    </button>
+                </div>
+
+                <div class="lg:col-span-7 bg-surface p-8 md:p-10 rounded-[2rem] shadow-soft flex flex-col justify-center min-h-[350px] relative overflow-hidden" id="reason-display-panel">
+                    <div class="absolute -top-10 -right-10 text-9xl opacity-5">🐾</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps -->
+        <section id="steps" class="bg-surface rounded-[2rem] p-8 md:p-12 shadow-soft relative overflow-hidden scroll-mt-36">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-accentLight rounded-full blur-3xl -mr-32 -mt-32 opacity-60"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-warmOrange rounded-full blur-3xl -ml-24 -mb-24 opacity-60"></div>
+
+            <div class="mb-10 text-center relative z-10">
+                <h2 class="text-2xl font-bold border-b-4 border-accent/30 inline-block pb-2 mb-6">かんたん！おすすめの始めかた4ステップ</h2>
+                <p class="text-textLight max-w-2xl mx-auto">
+                    「パソコンやスマホは苦手…」という方でも大丈夫です。少しずつ設定していきましょう。
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto relative z-10">
+                <ul class="step-list space-y-6">
+                    <li class="step-item bg-base/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow">
+                        <h3 class="font-bold text-lg mb-2 text-textMain">LINE公式アカウントを作る</h3>
+                        <p class="text-textLight">まずは無料のアカウントを作りましょう。普段使っているLINEとは別に「お店専用のLINE」ができます。可愛いプロフィール画像と、最初のご挨拶文を設定します。</p>
+                    </li>
+                    <li class="step-item bg-base/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow">
+                        <h3 class="font-bold text-lg mb-2 text-textMain">画面の下に「メニューボタン」を作る</h3>
+                        <p class="text-textLight">トーク画面の下に「現在募集中の子」「見学予約」「よくある質問」といったボタン（リッチメニューと呼びます）を置きます。お客様がタップするだけで情報を見られるようになります。</p>
+                    </li>
+                    <li class="step-item bg-base/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow">
+                        <h3 class="font-bold text-lg mb-2 text-textMain">みんなにLINEの登録を呼びかける</h3>
+                        <p class="text-textLight">ホームページやInstagram、ブリーダー紹介サイトのプロフィール欄に「お問い合わせはLINEからどうぞ！」と書いて、登録URLを貼り付けましょう。</p>
+                    </li>
+                    <li class="step-item bg-base/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow">
+                        <h3 class="font-bold text-lg mb-2 text-textMain">配信をスタート！</h3>
+                        <p class="text-textLight">準備ができたら、出産情報や可愛い成長記録を配信してみましょう。最初は週1回や月数回など、無理のないペースで大丈夫です。</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-16 text-center bg-accentLight/50 p-8 rounded-[2rem] border border-accent/10 relative z-10">
+                <div class="text-4xl mb-4">✨</div>
+                <h3 class="font-bold text-2xl mb-4 text-textMain">まとめ</h3>
+                <p class="text-textMain text-lg leading-relaxed">
+                    ブリーダーさんにとってのLINEは、単なる「お知らせツール」ではありません。<br>
+                    <strong class="text-accent text-xl bg-surface px-4 py-2 rounded-full inline-block mt-3 mb-3 shadow-sm">「お客様と、ずっと続く良い関係を作るための窓口」</strong>です。<br>
+                    まずは無料で作れるアカウントから、ぜひ試してみてくださいね。
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA（Breeder LINE Managerへ誘導） -->
+        <section class="text-center space-y-6 py-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-textMain">もっとラクに運用したい方へ</h2>
+            <p class="text-textLight max-w-2xl mx-auto">
+                タグ分け・自動返信・ステップ配信を、ブリーダー専用UIで使えるLINE運用SaaS「Breeder LINE Manager」もあわせてご覧ください。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/line-manager/" class="inline-block px-8 py-3 bg-accent hover:bg-accent/90 text-white font-bold rounded-full shadow-soft transition-all">
+                    Breeder LINE Managerを見る
+                </a>
+                <a href="/contact/" class="inline-block px-8 py-3 bg-surface hover:bg-base text-textMain font-bold rounded-full shadow-soft transition-all border border-borderLight">
+                    お問い合わせ
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Interactive 6 Reasons Panel ---
+        const reasonsData = [
+            {
+                icon: '📨',
+                title: '送ったメッセージに気づいてもらいやすい',
+                content: `
+                    <p class="text-lg text-textMain mb-5 font-medium">メールを送っても、気づかれずにそのままになってしまうことってありませんか？</p>
+                    <p class="text-textLight leading-relaxed">LINEは毎日みんなが使うアプリなので、メッセージを送ると<strong>約60％以上</strong>の人が見てくれると言われています。メールよりずっと高い確率です。</p>
+                    <p class="text-textLight mt-5 leading-relaxed">また、メールや電話よりも「話しかけやすい」ので、<br>
+                    <span class="bg-base px-3 py-1.5 rounded-lg inline-block my-2 text-sm text-textMain font-medium">「見学に行きたいのですが…」</span><br>
+                    <span class="bg-base px-3 py-1.5 rounded-lg inline-block mb-2 text-sm text-textMain font-medium">「この子はまだいますか？」</span><br>
+                    といったお気軽な問い合わせが増え、ご縁に繋がりやすくなります。</p>
+                `
+            },
+            {
+                icon: '📸',
+                title: '写真や動画で「可愛さ」と「安心感」をダイレクトに伝えられる',
+                content: `
+                    <p class="text-lg text-textMain mb-5 font-medium">ペットの本当の魅力は、文字だけでは伝わりませんよね。</p>
+                    <p class="text-textLight mb-5 leading-relaxed">LINEなら、可愛い写真や動画を直接お客様のスマホに届けることができます。</p>
+                    <ul class="list-disc pl-6 text-textLight space-y-2 mb-6">
+                        <li><strong>赤ちゃんが生まれた時の速報</strong></li>
+                        <li><strong>よちよち歩きを始めた様子の動画</strong></li>
+                        <li><strong>犬舎（猫舎）のキレイな様子</strong></li>
+                    </ul>
+                    <div class="bg-base p-4 rounded-2xl">
+                        <p class="text-textMain font-medium">「こんなに愛情いっぱいに育てられているんだな」と伝わり、お客様に安心してお迎えを決めてもらいやすくなります。</p>
+                    </div>
+                `
+            },
+            {
+                icon: '🏷️',
+                title: '情報を欲しい人にだけ分けて送れる（グループ分け）',
+                content: `
+                    <p class="text-lg text-textMain mb-5 font-medium">「トイプードルを探している人」に「チワワが生まれました！」と送っても、あまり喜ばれませんよね。</p>
+                    <div class="bg-base p-5 rounded-2xl mb-5 text-textLight border border-borderLight/50">
+                        <strong>📝 お客様をメモしておく機能（タグ付け）の例：</strong><br>
+                        <div class="mt-2 pl-2">
+                            ・探している種類：「トイプードル希望」「チワワ希望」<br>
+                            ・今の状況：「これからお迎えしたい」「すでにお迎えした方」
+                        </div>
+                    </div>
+                    <p class="text-textLight leading-relaxed">このようにグループ分けしておけば、「トイプードルを希望している人にだけ送る」といったことができ、お客様に「私の欲しい情報をくれる！」と喜ばれます。</p>
+                `
+            },
+            {
+                icon: '🤝',
+                title: 'お迎え後のフォローが簡単！口コミにも繋がる',
+                content: `
+                    <p class="text-lg text-textMain mb-5 font-medium">ブリーダーさんとお客様の本当のお付き合いは、ペットをお迎えしてからが本番です。</p>
+                    <p class="text-textLight mb-6 leading-relaxed">初めて飼う方は「夜鳴きがひどい」「ご飯を食べない」など、ちょっとしたことで不安になります。<br>LINEなら、「こんな様子です」と動画を送ってもらい、その場ですぐにアドバイスしてあげられます。</p>
+                    <div class="bg-accentLight text-textMain p-5 rounded-2xl font-bold border border-accent/20">
+                        「お迎えした後も、こんなに親身になってくれるなんて！」という感動が、お友達への紹介や、数年後の「2頭目もあなたから」というご縁に繋がります。
+                    </div>
+                `
+            },
+            {
+                icon: '🤖',
+                title: 'よくある質問はLINEが自動でお返事（自動返信）',
+                content: `
+                    <p class="text-lg text-textMain mb-5 font-medium">毎日のお世話で忙しい中、同じような質問に毎回文字を打って返信するのは大変ですよね。</p>
+                    <div class="flex gap-2 flex-wrap mb-6">
+                        <span class="bg-base text-textMain font-medium text-xs px-3 py-1.5 rounded-full shadow-sm">見学の予約方法は？</span>
+                        <span class="bg-base text-textMain font-medium text-xs px-3 py-1.5 rounded-full shadow-sm">営業時間は？駐車場はありますか？</span>
+                        <span class="bg-base text-textMain font-medium text-xs px-3 py-1.5 rounded-full shadow-sm">現在募集中の子は？</span>
+                    </div>
+                    <p class="text-textLight leading-relaxed">LINEでは、あらかじめ答えをセットしておくと、お客様の質問に対して<strong>自動でパッとお返事してくれる機能</strong>があります。これを使うだけで、お電話やメール対応の手間がグッと減りますよ。</p>
+                `
+            },
+            {
+                icon: '🔒',
+                title: '冷やかしが減り、本気のお客様と出会える',
+                content: `
+                    <p class="text-lg text-textMain mb-5 font-medium">本当に大事に育ててくれるご家族に出会うための、特別なリストになります。</p>
+                    <p class="text-textLight mb-5 leading-relaxed">InstagramなどのSNSはたくさんの人に見てもらえますが、中には「ただ可愛いから見ているだけ（冷やかし）」の人もたくさんいます。</p>
+                    <div class="bg-base p-5 rounded-2xl">
+                        <p class="text-textLight leading-relaxed">SNSやホームページで<br>
+                        <span class="text-accent font-bold text-lg block my-2">「最新の出産情報や、未公開の写真はLINEでお届けします！」</span>
+                        と案内することで、わざわざLINEを登録してくれる<strong>「本当にあなたからお迎えしたい」本気のお客様</strong>だけを集めることができます。</p>
+                    </div>
+                `
+            }
+        ];
+
+        const buttons = document.querySelectorAll('.line-guide .reason-card');
+        const displayPanel = document.getElementById('reason-display-panel');
+        if (!displayPanel || buttons.length === 0) return;
+
+        function updatePanel(index) {
+            const data = reasonsData[index];
+            displayPanel.style.opacity = '0';
+            displayPanel.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                displayPanel.innerHTML = `
+                    <div class="absolute -top-10 -right-10 text-9xl opacity-5 pointer-events-none">🐾</div>
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-6">${data.icon}</div>
+                        <h3 class="text-2xl font-bold text-textMain mb-6 pb-4 border-b-2 border-borderLight/50">${data.title}</h3>
+                        <div class="prose prose-lg prose-p:text-textLight prose-strong:text-textMain max-w-none">
+                            ${data.content}
+                        </div>
+                    </div>
+                `;
+                displayPanel.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                displayPanel.style.opacity = '1';
+                displayPanel.style.transform = 'translateY(0)';
+            }, 200);
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-accent', 'bg-accentLight');
+                btn.classList.add('border-transparent');
+            });
+            buttons[index].classList.remove('border-transparent');
+            buttons[index].classList.add('active', 'border-accent', 'bg-accentLight');
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = parseInt(e.currentTarget.getAttribute('data-index'));
+                updatePanel(index);
+            });
+        });
+
+        updatePanel(0);
+
+
+        // --- Chart.js ---
+        if (typeof Chart === 'undefined') return;
+
+        Chart.defaults.font.family = '"Zen Maru Gothic", "Helvetica Neue", Arial, sans-serif';
+        Chart.defaults.color = '#8A7D71';
+
+        const ctxOpenRate = document.getElementById('openRateChart');
+        if (ctxOpenRate) {
+            new Chart(ctxOpenRate.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: ['メール', 'LINE'],
+                    datasets: [{
+                        label: '見てもらえる確率 (%)',
+                        data: [10, 65],
+                        backgroundColor: ['rgba(243, 234, 224, 0.8)', 'rgba(6, 199, 85, 0.8)'],
+                        borderColor: ['rgba(243, 234, 224, 1)', 'rgba(6, 199, 85, 1)'],
+                        borderWidth: 0,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(92, 78, 67, 0.9)',
+                            padding: 12,
+                            cornerRadius: 8,
+                            callbacks: { label: (c) => ' 約 ' + c.parsed.y + ' %' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: 'rgba(243, 234, 224, 0.5)' },
+                            ticks: { callback: (v) => v + '%' }
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        const ctxTaskTime = document.getElementById('taskTimeChart');
+        if (ctxTaskTime) {
+            new Chart(ctxTaskTime.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['自分で返信する時間', 'LINEが自動で答える時間'],
+                    datasets: [{
+                        data: [80, 20],
+                        backgroundColor: ['rgba(243, 234, 224, 0.8)', 'rgba(6, 199, 85, 0.8)'],
+                        borderWidth: 0,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { padding: 20, usePointStyle: true, pointStyle: 'circle' }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(92, 78, 67, 0.9)',
+                            padding: 12,
+                            cornerRadius: 8,
+                            callbacks: {
+                                label: (c) => c.dataIndex === 0 ? ' 手作業で返信していた時間' : ' LINEの自動返信でラクになる時間！'
+                            }
+                        }
+                    }
+                },
+                plugins: [{
+                    id: 'textCenter',
+                    beforeDraw: function(chart) {
+                        var width = chart.width, height = chart.height, ctx = chart.ctx;
+                        ctx.restore();
+                        var fontSize = (height / 114).toFixed(2);
+                        ctx.font = "bold " + fontSize + "em 'Zen Maru Gothic', sans-serif";
+                        ctx.textBaseline = "middle";
+                        ctx.fillStyle = "#5C4E43";
+                        var text = "手間が減る！",
+                            textX = Math.round((width - ctx.measureText(text).width) / 2),
+                            textY = height / 2 - 12;
+                        ctx.fillText(text, textX, textY);
+                        ctx.font = "normal " + (fontSize * 0.45).toFixed(2) + "em 'Zen Maru Gothic', sans-serif";
+                        ctx.fillStyle = "#8A7D71";
+                        var text2 = "自動化のイメージ",
+                            text2X = Math.round((width - ctx.measureText(text2).width) / 2),
+                            text2Y = height / 2 + 18;
+                        ctx.fillText(text2, text2X, text2Y);
+                        ctx.save();
+                    }
+                }]
+            });
+        }
+    });
+</script>
