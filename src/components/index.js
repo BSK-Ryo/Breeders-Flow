@@ -1,9 +1,0 @@
-export { Badge } from './ui/Badge.jsx';
-export { Button } from './ui/Button.jsx';
-export { Card } from './ui/Card.jsx';
-export { Container } from './layout/Container.jsx';
-export { Footer } from './layout/Footer.jsx';
-export { Header } from './layout/Header.jsx';
-export { PageHero } from './sections/PageHero.jsx';
-export { Section } from './layout/Section.jsx';
-export { SectionHeading } from './sections/SectionHeading.jsx';
